@@ -8,7 +8,7 @@ import {
   GoToHomePage,
 } from './styles';
 
-export const NotFoundView: React.FC = () => {
+export const LoginView: React.FC = () => {
   return (
     <Container className="min-h-screen flex flex-col items-center justify-center">
       <ErrorTitle>404</ErrorTitle>
@@ -16,7 +16,7 @@ export const NotFoundView: React.FC = () => {
       <NotFoundText>
         The page you are looking for could not be found.
       </NotFoundText>
-      <GoToHomePage to={PATH.DASHBOARD}>Go to HomePage!</GoToHomePage>
+      <GoToHomePage to={PATH.HOME}>Go to HomePage!</GoToHomePage>
     </Container>
   );
 };
