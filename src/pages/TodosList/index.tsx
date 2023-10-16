@@ -1,9 +1,6 @@
-import { TodosListView } from 'components';
+import { TodosListView } from 'views';
 import React from 'react';
-import { WithLayout } from 'components';
 
-const TodosList: React.FC = () => {
+export const TodosListPage: React.FC = () => {
   return <TodosListView />;
 };
-
-export const TodosListPage = WithLayout(TodosList);

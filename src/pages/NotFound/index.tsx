@@ -1,4 +1,4 @@
-import { NotFoundView } from 'components';
+import { NotFoundView } from 'views';
 import React from 'react';
 
 export const NotFoundPage: React.FC = () => {

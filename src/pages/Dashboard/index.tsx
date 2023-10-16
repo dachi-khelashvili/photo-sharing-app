@@ -1,9 +1,6 @@
-import { DashboardView } from 'components';
+import { DashboardView } from 'views';
 import React from 'react';
-import { WithLayout } from 'components';
 
-const Dashboard: React.FC = () => {
+export const DashboardPage: React.FC = () => {
   return <DashboardView />;
 };
-
-export const DashboardPage = WithLayout(Dashboard);
