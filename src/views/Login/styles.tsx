@@ -2,95 +2,106 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  min-height: 100vh;
+  height: 100vh;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
-export const ErrorTitle = styled.div`
-  color: rgb(99 102 241);
-  font-weight: bold;
-  font-size: 72px;
-  line-height: 1;
-`;
+export const Frame = styled.div`
+  padding: 24px;
+  border-radius: 6px;
+  width: 22vw;
 
-export const NotExistText = styled.div`
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 10px;
 
-  margin-top: 40px;
-  @media (min-width: 768px) {
-    font-size: 48px;
-    line-height: 1;
-  }
-  @media (min-width: 1024px) {
-    font-size: 50px;
-    line-height: 1;
-  }
-  @media (min-width: 1280px) {
-    font-size: 72px;
-    line-height: 1;
-  }
-`;
-
-export const NotFoundText = styled.div`
-  color: rgb(156 163 175);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-
-  margin-top: 32px;
-
-  @media (min-width: 1024px) {
-    font-size: 24px;
-    line-height: 32px;
+  @media (max-width: 1440px) {
+    width: 30vw;
   }
 
-  @media (min-width: 768px) {
-    font-size: 20px;
-    line-height: 28px;
+  @media (max-width: 1024px) {
+    width: 40vw;
+  }
+
+  @media (max-width: 768px) {
+    width: 60vw;
+  }
+
+  @media (max-width: 600px) {
+    width: 76vw;
+  }
+
+  @media (max-width: 425px) {
+    width: 100vw;
   }
 `;
 
-export const GoToHomePage = styled(Link)`
-  text-decoration-line: none;
-  margin-top: 16px;
-  padding: 8px 16px;
+export const Input = styled.input`
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid black;
+  outline: none;
+`;
 
-  display: inline;
+export const Comment = styled.div<{ fsize: string }>`
+  text-align: center;
+  font-size: ${(props) => props.fsize};
+  font-family: sans-serif;
+`;
 
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
+export const Group = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  border: 2px dashed black;
+  border-radius: 10px;
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
+`;
+
+export const SignIn = styled(Link)`
+  padding: 10px 15px;
+  font-size: 15px;
+  font-family: sans-serif;
+  border-radius: 10px;
+  border: none;
+  background-color: dodgerblue;
   color: white;
+  text-decoration: none;
+  text-align: center;
 
-  box-shadow:
-    0 1px 3px 0 rgb(0 0 0 / 0.1),
-    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition: all 100ms;
 
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-
-  border: 1px transparent;
-  border-radius: 8px;
-
-  background-color: rgb(37 99 235);
-
-  &:focus {
-    outline: none;
+  &:hover {
+    background-color: darkblue;
   }
 
   &:active {
-    background-color: rgb(37 99 235);
+    background-color: black;
   }
+`;
+
+export const Img = styled.img`
+  width: 80px;
+  align-self: center;
+`;
+
+export const SignUp = styled(Link)`
+  text-decoration: underline;
+  font-size: 15px;
+  font-family: sans-serif;
+  text-align: center;
+  transition: all 100ms;
+  color: rgb(0 0 0 / 0.6);
 
   &:hover {
-    background-color: rgb(29 78 216);
+    color: black;
   }
 `;
