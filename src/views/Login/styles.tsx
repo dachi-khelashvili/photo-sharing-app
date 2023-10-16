@@ -23,19 +23,16 @@ export const NotExistText = styled.div`
   line-height: 36px;
 
   margin-top: 40px;
-
-  @media (min-width: 1280px) {
-    font-size: 72px;
+  @media (min-width: 768px) {
+    font-size: 48px;
     line-height: 1;
   }
-
   @media (min-width: 1024px) {
     font-size: 50px;
     line-height: 1;
   }
-
-  @media (min-width: 768px) {
-    font-size: 48px;
+  @media (min-width: 1280px) {
+    font-size: 72px;
     line-height: 1;
   }
 `;
