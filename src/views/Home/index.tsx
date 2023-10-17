@@ -4,11 +4,12 @@ import {
   Container,
   Header,
   Caption,
-  Search,
   Description,
   Image,
   Notification,
 } from './styles';
+
+import { SearchBar } from 'components';
 
 export const HomeView: React.FC = () => {
   return (
@@ -17,13 +18,13 @@ export const HomeView: React.FC = () => {
       <Container>
         <Header>PhotoShare </Header>
         <Caption>Create and share your images</Caption>
-        <Search type="text" placeholder="Search image..." />
+        <SearchBar type="text" placeholder="Search image..." />
         <Description>Trending: flower, wallpapaer, beauty, love...</Description>
       </Container>
       <div
         style={{
           position: 'absolute',
-          top: '1050px',
+          top: '750px',
           width: '100vw',
           alignItems: 'center',
         }}

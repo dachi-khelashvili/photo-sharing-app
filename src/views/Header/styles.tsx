@@ -6,7 +6,7 @@ export const Appbar = styled.div`
   display: flex;
   /* position: absolute; */
   width: 100%;
-  height: 100px;
+  height: 60px;
   padding: 12px;
   align-items: center;
 `;
@@ -28,14 +28,27 @@ export const GoToLink = styled(Link)`
     color: #1b1b1b;
   }
 
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1;
   @media (min-width: 768px) {
-    font-size: 24px;
+    font-size: 14px;
     line-height: 1;
   }
   @media (min-width: 1024px) {
-    font-size: 28px;
+    font-size: 18px;
     line-height: 1;
   }
+`;
+
+export const ShortMenu = styled.div`
+  position: absolute;
+  top: 50px;
+  right: 150px;
+  height: fit-content;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 20px grey;
+  padding: 5px;
+  border-radius: 5px;
+  display: grid;
+  align-items: center;
 `;
