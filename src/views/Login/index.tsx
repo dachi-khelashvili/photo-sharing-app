@@ -5,6 +5,7 @@ import {
   Frame,
   Input,
   Comment,
+  Heading,
   SignIn,
   SignUp,
   Group,
@@ -16,12 +17,12 @@ export const LoginView: React.FC = () => {
     <Container>
       <Frame>
         <Img src="./logo.png" />
-        <Comment fsize="60px">Log in</Comment>
+        <Heading>Log in</Heading>
         <Input placeholder="email" />
         <Input placeholder="password" />
         <SignIn to={PATH.HOME}>Sign in</SignIn>
         <Group>
-          <Comment fsize="15px">Don't have an account?</Comment>
+          <Comment>Don't have an account?</Comment>
           <SignUp to={PATH.REGISTER}>Join PhotoShare</SignUp>
         </Group>
       </Frame>
