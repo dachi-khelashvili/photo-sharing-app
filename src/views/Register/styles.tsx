@@ -1,124 +1,80 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100vh;
 
-  display: grid;
-  grid-template-columns: 60vw 1fr 20vw 1fr;
+  display: flex;
+  flex-direction: column;
 
+  justify-content: center;
   align-items: center;
 
-  @media (max-width: 1440px) {
-    grid-template-columns: 60vw 1fr 26vw 1fr;
-  }
-  @media (max-width: 1024px) {
-    grid-template-columns: 60vw 1fr 34vw 1fr;
-  }
-  @media (max-width: 425px) {
-    grid-template-columns: auto 24px auto 24px;
-  }
-`;
-
-export const Side = styled.div`
   background-image: url('./side.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
-
-  height: 100vh;
+  background-position: center;
 `;
 
 export const Frame = styled.div`
-  border-radius: 6px;
+  background-color: white;
+
+  width: 400px;
+  padding: 30px;
+  border-radius: 10px;
 
   grid-column-start: 3;
   grid-column-end: 3;
 
   display: flex;
   flex-direction: column;
-  gap: 30px;
-`;
+  gap: 10px;
 
-export const Input = styled.input`
-  color: rgb(60 60 60);
-
-  min-width: 100px;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 2px solid rgb(60 60 60);
-  outline: none;
-
-  font-size: 15px;
-
-  flex: 1;
-
-  transition: all 300ms;
-
-  &:hover {
-    &::placeholder {
-      color: dodgerblue;
-    }
-  }
-
-  &:focus {
-    border-color: dodgerblue;
-    &::placeholder {
-      color: dodgerblue;
-    }
+  @media (max-width: 425px) {
+    width: 100%;
+    border-radius: 0;
   }
 `;
 
 export const Heading = styled.div`
-  color: rgb(60 60 60);
+  color: rgb(60, 60, 60);
 
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
-export const Group = styled.div`
-  display: flex;
-  gap: 20px;
-
-  justify-content: space-between;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 30px;
-  }
-`;
-
-export const Join = styled(Link)`
+export const SignUp = styled.button`
   color: white;
-  background-color: dodgerblue;
+  background-color: rgb(211, 18, 110);
 
-  padding: 10px 15px;
-  margin-top: 40px;
+  padding: 10px 0px;
+  margin-top: 20px;
   border-radius: 30px;
   border: none;
 
   text-align: center;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 20px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   transition: all 300ms;
 
   &:hover {
-    background-color: darkblue;
+    background-color: rgb(139, 28, 140);
   }
-
   &:active {
-    background-color: rgb(60 60 60);
+    background-color: rgb(60, 60, 60);
   }
 `;
 
 export const Img = styled.img`
-  width: 80px;
+  width: 40px;
+  height: auto;
+
+  margin-bottom: 10px;
 
   align-self: center;
 `;
