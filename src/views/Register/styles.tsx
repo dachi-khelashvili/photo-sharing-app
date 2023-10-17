@@ -5,18 +5,16 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  align-items: center;
-
   grid-template-columns: 60vw 1fr 20vw 1fr;
+
+  align-items: center;
 
   @media (max-width: 1440px) {
     grid-template-columns: 60vw 1fr 26vw 1fr;
   }
-
   @media (max-width: 1024px) {
     grid-template-columns: 60vw 1fr 34vw 1fr;
   }
-
   @media (max-width: 425px) {
     grid-template-columns: auto 24px auto 24px;
   }
@@ -27,6 +25,7 @@ export const Side = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+
   height: 100vh;
 `;
 
@@ -42,13 +41,15 @@ export const Frame = styled.div`
 `;
 
 export const Input = styled.input`
-  font-size: 15px;
+  min-width: 100px;
   padding: 10px 15px;
   border-radius: 10px;
   border: 2px solid black;
   outline: none;
+
+  font-size: 15px;
+
   flex: 1;
-  min-width: 100px;
 
   transition: all 300ms;
 
@@ -66,16 +67,19 @@ export const Input = styled.input`
   }
 `;
 
-export const Comment = styled.div<{ fsize: string }>`
-  text-align: center;
-  font-size: ${(props) => props.fsize};
-  font-family: sans-serif;
+export const Heading = styled.div`
   margin-bottom: 40px;
+
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 export const Group = styled.div`
   display: flex;
   gap: 20px;
+
   justify-content: space-between;
 
   @media (max-width: 768px) {
@@ -85,16 +89,18 @@ export const Group = styled.div`
 `;
 
 export const Join = styled(Link)`
+  color: white;
+  background-color: dodgerblue;
+
   padding: 10px 15px;
-  font-size: 15px;
-  font-family: sans-serif;
+  margin-top: 40px;
   border-radius: 10px;
   border: none;
-  background-color: dodgerblue;
-  color: white;
-  text-decoration: none;
+
   text-align: center;
-  margin-top: 40px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   transition: all 300ms;
 
@@ -109,5 +115,6 @@ export const Join = styled(Link)`
 
 export const Img = styled.img`
   width: 80px;
+
   align-self: center;
 `;

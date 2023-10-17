@@ -10,56 +10,80 @@ export const Container = styled.div`
 `;
 
 export const Frame = styled.div`
-  padding: 24px;
-  border-radius: 6px;
+  background-color: white;
+
   width: 22vw;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 10px;
 
   @media (max-width: 1440px) {
     width: 30vw;
   }
-
   @media (max-width: 1024px) {
     width: 40vw;
   }
-
   @media (max-width: 768px) {
     width: 60vw;
   }
-
   @media (max-width: 600px) {
     width: 76vw;
   }
-
   @media (max-width: 425px) {
     width: 100vw;
   }
 `;
 
 export const Input = styled.input`
-  font-size: 15px;
+  min-width: 100px;
   padding: 10px 15px;
   border-radius: 10px;
   border: 2px solid black;
   outline: none;
+
+  font-size: 15px;
+
+  flex: 1;
+
+  transition: all 300ms;
+
+  &:hover {
+    &::placeholder {
+      color: dodgerblue;
+    }
+  }
+
+  &:focus {
+    border-color: dodgerblue;
+    &::placeholder {
+      color: dodgerblue;
+    }
+  }
 `;
 
-export const Comment = styled.div<{ fsize: string }>`
+export const Heading = styled.div`
+  margin-bottom: 40px;
+
   text-align: center;
-  font-size: ${(props) => props.fsize};
-  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+`;
+
+export const Comment = styled.div`
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 export const Group = styled.div`
+  padding: 10px 0;
+  border-radius: 10px;
+
   display: flex;
   justify-content: space-evenly;
-  padding: 10px 0;
-  border: 2px dashed black;
-  border-radius: 10px;
 
   @media (max-width: 320px) {
     flex-direction: column;
@@ -67,17 +91,20 @@ export const Group = styled.div`
 `;
 
 export const SignIn = styled(Link)`
-  padding: 10px 15px;
-  font-size: 15px;
-  font-family: sans-serif;
-  border-radius: 10px;
-  border: none;
   background-color: dodgerblue;
   color: white;
-  text-decoration: none;
-  text-align: center;
 
-  transition: all 100ms;
+  padding: 10px 15px;
+  margin-top: 40px;
+  border-radius: 10px;
+  border: none;
+
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  transition: all 300ms;
 
   &:hover {
     background-color: darkblue;
@@ -90,18 +117,24 @@ export const SignIn = styled(Link)`
 
 export const Img = styled.img`
   width: 80px;
+
   align-self: center;
 `;
 
 export const SignUp = styled(Link)`
+  color: rgb(0 0 0 / 0.6);
+
+  text-align: center;
   text-decoration: underline;
   font-size: 15px;
-  font-family: sans-serif;
-  text-align: center;
-  transition: all 100ms;
-  color: rgb(0 0 0 / 0.6);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  transition: all 300ms;
 
   &:hover {
     color: black;
+  }
+  &:active {
+    color: dodgerblue;
   }
 `;

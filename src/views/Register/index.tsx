@@ -4,7 +4,7 @@ import {
   Container,
   Frame,
   Input,
-  Comment,
+  Heading,
   Join,
   Group,
   Img,
@@ -17,7 +17,7 @@ export const RegisterView: React.FC = () => {
       <Side></Side>
       <Frame>
         <Img src="./logo.png" />
-        <Comment fsize="40px">Sign Up</Comment>
+        <Heading>Sign Up</Heading>
         <Group>
           <Input placeholder="first Name" />
           <Input placeholder="second Name" />
