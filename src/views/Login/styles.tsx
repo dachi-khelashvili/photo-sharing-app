@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Frame = styled.div`
   padding: 24px;
   border-radius: 6px;
-  width: 25vw;
+  width: 22vw;
 
   display: flex;
   flex-direction: column;
@@ -20,15 +20,19 @@ export const Frame = styled.div`
   padding: 10px;
 
   @media (max-width: 1440px) {
-    width: 35vw;
+    width: 30vw;
   }
 
   @media (max-width: 1024px) {
-    width: 50vw;
+    width: 40vw;
   }
 
   @media (max-width: 768px) {
-    width: 70vw;
+    width: 60vw;
+  }
+
+  @media (max-width: 600px) {
+    width: 76vw;
   }
 
   @media (max-width: 425px) {
@@ -52,9 +56,8 @@ export const Comment = styled.div<{ fsize: string }>`
 
 export const Group = styled.div`
   display: flex;
-  gap: 4px;
-  justify-content: center;
-  padding: 32px 0;
+  justify-content: space-evenly;
+  padding: 10px 0;
   border: 2px dashed black;
   border-radius: 10px;
 

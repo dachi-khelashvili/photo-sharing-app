@@ -16,7 +16,7 @@ export const LoginView: React.FC = () => {
     <Container>
       <Frame>
         <Img src="./logo.png" />
-        <Comment fsize="60px">Log in</Comment>
+        <Comment fsize="40px">Log in</Comment>
         <Input placeholder="email" />
         <Input placeholder="password" />
         <SignIn to={PATH.HOME}>Sign in</SignIn>
