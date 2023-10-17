@@ -37,10 +37,12 @@ export const Frame = styled.div`
 `;
 
 export const Input = styled.input`
+  color: rgb(60 60 60);
+
   min-width: 100px;
   padding: 10px 15px;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid rgb(60 60 60);
   outline: none;
 
   font-size: 15px;
@@ -64,6 +66,8 @@ export const Input = styled.input`
 `;
 
 export const Heading = styled.div`
+  color: rgb(60 60 60);
+
   margin-bottom: 40px;
 
   text-align: center;
@@ -73,13 +77,15 @@ export const Heading = styled.div`
 `;
 
 export const Comment = styled.div`
+  color: rgb(60 60 60);
+
   text-align: center;
   font-size: 15px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 export const Group = styled.div`
-  padding: 10px 0;
+  padding: 10px 0 80px 0;
   border-radius: 10px;
 
   display: flex;
@@ -96,7 +102,7 @@ export const SignIn = styled(Link)`
 
   padding: 10px 15px;
   margin-top: 40px;
-  border-radius: 10px;
+  border-radius: 30px;
   border: none;
 
   text-align: center;
@@ -111,7 +117,7 @@ export const SignIn = styled(Link)`
   }
 
   &:active {
-    background-color: black;
+    background-color: rgb(60 60 60);
   }
 `;
 
@@ -122,7 +128,7 @@ export const Img = styled.img`
 `;
 
 export const SignUp = styled(Link)`
-  color: rgb(0 0 0 / 0.6);
+  color: dodgerblue;
 
   text-align: center;
   text-decoration: underline;
@@ -132,9 +138,9 @@ export const SignUp = styled(Link)`
   transition: all 300ms;
 
   &:hover {
-    color: black;
+    color: darkblue;
   }
   &:active {
-    color: dodgerblue;
+    color: rgb(60 60 60);
   }
 `;

@@ -41,10 +41,12 @@ export const Frame = styled.div`
 `;
 
 export const Input = styled.input`
+  color: rgb(60 60 60);
+
   min-width: 100px;
   padding: 10px 15px;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid rgb(60 60 60);
   outline: none;
 
   font-size: 15px;
@@ -68,6 +70,8 @@ export const Input = styled.input`
 `;
 
 export const Heading = styled.div`
+  color: rgb(60 60 60);
+
   margin-bottom: 40px;
 
   text-align: center;
@@ -94,7 +98,7 @@ export const Join = styled(Link)`
 
   padding: 10px 15px;
   margin-top: 40px;
-  border-radius: 10px;
+  border-radius: 30px;
   border: none;
 
   text-align: center;
@@ -109,7 +113,7 @@ export const Join = styled(Link)`
   }
 
   &:active {
-    background-color: black;
+    background-color: rgb(60 60 60);
   }
 `;
 
