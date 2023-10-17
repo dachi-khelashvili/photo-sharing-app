@@ -2,21 +2,29 @@ import { PATH } from 'consts';
 import React from 'react';
 import {
   Container,
-  ErrorTitle,
-  NotExistText,
-  NotFoundText,
-  GoToHomePage,
+  Frame,
+  Input,
+  Comment,
+  SignIn,
+  SignUp,
+  Group,
+  Img,
 } from './styles';
 
 export const LoginView: React.FC = () => {
   return (
-    <Container className="min-h-screen flex flex-col items-center justify-center">
-      <ErrorTitle>404</ErrorTitle>
-      <NotExistText>This page does not exist</NotExistText>
-      <NotFoundText>
-        The page you are looking for could not be found.
-      </NotFoundText>
-      <GoToHomePage to={PATH.HOME}>Go to HomePage!</GoToHomePage>
+    <Container>
+      <Frame>
+        <Img src="./logo.png" />
+        <Comment fsize="60px">Log in</Comment>
+        <Input placeholder="email" />
+        <Input placeholder="password" />
+        <SignIn to={PATH.HOME}>Sign in</SignIn>
+        <Group>
+          <Comment fsize="15px">Don't have an account?</Comment>
+          <SignUp to={PATH.REGISTER}>Join PhotoShare</SignUp>
+        </Group>
+      </Frame>
     </Container>
   );
 };
