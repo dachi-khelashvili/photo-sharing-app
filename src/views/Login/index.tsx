@@ -10,7 +10,7 @@ import {
 
 export const LoginView: React.FC = () => {
   return (
-    <Container className="min-h-screen flex flex-col items-center justify-center">
+    <Container>
       <ErrorTitle>404</ErrorTitle>
       <NotExistText>This page does not exist</NotExistText>
       <NotFoundText>
