@@ -22,6 +22,8 @@ export const StyledButton = styled.button<{ buttonStyle: StyledButtonType }>`
     buttonStyle === 'blue' &&
     `background-color: blue;
     color: #ffffff;
+    width: 100px;
+    font-size:24px;
     &:hover {
         background-color: #00078c;
     }

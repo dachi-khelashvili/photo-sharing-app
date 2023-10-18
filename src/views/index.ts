@@ -5,4 +5,5 @@ export * from './Register';
 export * from './PhotoShop';
 export * from './Tab';
 export * from './Menu';
+export * from './Dashboard';
 export * from './Chatroom';

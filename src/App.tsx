@@ -6,6 +6,7 @@ import {
   LoginPage,
   HomePage,
   RegisterPage,
+  DashboardPage,
   GalleryPage,
   ChatRoomPage,
 } from 'pages';
@@ -19,7 +20,8 @@ export const App: React.FC = () => {
           <Route path={PATH.HOME} element={<HomePage />} />
           <Route path={PATH.LOGIN} element={<LoginPage />} />
           <Route path={PATH.REGISTER} element={<RegisterPage />} />
-          <Route path={PATH.DASHBOARD} element={<GalleryPage />} />
+          <Route path={PATH.DASHBOARD} element={<DashboardPage />} />
+          <Route path={PATH.GALLERY} element={<GalleryPage />} />
           <Route path={PATH.CHATROOM} element={<ChatRoomPage />} />
         </Routes>
       </BrowserRouter>
