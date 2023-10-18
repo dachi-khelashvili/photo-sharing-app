@@ -1,9 +1,9 @@
 import { PATH } from 'consts';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Container,
   Frame,
-  Input,
   Comment,
   Heading,
   SignIn,
@@ -11,19 +11,38 @@ import {
   Group,
   Img,
 } from './styles';
+import { EmailInput, PasswordInput } from 'components';
 
 export const LoginView: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const onSignIn = () => {
+    if (email.length > 0 && password.length > 0) navigate(PATH.HOME);
+  };
   return (
     <Container>
       <Frame>
-        <Img src="./logo.png" />
-        <Heading>Log in</Heading>
-        <Input placeholder="email" />
-        <Input placeholder="password" />
-        <SignIn to={PATH.HOME}>Sign in</SignIn>
+        <Img src="./logowithoutletter.png" />
+        <Heading>Log in to PhotoShare</Heading>
+        <EmailInput
+          onChange={(e) => {
+            setEmail(e);
+          }}
+        ></EmailInput>
+        <PasswordInput
+          validate={false}
+          label="Password"
+          onChange={(e) => {
+            setPassword(e);
+          }}
+        ></PasswordInput>
+        <SignIn onClick={onSignIn}>Sign in</SignIn>
         <Group>
           <Comment>Don't have an account?</Comment>
-          <SignUp to={PATH.REGISTER}>Join PhotoShare</SignUp>
+          <SignUp to={PATH.REGISTER}>Sign up here.</SignUp>
         </Group>
       </Frame>
     </Container>
