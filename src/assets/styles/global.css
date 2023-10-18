@@ -1,3 +1,27 @@
 * {
   box-sizing: border-box;
 }
+
+.image-cropper {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+  margin-left: -10%;
+  height: 100%;
+  width: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
