@@ -111,11 +111,13 @@ export const HeaderView: React.FC = () => {
                 <div className="grid col-8">
                   <PasswordInput
                     validate={true}
+                    value={oldPassword}
                     label="old password"
                     onChange={(e) => setOld(e)}
                   />
                   <PasswordInput
                     validate={true}
+                    value={newPassword}
                     label="new password"
                     onChange={(e) => setNew(e)}
                   />

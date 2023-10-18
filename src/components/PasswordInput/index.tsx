@@ -5,6 +5,7 @@ interface PasswordInputProps {
   onChange: (e: string) => void;
   label: string;
   validate: boolean;
+  value: string;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
@@ -39,6 +40,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
           const temp = e.target.value;
           if (temp.length == 0) setState('normal');
         }}
+        value={props.value}
       ></Input>
       <Button
         id={state}
