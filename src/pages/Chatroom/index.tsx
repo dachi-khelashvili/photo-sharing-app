@@ -1,5 +1,13 @@
 import React from 'react';
 
-export const ChatRoom: React.FC = () => {
-  return <div></div>;
+import { MenuView, ChatRoomView } from 'views';
+import { Container } from './styles';
+
+export const ChatRoomPage: React.FC = () => {
+  return (
+    <Container>
+      <MenuView />
+      <ChatRoomView />
+    </Container>
+  );
 };

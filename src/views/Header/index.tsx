@@ -67,12 +67,13 @@ export const HeaderView: React.FC = () => {
   const accountRef = useRef(null);
   useOutsideAccountAlerter(accountRef);
 
-  const changePassword = () => {
-    console.log('changed password');
-  };
-
   const [oldPassword, setOld] = useState('');
   const [newPassword, setNew] = useState('');
+
+  const changePassword = () => {
+    console.log('changed password' + oldPassword + newPassword);
+  };
+
   return (
     <>
       {showMenu && (

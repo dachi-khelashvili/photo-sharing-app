@@ -24,7 +24,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  color: rgb(137, 137, 137);
+  color: rgb(60, 60, 60);
   background-color: transparent;
 
   padding: 27px 16px 7px 16px;
