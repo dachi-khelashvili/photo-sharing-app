@@ -33,6 +33,7 @@ export const LoginView: React.FC = () => {
           }}
         ></EmailInput>
         <PasswordInput
+          value={password}
           validate={false}
           label="Password"
           onChange={(e) => {
