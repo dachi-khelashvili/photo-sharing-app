@@ -1,31 +1,40 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { Appbar, Logo, GoToLink, ShortMenu, Avatars } from './styles';
+import {
+  Appbar,
+  Logo,
+  GoToLink,
+  ShortMenu,
+  Avatars,
+  Grid,
+  Flex,
+  WidthGrid,
+  RightGrid,
+  Description,
+  FlexAvatar,
+  ImageCropper,
+  ProfilePic,
+} from './styles';
 import {
   SearchBar,
   StyledButtonComponent,
   StyledAvatarComponent,
+  SimpleModal,
+  Screen,
+  PasswordInput,
 } from 'components';
 import { PATH } from 'consts';
-import { SimpleModal, Screen } from 'components/Modal';
-import { PasswordInput } from 'components/PasswordInput';
 
-export const HeaderView: React.FC = () => {
-  const isAuthenticated = false;
-  const AvatarsList = [
-    './snoopy-1.jpg',
-    './snoopy-2.jpg',
-    './snoopy-3.jpg',
-    './snoopy-4.jpg',
-    './snoopy-5.jpg',
-    './snoopy-6.jpg',
-  ];
+const AvatarsList = [
+  './snoopy-1.jpg',
+  './snoopy-2.jpg',
+  './snoopy-3.jpg',
+  './snoopy-4.jpg',
+  './snoopy-5.jpg',
+  './snoopy-6.jpg',
+];
 
-  const [showMenu, setShow] = useState(false);
-  const onClick = () => {
-    setShow(true);
-  };
-
+export const AuthenticatedHeaderView: React.FC = () => {
   const useOutsideMenuAlerter = (ref: React.RefObject<HTMLElement>) => {
     useEffect(() => {
       /**
@@ -45,6 +54,7 @@ export const HeaderView: React.FC = () => {
       };
     }, [ref]);
   };
+
   const useOutsideAccountAlerter = (ref: React.RefObject<HTMLElement>) => {
     useEffect(() => {
       /**
@@ -65,20 +75,26 @@ export const HeaderView: React.FC = () => {
     }, [ref]);
   };
 
+  const [showMenu, setShow] = useState(false);
   const [showAccount, setAccount] = useState(false);
+
+  const menuRef = useRef(null);
+  useOutsideMenuAlerter(menuRef);
+
+  const accountRef = useRef(null);
+  useOutsideAccountAlerter(accountRef);
+
+  const onClick = () => {
+    setShow(true);
+  };
   const onAccount = () => {
     setAccount(true);
     console.log('Account');
   };
-
   const onLogout = () => {
     console.log('Logout');
   };
 
-  const menuRef = useRef(null);
-  useOutsideMenuAlerter(menuRef);
-  const accountRef = useRef(null);
-  useOutsideAccountAlerter(accountRef);
   const changePassword = () => {
     console.log('changed password');
   };
@@ -105,43 +121,43 @@ export const HeaderView: React.FC = () => {
       {showAccount && (
         <Screen>
           <SimpleModal ref={accountRef}>
-            <div className="grid margin-20">
+            <Grid>
               <h2>Change Password</h2>
-              <div className="flex space-between">
-                <div className="grid col-8">
+              <Flex>
+                <WidthGrid>
                   <PasswordInput
                     validate={true}
                     value={oldPassword}
                     label="old password"
-                    onChange={(e) => setOld(e)}
+                    onChange={setOld}
                   />
                   <PasswordInput
                     validate={true}
                     value={newPassword}
                     label="new password"
-                    onChange={(e) => setNew(e)}
+                    onChange={setNew}
                   />
-                  <div style={{ marginLeft: 'auto' }}>
+                  <RightGrid>
                     <StyledButtonComponent
                       buttonStyle="blue"
                       onClick={changePassword}
                     >
                       OK
                     </StyledButtonComponent>
-                  </div>
-                </div>
-                <div className="flex col-3 justify-center">
+                  </RightGrid>
+                </WidthGrid>
+                <FlexAvatar>
                   <StyledAvatarComponent
                     avatarStyle="large"
                     onClick={changeAvatar}
                     src="./avatar.jpg"
                   />
-                </div>
-              </div>
+                </FlexAvatar>
+              </Flex>
               <h2>About me</h2>
-              <div className="margin-left-10">
+              <Description>
                 <a>I'm senior photographer who shared 1000+ photos.</a>
-              </div>
+              </Description>
               <h2>Friends</h2>
               <Avatars>
                 {AvatarsList.map((value) => (
@@ -152,38 +168,38 @@ export const HeaderView: React.FC = () => {
                   />
                 ))}
               </Avatars>
-            </div>
+            </Grid>
           </SimpleModal>
         </Screen>
       )}
       <Appbar>
-        {isAuthenticated ? (
-          <>
-            <Logo src="./grey-logo.png" />
-            <SearchBar type="text" placeholder="Search image..." />
-            <GoToLink to={PATH.LOGIN}>Log in</GoToLink>
-          </>
-        ) : (
-          <>
-            <Logo src="./grey-logo.png" />
-            <h1 style={{ fontFamily: 'fantasy' }}>Photo Share</h1>
-            <div style={{ marginLeft: 'auto' }}>
-              <StyledButtonComponent buttonStyle="black" onClick={onClick}>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div className="image-cropper">
-                    <img
-                      src="/avatar.jpg"
-                      alt="avatar"
-                      className="profile-pic"
-                    />
-                  </div>
-                  User Name
-                </div>
-              </StyledButtonComponent>
-            </div>
-          </>
-        )}
+        <Logo src="./grey-logo.png" />
+        <h1>Photo Share</h1>
+        <RightGrid>
+          <StyledButtonComponent buttonStyle="black" onClick={onClick}>
+            <Flex>
+              <ImageCropper>
+                <ProfilePic
+                  src="/avatar.jpg"
+                  alt="avatar"
+                  className="profile-pic"
+                />
+              </ImageCropper>
+              User Name
+            </Flex>
+          </StyledButtonComponent>
+        </RightGrid>
       </Appbar>
     </>
+  );
+};
+
+export const HeaderView: React.FC = () => {
+  return (
+    <Appbar>
+      <Logo src="./grey-logo.png" />
+      <SearchBar type="text" placeholder="Search image..." />
+      <GoToLink to={PATH.LOGIN}>Log in</GoToLink>
+    </Appbar>
   );
 };
