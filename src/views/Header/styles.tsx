@@ -1,6 +1,32 @@
-// import { type } from 'os';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+export const Grid = styled.div`
+  display: grid;
+  margin-left: 20px;
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FlexAvatar = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 40%;
+`;
+
+export const WidthGrid = styled.div`
+  display: grid;
+  width: 60%;
+  gap: 30px;
+`;
+
+export const RightGrid = styled.div`
+  margin-left: auto;
+`;
 
 export const Appbar = styled.div`
   display: flex;
@@ -64,4 +90,24 @@ export const Avatar = styled.img`
   border-radius: 50%;
   object-fit: cover;
   margin: 10px;
+`;
+
+export const Description = styled.a`
+  font-family: sans-serif;
+`;
+
+export const ImageCropper = styled.div`
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+`;
+
+export const ProfilePic = styled.img`
+  display: inline;
+  margin: 0 auto;
+  margin-left: -10%;
+  height: 100%;
+  width: auto;
 `;

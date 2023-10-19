@@ -4,6 +4,7 @@ export * from './BasicInput';
 export * from './SearchBar';
 export * from './StyledButtonComponent';
 export * from './StyledAvatarComponent';
+export * from './StyledLink';
 export * from './Modal';
 export * from './PasswordInput';
 export * from './Image';

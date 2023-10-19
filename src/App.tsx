@@ -1,30 +1,15 @@
-import { PATH } from 'consts';
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {
-  Header,
-  LoginPage,
-  HomePage,
-  RegisterPage,
-  DashboardPage,
-  GalleryPage,
-  ChatRoomPage,
-} from 'pages';
+import { BrowserRouter } from 'react-router-dom';
+import { IsAuthenticatedRoute, NotAuthenticatedRoute } from 'routes';
+
+const isAuthenticated = false;
 
 export const App: React.FC = () => {
   return (
-    <div>
+    <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path={PATH.HOME} element={<HomePage />} />
-          <Route path={PATH.LOGIN} element={<LoginPage />} />
-          <Route path={PATH.REGISTER} element={<RegisterPage />} />
-          <Route path={PATH.DASHBOARD} element={<DashboardPage />} />
-          <Route path={PATH.GALLERY} element={<GalleryPage />} />
-          <Route path={PATH.CHATROOM} element={<ChatRoomPage />} />
-        </Routes>
+        {isAuthenticated ? <IsAuthenticatedRoute /> : <NotAuthenticatedRoute />}
       </BrowserRouter>
-    </div>
+    </>
   );
 };
