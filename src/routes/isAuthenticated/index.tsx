@@ -12,7 +12,7 @@ import {
   GalleryPage,
   ChatRoomPage,
 } from 'pages';
-
+``;
 export const IsAuthenticatedRoute: React.FC = () => {
   return (
     <>

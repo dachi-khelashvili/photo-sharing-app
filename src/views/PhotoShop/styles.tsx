@@ -18,9 +18,16 @@ interface CardProps {
   uploader: string;
   time: string;
   width: string;
+  open: boolean;
 }
 
-export const Card: React.FC<CardProps> = ({ src, uploader, time, width }) => {
+export const Card: React.FC<CardProps> = ({
+  src,
+  uploader,
+  time,
+  width,
+  open,
+}) => {
   return (
     <CardStyle width={width}>
       <img src={src} alt={src} style={{ width: '100%' }} />

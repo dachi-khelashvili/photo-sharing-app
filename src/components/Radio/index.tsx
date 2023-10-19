@@ -1,4 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Grid = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 30px;
+  gap: 20px;
+`;
 
 interface Option {
   value: number;
@@ -13,9 +22,9 @@ interface RadioProps {
 
 export const Radio: React.FC<RadioProps> = ({ name, options, onChange }) => {
   return (
-    <div className="grid">
+    <Grid>
       {options.map((option: Option, index: number) => (
-        <label key={index} style={{ fontSize: '24px', margin: 'auto' }}>
+        <label key={index}>
           <input
             type="radio"
             name={name}
@@ -25,6 +34,6 @@ export const Radio: React.FC<RadioProps> = ({ name, options, onChange }) => {
           {option.label}
         </label>
       ))}
-    </div>
+    </Grid>
   );
 };
