@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: calc(100vh - 80px);
   width: 300px;
   margin: 10px;
   box-shadow: 5px 5px 50px grey;

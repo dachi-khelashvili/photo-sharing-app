@@ -62,7 +62,10 @@ export const PhotoShop: React.FC = () => {
             src={value.src}
             uploader={value.uploader}
             time={value.time}
-            width={value.width}
+            width={
+              Math.floor(Math.random() * (600 - 200 + 1) + 200).toString() +
+              'px'
+            }
           />
         );
       })}

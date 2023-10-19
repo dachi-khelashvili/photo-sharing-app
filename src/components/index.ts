@@ -3,4 +3,8 @@ export * from './PasswordInput';
 export * from './BasicInput';
 export * from './SearchBar';
 export * from './StyledButtonComponent';
+export * from './StyledAvatarComponent';
 export * from './Modal';
+export * from './PasswordInput';
+export * from './Image';
+export * from './Radio';
