@@ -52,3 +52,16 @@ export const ShortMenu = styled.div`
   display: grid;
   align-items: center;
 `;
+
+export const Avatars = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const Avatar = styled.img`
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
+`;

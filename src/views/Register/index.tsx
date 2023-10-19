@@ -48,6 +48,7 @@ export const RegisterView: React.FC = () => {
           }}
         ></EmailInput>
         <PasswordInput
+          value={password}
           label="Password"
           validate={true}
           onChange={(e) => {
@@ -55,6 +56,7 @@ export const RegisterView: React.FC = () => {
           }}
         ></PasswordInput>
         <PasswordInput
+          value={confirm}
           label="Confirm"
           validate={false}
           onChange={(e) => {

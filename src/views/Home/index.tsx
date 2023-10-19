@@ -1,11 +1,12 @@
 import React from 'react';
 
+import { Image } from 'components';
+
 import {
   Container,
   Header,
   Caption,
   Description,
-  Image,
   Notification,
 } from './styles';
 
@@ -16,7 +17,7 @@ export const HomeView: React.FC = () => {
     <div>
       <Image src="./mountain.jpg" alt="back" />
       <Container>
-        <Header>PhotoShare </Header>
+        <Header>Photo Share</Header>
         <Caption>Create and share your images</Caption>
         <SearchBar type="text" placeholder="Search image..." />
         <Description>Trending: flower, wallpapaer, beauty, love...</Description>
@@ -25,7 +26,7 @@ export const HomeView: React.FC = () => {
         style={{
           position: 'absolute',
           top: '750px',
-          width: '100vw',
+          width: '100%',
           alignItems: 'center',
         }}
       >
