@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
 
-  margin: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 0px;
 
   box-shadow: 5px 5px 20px gray;
 
@@ -19,6 +19,7 @@ export const UserListFrame = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
 
   height: 100%;
+  width: 220px;
 
   padding: 20px 0;
 
@@ -57,6 +58,10 @@ export const AllUsers = styled.button`
     background-color: rgb(212, 23, 113);
   }
 `;
+export const UserListItemFrame = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 export const UserListItemButton = styled.button`
   padding: 8px;
@@ -64,6 +69,8 @@ export const UserListItemButton = styled.button`
   border: none;
   border-radius: 5px;
   outline: none;
+
+  flex: 1;
 
   display: flex;
   align-items: center;
@@ -80,6 +87,7 @@ export const UserListItemButton = styled.button`
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0.6);
   }
+
   &:enabled:hover {
     background-color: rgba(0, 0, 0, 0.3);
   }
@@ -96,22 +104,22 @@ export const UserListItemAvatar = styled.img`
 
   border-radius: 20px;
 `;
-
 export const UserListItemName = styled.div`
-  width: 100%;
   text-align: left;
-
+  width: 100%;
   font-weight: bold;
 `;
 
 export const MessageListFrame = styled.div`
   height: 100%;
-  margin: 20px 20px;
+  margin: 20px;
 
   overflow-y: scroll;
 `;
 
-export const MessageListItemFrame = styled.div``;
+export const MessageListItemFrame = styled.div`
+  margin-right: 20px;
+`;
 
 export const MessageListItemUser = styled.div`
   margin: 10px;
@@ -124,6 +132,7 @@ export const MessageListItemText = styled.pre`
   background-color: rgba(0, 0, 0, 0.2);
 
   width: fit-content;
+  white-space: pre-line;
 
   margin: 10px 0 20px 0;
   padding: 10px;
@@ -166,12 +175,28 @@ export const SendButton = styled.button`
   transition: background-color 300ms;
 
   color: white;
-  background-color: rgb(212, 23, 113);
+  background-color: rgb(143, 35, 144);
 
   &:enabled:hover {
     background-color: rgba(212, 23, 113, 0.8);
   }
   &:enabled:active {
     background-color: rgb(212, 23, 113);
+  }
+`;
+
+export const FriendButton = styled.button`
+  background-color: transparent;
+  padding: 0;
+  height: max-content;
+  border: none;
+  outline: none;
+  filter: invert(100%);
+  margin: 0 15px 0 -39px;
+  &:hover {
+    filter: invert(80%);
+  }
+  &:active {
+    filter: invert(60%);
   }
 `;

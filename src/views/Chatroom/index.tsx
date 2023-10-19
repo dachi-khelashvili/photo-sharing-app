@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   AllUsers,
   Container,
+  FriendButton,
   MessageBox,
   MessageBoxFrame,
   MessageListFrame,
@@ -10,29 +11,45 @@ import {
   MessageListItemUser,
   SendButton,
   UserListFrame,
+  UserListItemFrame,
   UserListItemAvatar,
   UserListItemButton,
   UserListItemName,
 } from './styles';
+import { Screen, SimpleModal } from 'components';
 
 interface UserListIemProps {
   name: string;
   avatar: string;
   disabled: boolean;
   onClick: (e: string) => void;
+  friend: boolean;
 }
 
 const UserListItem: React.FC<UserListIemProps> = (props) => {
+  //  const [showModal, setShowModal] = useState(false);
+
   return (
-    <UserListItemButton
-      disabled={props.disabled}
-      onClick={() => {
-        props.onClick(props.name);
-      }}
-    >
-      <UserListItemAvatar src={props.avatar} />
-      <UserListItemName>{props.name}</UserListItemName>
-    </UserListItemButton>
+    <UserListItemFrame>
+      <UserListItemButton
+        disabled={props.disabled}
+        onClick={() => {
+          props.onClick(props.name);
+        }}
+      >
+        <UserListItemAvatar src={props.avatar} />
+        <UserListItemName>{props.name}</UserListItemName>
+      </UserListItemButton>
+      {!props.friend && (
+        <FriendButton
+          onClick={() => {
+            props.onClick('##' + '*' + props.avatar + '*' + props.name);
+          }}
+        >
+          <img src="./add-friend.svg" style={{ width: '24px' }}></img>
+        </FriendButton>
+      )}
+    </UserListItemFrame>
   );
 };
 
@@ -56,7 +73,6 @@ const MessageListItem: React.FC<MessageListItemProps> = (props) => {
           <UserListItemAvatar
             src={props.from.avatar}
             style={{
-              border: '2px solid rgb(0,0,0,0.4)',
               width: '40px',
               height: '40px',
             }}
@@ -74,7 +90,6 @@ const MessageListItem: React.FC<MessageListItemProps> = (props) => {
           <UserListItemAvatar
             src={props.to.avatar}
             style={{
-              border: '2px solid rgb(0,0,0,0.4)',
               width: '40px',
               height: '40px',
             }}
@@ -96,68 +111,86 @@ const MessageListItem: React.FC<MessageListItemProps> = (props) => {
 export const ChatRoomView: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState('All');
   const [msgBoxRow, setMsgBoxRow] = useState(1);
+  const [friendModal, showModal] = useState(false);
+
+  const onUserClick = (e: string) => {
+    const temp = e.split('*');
+    if (temp[0] != '##') setSelectedUser(e);
+    else {
+      setSelectedUser(
+        selectedUser.split('*')[0] + '*' + temp[1] + '*' + temp[2]
+      );
+      showModal(true);
+    }
+  };
+
   const friends = [
     {
       name: 'Iolanthe Claude',
-      avatar: './logo.svg',
+      avatar: './snoopy-1.jpg',
+      friend: true,
     },
     {
       name: 'Vijaya Katarina',
-      avatar: './logo.svg',
+      avatar: './snoopy-2.jpg',
+      friend: true,
     },
   ];
   const users = [
     {
       name: 'Bruce Wang',
-      avatar: './vite.svg',
+      avatar: './snoopy-3.jpg',
+      friend: false,
     },
     {
       name: 'Nakio Akira',
-      avatar: './vite.svg',
+      avatar: './snoopy-4.jpg',
+      friend: false,
     },
     {
       name: 'Lily Potter',
-      avatar: './vite.svg',
+      avatar: './snoopy-5.jpg',
+      friend: false,
     },
   ];
   const messages = [
     {
       from: {
         name: 'Iolanthe Claude',
-        avatar: './logo.svg',
+        avatar: './snoopy-1.jpg',
       },
       to: {
         name: 'Everyone',
         avatar: '',
       },
-      text: 'Hi \n\n\n@Phoenix\n @Fatto\n I think\n both of you\n are r\neally fan of "Despicable Me"\nAny fan of minions?',
+      text: 'Hi @Phoenix @Fatto I think both of you are really fan of "Despicable Me"\nAny fan of minions?',
     },
     {
       from: {
         name: 'Iolanthe Claude',
-        avatar: './logo.svg',
+        avatar: './snoopy-2.jpg',
       },
       to: {
         name: 'Me',
-        avatar: './vite.svg',
+        avatar: './snoopy-6.jpg',
       },
       text: 'i am\nspecially kevin\ndid you forget',
     },
     {
       from: {
         name: 'Me',
-        avatar: './vite.svg',
+        avatar: './snoopy-6.jpg',
       },
       to: {
         name: 'Iolanthe Claude',
-        avatar: './logo.svg',
+        avatar: './snoopy-3.jpg',
       },
       text: 'Hey, we are looking for experienced moderators for an project on Ethereum, the salaries are very high https://discord.gg/gm9r4dyJa',
     },
     {
       from: {
         name: 'Me',
-        avatar: './vite.svg',
+        avatar: './snoopy-6.jpg',
       },
       to: {
         name: 'Everyone',
@@ -169,11 +202,46 @@ export const ChatRoomView: React.FC = () => {
 
   return (
     <Container>
+      {friendModal && (
+        <Screen>
+          <SimpleModal style={{ padding: '20px' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div>Friend Request</div>
+              <div>
+                <UserListItemAvatar src={selectedUser.split('*')[1]} />
+                <UserListItemName>
+                  {selectedUser.split('*')[2]}
+                </UserListItemName>
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                showModal(false);
+              }}
+            >
+              Ok
+            </button>
+            <button
+              onClick={() => {
+                showModal(false);
+              }}
+            >
+              Cancil
+            </button>
+          </SimpleModal>
+        </Screen>
+      )}
       <UserListFrame>
         <AllUsers
           disabled={selectedUser == 'All'}
           onClick={() => {
-            setSelectedUser('All');
+            onUserClick('All');
           }}
         >
           To Everyone
@@ -183,9 +251,10 @@ export const ChatRoomView: React.FC = () => {
             <UserListItem
               name={value.name}
               avatar={value.avatar}
-              disabled={value.name == selectedUser}
+              disabled={value.name == selectedUser.split('*')[0]}
+              friend={value.friend}
               onClick={(e) => {
-                setSelectedUser(e);
+                onUserClick(e);
               }}
             />
           );
@@ -195,9 +264,10 @@ export const ChatRoomView: React.FC = () => {
             <UserListItem
               name={value.name}
               avatar={value.avatar}
-              disabled={value.name == selectedUser}
+              disabled={value.name == selectedUser.split('*')[0]}
+              friend={value.friend}
               onClick={(e) => {
-                setSelectedUser(e);
+                onUserClick(e);
               }}
             />
           );
