@@ -24,7 +24,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  color: rgb(137, 137, 137);
+  color: rgb(60, 60, 60);
   background-color: transparent;
 
   min-width: 0px;
@@ -94,6 +94,6 @@ export const Button = styled.button<{ icon: string }>`
   }
 
   &:hover {
-    background-blend-mode: overlay;
+    background-size: auto 46px;
   }
 `;
