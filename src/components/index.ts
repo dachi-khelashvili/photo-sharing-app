@@ -9,3 +9,4 @@ export * from './Modal';
 export * from './PasswordInput';
 export * from './Image';
 export * from './Radio';
+export * from './IconButton';
