@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Container, TabItem } from './styles';
-import { StyledButtonComponent, Radio } from 'components';
+import {
+  StyledButtonComponent,
+  Radio,
+  StyledInput,
+  StyledTextAreaComponent,
+} from 'components';
 import { SimpleModal, Screen } from 'components/Modal';
+import { Grid, Flex, Img, RadioGroup, RightGrid } from './styles';
 
 export const Tab: React.FC = () => {
   const useOutsideMenuAlerter = (ref: React.RefObject<HTMLElement>) => {
@@ -27,6 +33,9 @@ export const Tab: React.FC = () => {
   useOutsideMenuAlerter(showRef);
 
   const [showUploadModal, setShow] = useState(false);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
   const onClick = () => {
     setShow(true);
   };
@@ -36,32 +45,39 @@ export const Tab: React.FC = () => {
   const uploadFile = () => {
     console.log('upload file');
   };
+  const changeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+  };
+  const changeDescription = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setDescription(event.target.value);
+    console.log(description);
+  };
   return (
     <>
       {showUploadModal && (
         <Screen>
           <SimpleModal ref={showRef} style={{ width: '25%' }}>
-            <div className="grid margin-20 height-100">
-              <div className="flex fit-content">
-                <div className="col-8">
-                  <img
-                    src="./avatar.jpg"
-                    alt="uploaded image"
-                    className="col-12"
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-                <div className="col-4 grid justify-center">
+            <Grid>
+              <StyledInput width="100%" label="Title" onChange={changeTitle} />
+              <Flex>
+                <Img
+                  src="./avatar.jpg"
+                  alt="uploaded image"
+                  className="col-12"
+                />
+                <RadioGroup>
                   <Radio
                     name="photo"
                     options={[
-                      { label: 'private', value: 1 },
                       { label: 'public', value: 0 },
+                      { label: 'private', value: 1 },
+                      { label: 'private', value: 2 },
                     ]}
                     onChange={changePhoto}
                   />
-                </div>
-              </div>
+                </RadioGroup>
+              </Flex>
+              <StyledTextAreaComponent onChange={changeDescription} />
               <div>
                 <div style={{ width: 'fit-content', margin: 'auto' }}>
                   <StyledButtonComponent
@@ -72,7 +88,7 @@ export const Tab: React.FC = () => {
                   </StyledButtonComponent>
                 </div>
               </div>
-            </div>
+            </Grid>
           </SimpleModal>
         </Screen>
       )}
@@ -80,11 +96,11 @@ export const Tab: React.FC = () => {
         <TabItem>Explore</TabItem>
         <TabItem>My Photos</TabItem>
         <TabItem>Friends</TabItem>
-        <div style={{ marginLeft: 'auto' }}>
+        <RightGrid>
           <StyledButtonComponent buttonStyle="transparent" onClick={onClick}>
             Upload
           </StyledButtonComponent>
-        </div>
+        </RightGrid>
       </Container>
     </>
   );

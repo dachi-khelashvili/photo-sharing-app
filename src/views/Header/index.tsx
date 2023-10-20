@@ -113,7 +113,11 @@ export const AuthenticatedHeaderView: React.FC = () => {
           <StyledButtonComponent buttonStyle="black" onClick={onAccount}>
             My Account
           </StyledButtonComponent>
-          <StyledButtonComponent buttonStyle="black" onClick={onLogout}>
+          <StyledButtonComponent
+            buttonStyle="black"
+            onClick={onLogout}
+            key="Logout"
+          >
             Logout
           </StyledButtonComponent>
         </ShortMenu>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Label, Input, Frame } from './styles';
-
 interface BasicInputProps {
   onChange: (e: string) => void;
   label: string;

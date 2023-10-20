@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Card } from './styles';
 
 const photosList = [
@@ -6,44 +6,56 @@ const photosList = [
     src: './background.jpg',
     uploader: 'Bruce Wang',
     time: '10/13/2023',
-    width: '500px',
+    description: 'photographer work environment',
   },
   {
     src: './hitch-hiker.jpg',
     uploader: 'Nakio Akira',
     time: '10/16/2023',
-    width: '200px',
+
+    description: 'hitch-hiker in orange jacket',
   },
   {
     src: './mountain.jpg',
     uploader: 'Lily Porter',
     time: '10/11/2023',
-    width: '400px',
+
+    description: 'north-eastern Everest Mountain',
   },
   {
     src: './jungle.jpg',
     uploader: 'Lily Porter',
     time: '10/11/2023',
-    width: '300px',
+
+    description: 'bridge in jungle valley',
   },
 ];
 
 export const PhotoShop: React.FC = () => {
+  const [open, setOpen] = useState(Array(photosList.length));
+
+  const handleOpen = (index: number) => {
+    open[index] = true;
+    setOpen(open);
+  };
+
   return (
     <Container>
-      {photosList.map((value) => {
-        return (
+      {photosList.map((value, index) => (
+        <div onClick={() => handleOpen(index)} style={{ cursor: 'pointer' }}>
           <Card
+            key={index}
             src={value.src}
             uploader={value.uploader}
             time={value.time}
+            open={open[index]}
             width={
               Math.floor(Math.random() * (600 - 200 + 1) + 200).toString() +
               'px'
             }
           />
-        );
-      })}
+        </div>
+      ))}
     </Container>
   );
 };

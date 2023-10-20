@@ -10,6 +10,29 @@ export const Container = styled.div`
   padding: 5px;
 `;
 
+export const Grid = styled.div`
+  display: grid;
+  margin: 30px;
+  height: 100%;
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+`;
+
+export const Img = styled.img`
+  width: 67%;
+  object-fit: contain;
+`;
+
+export const RadioGroup = styled.div`
+  width: 33%;
+  height: 100%;
+`;
+
 export const TabItem = styled.div`
   cursor: pointer;
   display: flex;
@@ -29,5 +52,9 @@ export const TabItem = styled.div`
 
 export const TabBtn = styled.button`
   height: 30px;
+  margin-left: auto;
+`;
+
+export const RightGrid = styled.div`
   margin-left: auto;
 `;
