@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import {
-  Appbar,
+  Container,
   Logo,
   GoToLink,
   ShortMenu,
@@ -14,9 +14,12 @@ import {
   FlexAvatar,
   ImageCropper,
   ProfilePic,
+  LogoIcon,
+  LogoTitle,
+  LinkGroup,
 } from './styles';
+
 import {
-  SearchBar,
   StyledButtonComponent,
   StyledAvatarComponent,
   SimpleModal,
@@ -78,6 +81,9 @@ export const AuthenticatedHeaderView: React.FC = () => {
   const [showMenu, setShow] = useState(false);
   const [showAccount, setAccount] = useState(false);
 
+  const [oldPassword, setOld] = useState('');
+  const [newPassword, setNew] = useState('');
+
   const menuRef = useRef(null);
   useOutsideMenuAlerter(menuRef);
 
@@ -86,6 +92,7 @@ export const AuthenticatedHeaderView: React.FC = () => {
 
   const onClick = () => {
     setShow(true);
+    console.log(oldPassword + newPassword);
   };
   const onAccount = () => {
     setAccount(true);
@@ -102,9 +109,6 @@ export const AuthenticatedHeaderView: React.FC = () => {
   const changeAvatar = () => {
     console.log('changed avatar');
   };
-
-  const [oldPassword, setOld] = useState('');
-  const [newPassword, setNew] = useState('');
 
   return (
     <>
@@ -174,8 +178,7 @@ export const AuthenticatedHeaderView: React.FC = () => {
           </SimpleModal>
         </Screen>
       )}
-      <Appbar>
-        <Logo src="./grey-logo.png" />
+      <Container>
         <h1>Photo Share</h1>
         <RightGrid>
           <StyledButtonComponent buttonStyle="black" onClick={onClick}>
@@ -191,17 +194,22 @@ export const AuthenticatedHeaderView: React.FC = () => {
             </Flex>
           </StyledButtonComponent>
         </RightGrid>
-      </Appbar>
+      </Container>
     </>
   );
 };
 
-export const HeaderView: React.FC = () => {
+export const HeaderComponent: React.FC = () => {
   return (
-    <Appbar>
-      <Logo src="./grey-logo.png" />
-      <SearchBar type="text" placeholder="Search image..." />
-      <GoToLink to={PATH.LOGIN}>Log in</GoToLink>
-    </Appbar>
+    <Container>
+      <Logo to={PATH.HOME}>
+        <LogoIcon src="./logo.svg" />
+        <LogoTitle>PHOTOSHARE</LogoTitle>
+      </Logo>
+      <LinkGroup>
+        <GoToLink to={PATH.LOGIN}>Sign In</GoToLink>
+        <GoToLink to={PATH.REGISTER}>Sign Up</GoToLink>
+      </LinkGroup>
+    </Container>
   );
 };

@@ -14,7 +14,6 @@ export const MenuItem = styled.div`
   text-align: left;
   align-items: center;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   &:hover {
     background-color: #c3c3c3;

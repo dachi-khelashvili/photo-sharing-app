@@ -43,7 +43,6 @@ export const Heading = styled.div`
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 export const SignUp = styled.button`
@@ -58,7 +57,6 @@ export const SignUp = styled.button`
   text-align: center;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   transition: all 300ms;
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Label = styled.label`
   position: absolute;
   margin-left: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   transition: all 200ms;
 
   &#STATE_NORMAL {
@@ -33,7 +32,6 @@ export const Input = styled.input`
   outline: none;
 
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
 
   &#STATE_NORMAL {
