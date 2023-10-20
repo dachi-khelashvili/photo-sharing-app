@@ -9,15 +9,16 @@ export const StyledAvatar = styled.button<{
   cursor: pointer;
   border-radius: 50%;
   background-image: url(${({ src }) => src});
-  background-position-x: 50%;
-  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  object-fit: contain;
   margin: 10px;
   ${({ avatarStyle }) =>
     avatarStyle === 'large' &&
     `
-        width: 100px;
-        height: 100px;
-  background-size: auto 100px;
+      width: 200px;
+      height: 200px;
+      background-size: auto 200px;
     `};
   ${({ avatarStyle }) =>
     avatarStyle === 'normal' &&

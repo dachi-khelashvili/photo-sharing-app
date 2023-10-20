@@ -11,6 +11,7 @@ export const Container = styled.div`
 `;
 
 export const TabItem = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;

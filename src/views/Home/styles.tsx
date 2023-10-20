@@ -74,3 +74,22 @@ export const Notification = styled.div`
     line-height: 1;
   }
 `;
+
+export const Footer = styled.div`
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #555555;
+  width: 70%;
+  padding: 30px;
+`;
+
+export const FootContainer = styled.div`
+  position: absolute;
+  top: 750px;
+  width: 100%;
+  align-items: center;
+`;

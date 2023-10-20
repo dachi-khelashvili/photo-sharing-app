@@ -1,26 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { Container, MenuItem } from './styles';
+import { StyledLinkComponent } from 'components';
 
 export const MenuView: React.FC = () => {
   return (
     <Container>
       <MenuItem>
-        <Link
-          to="/gallery"
-          style={{ width: '100%', textDecoration: 'none', color: 'white' }}
-        >
-          <div style={{ margin: '10px' }}>Gallery</div>
-        </Link>
+        <StyledLinkComponent path="/gallery">Gallery</StyledLinkComponent>
       </MenuItem>
       <MenuItem>
-        <Link
-          to="/discussion"
-          style={{ width: '100%', textDecoration: 'none', color: 'white' }}
-        >
-          <div style={{ margin: '10px' }}>Discussion</div>
-        </Link>
+        <StyledLinkComponent path="/chatroom">Discussion</StyledLinkComponent>
       </MenuItem>
     </Container>
   );
