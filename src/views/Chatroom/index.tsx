@@ -2,246 +2,132 @@ import React, { useState } from 'react';
 import {
   AllUsers,
   Container,
-  FriendButton,
   MessageBox,
   MessageBoxFrame,
   MessageListFrame,
-  MessageListItemFrame,
-  MessageListItemText,
-  MessageListItemUser,
   SendButton,
   UserListFrame,
-  UserListItemFrame,
-  UserListItemAvatar,
-  UserListItemButton,
-  UserListItemName,
+  FriendModal,
+  Div,
+  P,
 } from './styles';
-import { Screen, SimpleModal } from 'components';
+import { Screen } from 'components';
+import { UserListItem } from './UserListItem';
+import { UserListItemAvatar } from './UserListItem/styles';
+import { MessageListItem } from './MessageListItem/indext';
 
-interface UserListIemProps {
-  name: string;
-  avatar: string;
-  disabled: boolean;
-  onClick: (e: string) => void;
-  friend: boolean;
-}
-
-const UserListItem: React.FC<UserListIemProps> = (props) => {
-  //  const [showModal, setShowModal] = useState(false);
-
-  return (
-    <UserListItemFrame>
-      <UserListItemButton
-        disabled={props.disabled}
-        onClick={() => {
-          props.onClick(props.name);
-        }}
-      >
-        <UserListItemAvatar src={props.avatar} />
-        <UserListItemName>{props.name}</UserListItemName>
-      </UserListItemButton>
-      {!props.friend && (
-        <FriendButton
-          onClick={() => {
-            props.onClick('##' + '*' + props.avatar + '*' + props.name);
-          }}
-        >
-          <img src="./add-friend.svg" style={{ width: '24px' }}></img>
-        </FriendButton>
-      )}
-    </UserListItemFrame>
-  );
-};
-
-interface MessageListItemProps {
-  from: {
-    name: string;
-    avatar: string;
-  };
-  to: {
-    name: string;
-    avatar: string;
-  };
-  text: string;
-}
-
-const MessageListItem: React.FC<MessageListItemProps> = (props) => {
-  return (
-    <MessageListItemFrame>
-      <MessageListItemUser>
-        {props.from.avatar && (
-          <UserListItemAvatar
-            src={props.from.avatar}
-            style={{
-              width: '40px',
-              height: '40px',
-            }}
-          ></UserListItemAvatar>
-        )}
-        {props.from.name != 'Me' && (
-          <UserListItemName
-            style={{ width: 'max-content', color: 'rgb(212, 23, 113)' }}
-          >
-            {props.from.name}
-          </UserListItemName>
-        )}
-        <img src="./send.svg" style={{ width: 'auto', height: '40px' }}></img>
-        {props.to.avatar && (
-          <UserListItemAvatar
-            src={props.to.avatar}
-            style={{
-              width: '40px',
-              height: '40px',
-            }}
-          ></UserListItemAvatar>
-        )}
-        {props.to.name != 'Me' && (
-          <UserListItemName
-            style={{ width: 'max-content', color: 'rgb(212, 23, 113)' }}
-          >
-            {props.to.name}
-          </UserListItemName>
-        )}
-      </MessageListItemUser>
-      <MessageListItemText>{props.text}</MessageListItemText>
-    </MessageListItemFrame>
-  );
-};
-
-export const ChatRoomView: React.FC = () => {
-  const [selectedUser, setSelectedUser] = useState('All');
-  const [msgBoxRow, setMsgBoxRow] = useState(1);
-  const [friendModal, showModal] = useState(false);
-
-  const onUserClick = (e: string) => {
-    const temp = e.split('*');
-    if (temp[0] != '##') setSelectedUser(e);
-    else {
-      setSelectedUser(
-        selectedUser.split('*')[0] + '*' + temp[1] + '*' + temp[2]
-      );
-      showModal(true);
-    }
-  };
-
-  const friends = [
-    {
+const friends = [
+  {
+    name: 'Iolanthe Claude',
+    avatar: './snoopy-1.jpg',
+    friend: true,
+  },
+  {
+    name: 'Vijaya Katarina',
+    avatar: './snoopy-2.jpg',
+    friend: true,
+  },
+];
+const users = [
+  {
+    name: 'Bruce Wang',
+    avatar: './snoopy-3.jpg',
+    friend: false,
+  },
+  {
+    name: 'Nakio Akira',
+    avatar: './snoopy-4.jpg',
+    friend: false,
+  },
+  {
+    name: 'Lily Potter',
+    avatar: './snoopy-5.jpg',
+    friend: false,
+  },
+];
+const messages = [
+  {
+    from: {
       name: 'Iolanthe Claude',
       avatar: './snoopy-1.jpg',
-      friend: true,
     },
-    {
-      name: 'Vijaya Katarina',
+    to: {
+      name: 'Everyone',
+      avatar: '',
+    },
+    text: 'Hi @Phoenix @Fatto I think both of you are really fan of "Despicable Me"\nAny fan of minions?',
+  },
+  {
+    from: {
+      name: 'Iolanthe Claude',
       avatar: './snoopy-2.jpg',
-      friend: true,
     },
-  ];
-  const users = [
-    {
-      name: 'Bruce Wang',
+    to: {
+      name: 'Me',
+      avatar: './snoopy-6.jpg',
+    },
+    text: 'i am\nspecially kevin\ndid you forget',
+  },
+  {
+    from: {
+      name: 'Me',
+      avatar: './snoopy-6.jpg',
+    },
+    to: {
+      name: 'Iolanthe Claude',
       avatar: './snoopy-3.jpg',
-      friend: false,
     },
-    {
-      name: 'Nakio Akira',
-      avatar: './snoopy-4.jpg',
-      friend: false,
+    text: 'Hey, we are looking for experienced moderators for an project on Ethereum, the salaries are very high https://discord.gg/gm9r4dyJa',
+  },
+  {
+    from: {
+      name: 'Me',
+      avatar: './snoopy-6.jpg',
     },
-    {
-      name: 'Lily Potter',
-      avatar: './snoopy-5.jpg',
-      friend: false,
+    to: {
+      name: 'Everyone',
+      avatar: '',
     },
-  ];
-  const messages = [
-    {
-      from: {
-        name: 'Iolanthe Claude',
-        avatar: './snoopy-1.jpg',
-      },
-      to: {
-        name: 'Everyone',
-        avatar: '',
-      },
-      text: 'Hi @Phoenix @Fatto I think both of you are really fan of "Despicable Me"\nAny fan of minions?',
-    },
-    {
-      from: {
-        name: 'Iolanthe Claude',
-        avatar: './snoopy-2.jpg',
-      },
-      to: {
-        name: 'Me',
-        avatar: './snoopy-6.jpg',
-      },
-      text: 'i am\nspecially kevin\ndid you forget',
-    },
-    {
-      from: {
-        name: 'Me',
-        avatar: './snoopy-6.jpg',
-      },
-      to: {
-        name: 'Iolanthe Claude',
-        avatar: './snoopy-3.jpg',
-      },
-      text: 'Hey, we are looking for experienced moderators for an project on Ethereum, the salaries are very high https://discord.gg/gm9r4dyJa',
-    },
-    {
-      from: {
-        name: 'Me',
-        avatar: './snoopy-6.jpg',
-      },
-      to: {
-        name: 'Everyone',
-        avatar: '',
-      },
-      text: 'Hey, we are looking for experienced web3 moderators (honest salary) https://discord.gg/wgp8J3bz',
-    },
-  ];
+    text: 'Hey, we are looking for experienced web3 moderators (honest salary) https://discord.gg/wgp8J3bz',
+  },
+];
+
+export const ChatRoomView: React.FC = () => {
+  const [userData, setUserData] = useState(['User', 'All', 'All', 'All']);
+  const [msgBoxRow, setMsgBoxRow] = useState(1);
+  const [isFriendModalShow, showFriendModal] = useState(false);
+
+  const onClickUserHandler = (data: [string, string, string, string]) => {
+    if (data[0] == 'Friend') {
+      showFriendModal(true);
+      setUserData([userData[0], userData[1], data[2], data[3]]);
+    } else setUserData(data);
+  };
 
   return (
     <Container>
-      {friendModal && (
+      {isFriendModalShow && (
         <Screen>
-          <SimpleModal style={{ padding: '20px' }}>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div>Friend Request</div>
-              <div>
-                <UserListItemAvatar src={selectedUser.split('*')[1]} />
-                <UserListItemName>
-                  {selectedUser.split('*')[2]}
-                </UserListItemName>
-              </div>
-            </div>
-            <button
-              onClick={() => {
-                showModal(false);
-              }}
-            >
-              Ok
-            </button>
-            <button
-              onClick={() => {
-                showModal(false);
-              }}
-            >
-              Cancil
-            </button>
-          </SimpleModal>
+          <FriendModal>
+            <P>
+              Do you really want to send Friend Request to <b>{userData[2]}</b>?
+            </P>
+            <Div>
+              <UserListItemAvatar
+                src={userData[3]}
+                width="128px"
+                height="128px"
+              />
+              <SendButton onClick={() => showFriendModal(false)}>OK</SendButton>
+            </Div>
+          </FriendModal>
         </Screen>
       )}
       <UserListFrame>
         <AllUsers
-          disabled={selectedUser == 'All'}
+          disabled={userData[1] == 'All'}
           onClick={() => {
-            onUserClick('All');
+            onClickUserHandler(['User', 'All', 'All', 'All']);
           }}
         >
           To Everyone
@@ -251,11 +137,9 @@ export const ChatRoomView: React.FC = () => {
             <UserListItem
               name={value.name}
               avatar={value.avatar}
-              disabled={value.name == selectedUser.split('*')[0]}
+              disabled={value.name == userData[1]}
               friend={value.friend}
-              onClick={(e) => {
-                onUserClick(e);
-              }}
+              onClick={onClickUserHandler}
             />
           );
         })}
@@ -264,11 +148,9 @@ export const ChatRoomView: React.FC = () => {
             <UserListItem
               name={value.name}
               avatar={value.avatar}
-              disabled={value.name == selectedUser.split('*')[0]}
+              disabled={value.name == userData[1]}
               friend={value.friend}
-              onClick={(e) => {
-                onUserClick(e);
-              }}
+              onClick={onClickUserHandler}
             />
           );
         })}
@@ -288,8 +170,7 @@ export const ChatRoomView: React.FC = () => {
         <MessageBox
           rows={msgBoxRow}
           onChange={(e) => {
-            const temp = e.target.value;
-            setMsgBoxRow(Math.min(temp.split('\n').length, 20));
+            setMsgBoxRow(e.target.value.split('\n').length);
           }}
         ></MessageBox>
         <SendButton>Send</SendButton>

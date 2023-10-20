@@ -110,16 +110,16 @@ export const HeaderView: React.FC = () => {
               <div className="flex space-between">
                 <div className="grid col-8">
                   <PasswordInput
-                    validate={true}
-                    value={oldPassword}
+                    isValidatable={true}
                     label="old password"
                     onChange={(e) => setOld(e)}
                   />
                   <PasswordInput
-                    validate={true}
-                    value={newPassword}
+                    isValidatable={true}
                     label="new password"
-                    onChange={(e) => setNew(e)}
+                    onChange={(e) => {
+                      setNew(e), console.log(newPassword + oldPassword);
+                    }}
                   />
                   <div style={{ marginLeft: 'auto' }}>
                     <StyledButtonComponent
