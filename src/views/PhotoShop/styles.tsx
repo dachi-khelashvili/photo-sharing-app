@@ -21,13 +21,7 @@ interface CardProps {
   open: boolean;
 }
 
-export const Card: React.FC<CardProps> = ({
-  src,
-  uploader,
-  time,
-  width,
-  open,
-}) => {
+export const Card: React.FC<CardProps> = ({ src, uploader, time, width }) => {
   return (
     <CardStyle width={width}>
       <img src={src} alt={src} style={{ width: '100%' }} />

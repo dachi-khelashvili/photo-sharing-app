@@ -46,6 +46,7 @@ export const Tab: React.FC = () => {
     console.log('upload file');
   };
   const changeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(title);
     setTitle(event.target.value);
   };
   const changeDescription = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

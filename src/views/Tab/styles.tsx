@@ -43,7 +43,6 @@ export const TabItem = styled.div`
   border: none;
   height: 50px;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   &:hover {
     background-color: #c3c3c3;

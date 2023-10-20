@@ -8,7 +8,6 @@ export const StyledTextArea = styled.textarea`
   border: none;
   border-radius: 5px;
   inline-size: 1;
-  font-family: sans-serif;
   font-size: 18px;
   &:focus {
     outline: none;
