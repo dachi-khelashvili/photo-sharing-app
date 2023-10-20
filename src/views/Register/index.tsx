@@ -14,15 +14,15 @@ export const RegisterView: React.FC = () => {
   const navigate = useNavigate();
 
   const onJoin = () => {
-    console.log({ fname, lname, email, password, confirm });
     if (
       fname.length &&
       lname.length &&
       email.length &&
       password.length &&
-      confirm.length
+      confirm.length &&
+      password == confirm
     )
-      if (password == confirm) navigate(PATH.LOGIN);
+      navigate(PATH.LOGIN);
   };
 
   return (
@@ -30,37 +30,19 @@ export const RegisterView: React.FC = () => {
       <Frame>
         <Img src="./logowithoutletter.png" />
         <Heading>Sign up for PhotoShare</Heading>
-        <BasicInput
-          label="First Name"
-          onChange={(e) => {
-            setFirstName(e);
-          }}
-        ></BasicInput>
-        <BasicInput
-          label="Last Name"
-          onChange={(e) => {
-            setLastName(e);
-          }}
-        ></BasicInput>
-        <EmailInput
-          onChange={(e) => {
-            setEmail(e);
-          }}
-        ></EmailInput>
+        <BasicInput label="First Name" onChange={setFirstName} />
+        <BasicInput label="Last Name" onChange={setLastName} />
+        <EmailInput onChange={setEmail} />
         <PasswordInput
           label="Password"
-          validate={true}
-          onChange={(e) => {
-            setPassword(e);
-          }}
-        ></PasswordInput>
+          isValidatable={true}
+          onChange={setPassword}
+        />
         <PasswordInput
           label="Confirm"
-          validate={false}
-          onChange={(e) => {
-            setConfirm(e);
-          }}
-        ></PasswordInput>
+          isValidatable={false}
+          onChange={setConfirm}
+        />
         <SignUp onClick={onJoin}>Sign up</SignUp>
       </Frame>
     </Container>

@@ -19,6 +19,7 @@ export const SimpleModal = styled.div`
   height: fit-content;
   background-color: white;
   border-radius: 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
 `;

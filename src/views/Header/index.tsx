@@ -130,12 +130,12 @@ export const AuthenticatedHeaderView: React.FC = () => {
               <Flex>
                 <WidthGrid>
                   <PasswordInput
-                    validate={true}
+                    isValidatable={true}
                     label="old password"
                     onChange={setOld}
                   />
                   <PasswordInput
-                    validate={true}
+                    isValidatable={true}
                     label="new password"
                     onChange={setNew}
                   />

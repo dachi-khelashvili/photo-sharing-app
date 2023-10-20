@@ -6,12 +6,12 @@ export const Label = styled.label`
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   transition: all 200ms;
 
-  &#normal {
+  &#STATE_NORMAL {
     color: rgb(137, 137, 137);
     margin-top: 17px;
     font-size: 20px;
   }
-  &#edited {
+  &#STATE_EDITED {
     color: dodgerblue;
     margin-top: 8px;
     font-size: 15px;
@@ -33,17 +33,17 @@ export const Input = styled.input`
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
 
-  &#normal {
+  &#STATE_NORMAL {
     border-color: rgb(137, 137, 137);
   }
-  &#edited {
+  &#STATE_EDITED {
     border-color: dodgerblue;
   }
 
   z-index: 1;
 `;
 
-export const Frame = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;

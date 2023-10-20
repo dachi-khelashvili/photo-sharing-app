@@ -1,53 +1,57 @@
 import React, { useState } from 'react';
-import { Label, Input, Frame, WeakLabel, Button } from './styles';
+import { Label, Input, Container, InvalidLabel } from './styles';
+import { validatePassword } from 'consts';
+import { IconButton } from 'components';
 
 interface PasswordInputProps {
   onChange: (e: string) => void;
   label: string;
-  validate: boolean;
+  isValidatable: boolean;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
-  const [state, setState] = useState('normal');
-  const [eye, setEye] = useState('password');
+  const [state, setState] = useState('STATE_NORMAL');
+  const [inputType, setInputType] = useState('password');
 
   return (
-    <Frame>
+    <Container>
       <Label id={state}>
-        <WeakLabel id={state}>Weak</WeakLabel>
+        <InvalidLabel id={state}>Weak</InvalidLabel>
         {props.label}
       </Label>
       <Input
-        type={eye}
+        type={inputType}
         id={state}
         onChange={(e) => {
           const temp = e.target.value;
-          if (props.validate == true) {
-            if (temp.length >= 8) {
-              setState('edited');
+          if (props.isValidatable == true) {
+            if (validatePassword(temp)) {
+              setState('STATE_EDITED');
               props.onChange(temp);
             } else {
-              setState('weak');
+              setState('STATE_INVALID');
               props.onChange('');
             }
           } else props.onChange(temp);
         }}
         onFocus={() => {
-          if (state != 'weak') setState('edited');
+          if (state != 'STATE_INVALID') setState('STATE_EDITED');
         }}
         onBlur={(e) => {
-          const temp = e.target.value;
-          if (temp.length == 0) setState('normal');
+          if (e.target.value.length == 0) setState('STATE_NORMAL');
         }}
       ></Input>
-      <Button
-        id={state}
-        icon={eye}
+      <IconButton
+        width="40px"
+        height="40px"
+        marginLeft="-50px"
+        marginRight="10px"
+        iconPath={'./' + inputType + '-eye.png'}
         onClick={() => {
-          if (eye == 'password') setEye('normal');
-          else setEye('password');
+          if (inputType == 'password') setInputType('normal');
+          else setInputType('password');
         }}
-      ></Button>
-    </Frame>
+      />
+    </Container>
   );
 };
