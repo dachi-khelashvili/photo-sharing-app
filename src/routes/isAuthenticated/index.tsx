@@ -4,7 +4,6 @@ import { PATH } from 'consts';
 import { Routes, Route } from 'react-router-dom';
 
 import {
-  AuthenticatedHeader,
   LoginPage,
   HomePage,
   RegisterPage,
@@ -17,7 +16,6 @@ import {
 export const IsAuthenticatedRoute: React.FC = () => {
   return (
     <>
-      <AuthenticatedHeader />
       <Routes>
         <Route path={PATH.HOME} element={<HomePage />} />
         <Route path={PATH.LOGIN} element={<LoginPage />} />

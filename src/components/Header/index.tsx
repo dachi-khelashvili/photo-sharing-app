@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import {
-  Appbar,
+  Container,
   Logo,
   GoToLink,
   ShortMenu,
@@ -13,9 +13,12 @@ import {
   FlexAvatar,
   ImageCropper,
   ProfilePic,
+  LogoIcon,
+  LogoTitle,
+  LinkGroup,
 } from './styles';
+
 import {
-  SearchBar,
   StyledButtonComponent,
   StyledAvatarComponent,
   PasswordInput,
@@ -40,6 +43,9 @@ export const AuthenticatedHeaderView: React.FC = () => {
   const [oldPassword, setOldPassword] = useState<string>('');
   const [newPassword, setNewPassword] = useState<string>('');
 
+  const [oldPassword, setOld] = useState('');
+  const [newPassword, setNew] = useState('');
+
   const menuRef = useRef(null);
   useOutsideAlerter(menuRef, setShow);
 
@@ -48,6 +54,7 @@ export const AuthenticatedHeaderView: React.FC = () => {
 
   const onClick = () => {
     setShow(true);
+    console.log(oldPassword + newPassword);
   };
 
   const onAccount = () => {
@@ -137,8 +144,7 @@ export const AuthenticatedHeaderView: React.FC = () => {
           </SimpleModal>
         </Screen>
       )}
-      <Appbar>
-        <Logo src="./grey-logo.png" />
+      <Container>
         <h1>Photo Share</h1>
         <RightGrid>
           <StyledButtonComponent buttonStyle="black" onClick={onClick}>
@@ -154,17 +160,22 @@ export const AuthenticatedHeaderView: React.FC = () => {
             </Flex>
           </StyledButtonComponent>
         </RightGrid>
-      </Appbar>
+      </Container>
     </>
   );
 };
 
-export const HeaderView: React.FC = () => {
+export const HeaderComponent: React.FC = () => {
   return (
-    <Appbar>
-      <Logo src="./grey-logo.png" />
-      <SearchBar type="text" placeholder="Search image..." />
-      <GoToLink to={PATH.LOGIN}>Log in</GoToLink>
-    </Appbar>
+    <Container>
+      <Logo to={PATH.HOME}>
+        <LogoIcon src="./logo.svg" />
+        <LogoTitle>PHOTOSHARE</LogoTitle>
+      </Logo>
+      <LinkGroup>
+        <GoToLink to={PATH.LOGIN}>Sign In</GoToLink>
+        <GoToLink to={PATH.REGISTER}>Sign Up</GoToLink>
+      </LinkGroup>
+    </Container>
   );
 };

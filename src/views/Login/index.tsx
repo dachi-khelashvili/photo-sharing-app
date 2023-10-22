@@ -27,7 +27,7 @@ export const LoginView: React.FC = () => {
   return (
     <Container>
       <Frame>
-        <Img src="./logowithoutletter.png" />
+        <Img src="./logo.svg" />
         <Heading>Log in to PhotoShare</Heading>
         <EmailInput onChange={setEmail} />
         <PasswordInput

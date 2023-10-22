@@ -39,7 +39,7 @@ export const RegisterView: React.FC = () => {
   return (
     <Container>
       <Frame>
-        <Img src="./logowithoutletter.png" />
+        <Img src="./logo.svg" />
         <Heading>Sign up for PhotoShare</Heading>
         <BasicInput
           label="First Name"

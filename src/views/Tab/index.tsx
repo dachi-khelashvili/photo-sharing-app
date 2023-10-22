@@ -39,6 +39,7 @@ export const Tab: React.FC = () => {
   };
 
   const changeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(title);
     setTitle(event.target.value);
   };
 

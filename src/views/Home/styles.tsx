@@ -63,7 +63,6 @@ export const ContextStart = styled.div`
 `;
 
 export const Header = styled.div`
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   font-size: 24px;
   line-height: 1;
@@ -85,6 +84,7 @@ export const Header = styled.div`
 
 export const Caption = styled.div`
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
   font-size: 14px;
   line-height: 1;
   margin: 12px 0px;
@@ -99,7 +99,6 @@ export const Caption = styled.div`
 `;
 
 export const Description = styled.a`
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 14px;
 `;
 
@@ -107,6 +106,7 @@ export const Notification = styled.div`
   margin: 10px 0px;
   display: flex;
   justify-content: center;
+  color: white;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 18px;
   @media (min-width: 768px) {

@@ -28,42 +28,59 @@ export const RightGrid = styled.div`
   margin-left: auto;
 `;
 
-export const Appbar = styled.div`
-  display: flex;
-  /* position: absolute; */
-  width: 100%;
+export const Container = styled.header`
+  position: sticky;
+  top: 0;
   height: 60px;
-  padding: 12px;
+  padding: 0 20px;
+  border: 3px solid white;
+  border-width: 0 0 3px 0;
+
+  background-color: white;
+  box-shadow: 0 0 5px 0 black;
+
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
-export const Logo = styled.img`
-  height: 100%;
-  object-fit: cover;
-  margin-right: 2%;
+export const Logo = styled(Link)`
+  color: rgb(34, 34, 34);
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  text-decoration: none;
+
+  &:hover {
+    color: rgb(34, 34, 34);
+  }
+`;
+
+export const LogoIcon = styled.img`
+  width: auto;
+  height: 32px;
+`;
+
+export const LogoTitle = styled.h1`
+  margin: 0;
+  padding: 0;
+
+  font-size: 20px;
+`;
+
+export const LinkGroup = styled.div`
+  display: flex;
+  gap: 20px;
 `;
 
 export const GoToLink = styled(Link)`
-  text-decoration-line: none;
-  display: inline;
-  margin-left: auto;
-  margin-right: 2%;
-  font-weight: 500;
-  color: #6d6d6d;
-  &:hover {
-    color: #1b1b1b;
-  }
+  color: rgb(34, 34, 34);
 
-  font-size: 14px;
-  line-height: 1;
-  @media (min-width: 768px) {
-    font-size: 14px;
-    line-height: 1;
-  }
-  @media (min-width: 1024px) {
-    font-size: 18px;
-    line-height: 1;
-  }
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
 `;
 
 export const ShortMenu = styled.div`
@@ -92,9 +109,7 @@ export const Avatar = styled.img`
   margin: 10px;
 `;
 
-export const Description = styled.a`
-  font-family: sans-serif;
-`;
+export const Description = styled.a``;
 
 export const ImageCropper = styled.div`
   width: 40px;

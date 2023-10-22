@@ -44,7 +44,6 @@ export const Heading = styled.div`
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 export const Comment = styled.div`
@@ -52,7 +51,6 @@ export const Comment = styled.div`
 
   text-align: center;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;
 
 export const Group = styled.div`
@@ -79,7 +77,6 @@ export const SignIn = styled.button`
   text-align: center;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   transition: all 300ms;
 
@@ -106,7 +103,6 @@ export const SignUp = styled(Link)`
   text-align: center;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   transition: all 300ms;
 

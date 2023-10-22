@@ -1,4 +1,4 @@
-export * from './Header';
+export * from '../components/Header';
 export * from './Home';
 export * from './Login';
 export * from './Register';
