@@ -43,9 +43,6 @@ export const AuthenticatedHeaderView: React.FC = () => {
   const [oldPassword, setOldPassword] = useState<string>('');
   const [newPassword, setNewPassword] = useState<string>('');
 
-  const [oldPassword, setOld] = useState('');
-  const [newPassword, setNew] = useState('');
-
   const menuRef = useRef(null);
   useOutsideAlerter(menuRef, setShow);
 
