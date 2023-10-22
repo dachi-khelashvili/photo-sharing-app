@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export type StyledButtonType = 'transparent' | 'blue' | 'black' | 'green';
 
-export const StyledButton = styled.button<{ buttonStyle: StyledButtonType }>`
+export const StyledButton = styled.button<{ buttonstyle: StyledButtonType }>`
   cursor: pointer;
   display: inline;
   border: none;
@@ -11,16 +11,16 @@ export const StyledButton = styled.button<{ buttonStyle: StyledButtonType }>`
   font-size: 14px;
   inline-size: 1;
   border-radius: 10px;
-  ${({ buttonStyle }) =>
-    buttonStyle === 'transparent' &&
+  ${({ buttonstyle }) =>
+    buttonstyle === 'transparent' &&
     `background: none;
     color: #ffffff;
     &:hover {
         color: #1b1b1b;
     }
     `};
-  ${({ buttonStyle }) =>
-    buttonStyle === 'blue' &&
+  ${({ buttonstyle }) =>
+    buttonstyle === 'blue' &&
     `background-color: #1eff00;
     color: #000000;
     font-size:16px;
@@ -28,8 +28,8 @@ export const StyledButton = styled.button<{ buttonStyle: StyledButtonType }>`
         background-color: #c3ff00;
     }
     `};
-  ${({ buttonStyle }) =>
-    buttonStyle === 'green' &&
+  ${({ buttonstyle }) =>
+    buttonstyle === 'green' &&
     `background-color: #1eff00;
     color: #000000;
     margin-left: auto;
@@ -38,8 +38,8 @@ export const StyledButton = styled.button<{ buttonStyle: StyledButtonType }>`
         background-color: #c3ff00;
     }
     `};
-  ${({ buttonStyle }) =>
-    buttonStyle === 'black' &&
+  ${({ buttonstyle }) =>
+    buttonstyle === 'black' &&
     `background: none;
     font-size: 24px;
     color: #000000;
