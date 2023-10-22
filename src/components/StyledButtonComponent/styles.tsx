@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-export type StyledButtonType = 'transparent' | 'blue' | 'black';
+export type StyledButtonType = 'transparent' | 'blue' | 'black' | 'green';
 
 export const StyledButton = styled.button<{ buttonStyle: StyledButtonType }>`
   cursor: pointer;
   display: inline;
   border: none;
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
   font-size: 14px;
+  inline-size: 1;
   border-radius: 10px;
   ${({ buttonStyle }) =>
     buttonStyle === 'transparent' &&
@@ -20,17 +21,27 @@ export const StyledButton = styled.button<{ buttonStyle: StyledButtonType }>`
     `};
   ${({ buttonStyle }) =>
     buttonStyle === 'blue' &&
-    `background-color: blue;
-    color: #ffffff;
-    width: 100px;
-    font-size:24px;
+    `background-color: #1eff00;
+    color: #000000;
+    font-size:16px;
     &:hover {
-        background-color: #00078c;
+        background-color: #c3ff00;
+    }
+    `};
+  ${({ buttonStyle }) =>
+    buttonStyle === 'green' &&
+    `background-color: #1eff00;
+    color: #000000;
+    margin-left: auto;
+    font-size:16px;
+    &:hover {
+        background-color: #c3ff00;
     }
     `};
   ${({ buttonStyle }) =>
     buttonStyle === 'black' &&
     `background: none;
+    font-size: 24px;
     color: #000000;
     &:hover {
         color: #747474;

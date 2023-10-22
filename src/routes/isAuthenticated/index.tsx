@@ -11,6 +11,7 @@ import {
   DashboardPage,
   GalleryPage,
   ChatRoomPage,
+  PhotosPage,
 } from 'pages';
 ``;
 export const IsAuthenticatedRoute: React.FC = () => {
@@ -24,6 +25,7 @@ export const IsAuthenticatedRoute: React.FC = () => {
         <Route path={PATH.DASHBOARD} element={<DashboardPage />} />
         <Route path={PATH.GALLERY} element={<GalleryPage />} />
         <Route path={PATH.CHATROOM} element={<ChatRoomPage />} />
+        <Route path={PATH.PHOTOS} element={<PhotosPage />} />
       </Routes>
     </>
   );

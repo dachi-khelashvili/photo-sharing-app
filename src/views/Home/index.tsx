@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Image } from 'components';
+import { Image, GoToTopBtn } from 'components';
+// import { UpArrow } from './up-arrow.svg';
 
 import {
   Container,
@@ -22,7 +23,9 @@ import { SearchBar } from 'components';
 export const HomeView: React.FC = () => {
   return (
     <>
+      <GoToTopBtn />
       <Image src="./Photos.png" alt="back" />
+
       <Container>
         <Header>Photo Share</Header>
         <Caption>Create and share your images</Caption>

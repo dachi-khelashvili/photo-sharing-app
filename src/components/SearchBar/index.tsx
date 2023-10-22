@@ -7,7 +7,6 @@ export const SearchBar = styled.input`
   border-radius: 5px;
   margin: 12px 0px;
   width: 50vw;
-  min-width: 400px;
   background-color: #ebebeb;
 
   font-size: 12px;

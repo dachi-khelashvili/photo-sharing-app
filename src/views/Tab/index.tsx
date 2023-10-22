@@ -6,7 +6,7 @@ import {
   StyledInput,
   StyledTextAreaComponent,
 } from 'components';
-import { SimpleModal, Screen } from 'components/Modal';
+import { SimpleModal, Screen } from 'components/Modal/styles';
 import { Grid, Flex, Img, RadioGroup, RightGrid } from './styles';
 
 export const Tab: React.FC = () => {

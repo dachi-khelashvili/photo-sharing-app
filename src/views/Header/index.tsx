@@ -19,10 +19,9 @@ import {
   SearchBar,
   StyledButtonComponent,
   StyledAvatarComponent,
-  SimpleModal,
-  Screen,
   PasswordInput,
 } from 'components';
+import { SimpleModal, Screen } from 'components/Modal/styles';
 import { PATH } from 'consts';
 
 const AvatarsList = [
