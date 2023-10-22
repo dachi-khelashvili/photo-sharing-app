@@ -19,7 +19,13 @@ export const Modal: React.FC<ModalProps> = ({ handleCancel }) => {
   useOutsideAlerter(ref, handleCancel);
   useEscapeKey(handleCancel);
 
-  const [state, setState] = useState({
+  const [state, setState] = useState<{
+    file: File | null;
+    title: string;
+    status: string;
+    description: string;
+    tags: string;
+  }>({
     file: null,
     title: '',
     status: '',
@@ -31,15 +37,18 @@ export const Modal: React.FC<ModalProps> = ({ handleCancel }) => {
     console.log(state);
     handleCancel();
   };
+
   const handleFile = (e: File | null) => {
-    setState({ ...state, ['file']: e });
+    setState({ ...state, file: e });
   };
+
   const handleChange = (
     props: string,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setState({ ...state, [props]: e.target.value });
   };
+
   return (
     <Screen>
       <Container ref={ref}>

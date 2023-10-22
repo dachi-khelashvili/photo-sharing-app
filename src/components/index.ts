@@ -16,3 +16,4 @@ export * from './IconButton';
 export * from './GoToTopBtn';
 export * from './ImageCard';
 export * from './Selector';
+export * from './Pagination';

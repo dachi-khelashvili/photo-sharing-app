@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from 'react';
 
 import { StyledGoToTopBtn, SVG } from './styles';
-// import { UpArrow } from './up-arrow.svg';
 
-export const GoToTopBtn = () => {
-  const [showTopBtn, setShowTopBtn] = useState(false);
+export const GoToTopBtn: React.FC = () => {
+  const [showTopButton, setShowTopButton] = useState(false);
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const scrollListner = () => {
       if (window.scrollY > 400) {
-        setShowTopBtn(true);
+        setShowTopButton(true);
       } else {
-        setShowTopBtn(false);
+        setShowTopButton(false);
       }
-    });
+    };
+
+    window.addEventListener('scroll', scrollListner);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListner);
+    };
   }, []);
+
   const goToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   };
+
+  if (!showTopButton) {
+    return null;
+  }
+
   return (
-    showTopBtn && (
-      <StyledGoToTopBtn onClick={goToTop}>
-        <SVG src="./up-arrow.svg" />
-      </StyledGoToTopBtn>
-    )
+    <StyledGoToTopBtn onClick={goToTop}>
+      <SVG src="./up-arrow.svg" />
+    </StyledGoToTopBtn>
   );
 };

@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react';
 
-type OutsideAlerterProps = {
-  ref: React.MutableRefObject<HTMLElement>;
-  handleEvent: () => void;
-};
-
-export const useOutsideAlerter: React.FC<OutsideAlerterProps> = (
-  ref,
-  handleEvent
+export const useOutsideAlerter = (
+  ref: React.RefObject<HTMLElement>,
+  setStatus: (status: boolean) => void
 ) => {
   useEffect(() => {
     /**
@@ -15,11 +10,14 @@ export const useOutsideAlerter: React.FC<OutsideAlerterProps> = (
      */
     function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target as Node)) {
-        handleEvent();
+        // alert('You clicked outside of me!');
+        setStatus(false);
       }
     }
+
     // Bind the event listener
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener('mousedown', handleClickOutside);

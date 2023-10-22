@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-
+import React, { useState, useRef } from 'react';
 import {
   Appbar,
   Logo,
@@ -23,6 +22,7 @@ import {
 } from 'components';
 import { SimpleModal, Screen } from 'components/Modal/styles';
 import { PATH } from 'consts';
+import { useOutsideAlerter } from 'hooks';
 
 const AvatarsList = [
   './snoopy-1.jpg',
@@ -34,62 +34,27 @@ const AvatarsList = [
 ];
 
 export const AuthenticatedHeaderView: React.FC = () => {
-  const useOutsideMenuAlerter = (ref: React.RefObject<HTMLElement>) => {
-    useEffect(() => {
-      /**
-       * Alert if clicked on outside of element
-       */
-      function handleClickOutside(event: MouseEvent) {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-          // alert('You clicked outside of me!');
-          setShow(false);
-        }
-      }
-      // Bind the event listener
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, [ref]);
-  };
+  const [showMenu, setShow] = useState<boolean>(false);
+  const [showAccount, setAccount] = useState<boolean>(false);
 
-  const useOutsideAccountAlerter = (ref: React.RefObject<HTMLElement>) => {
-    useEffect(() => {
-      /**
-       * Alert if clicked on outside of element
-       */
-      function handleClickOutside(event: MouseEvent) {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-          // alert('You clicked outside of me!');
-          setAccount(false);
-        }
-      }
-      // Bind the event listener
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, [ref]);
-  };
-
-  const [showMenu, setShow] = useState(false);
-  const [showAccount, setAccount] = useState(false);
+  const [oldPassword, setOldPassword] = useState<string>('');
+  const [newPassword, setNewPassword] = useState<string>('');
 
   const menuRef = useRef(null);
-  useOutsideMenuAlerter(menuRef);
+  useOutsideAlerter(menuRef, setShow);
 
   const accountRef = useRef(null);
-  useOutsideAccountAlerter(accountRef);
+  useOutsideAlerter(accountRef, setAccount);
 
   const onClick = () => {
     setShow(true);
   };
+
   const onAccount = () => {
     setAccount(true);
     console.log('Account');
   };
+
   const onLogout = () => {
     console.log('Logout');
   };
@@ -101,9 +66,6 @@ export const AuthenticatedHeaderView: React.FC = () => {
   const changeAvatar = () => {
     console.log('changed avatar');
   };
-
-  const [oldPassword, setOld] = useState('');
-  const [newPassword, setNew] = useState('');
 
   return (
     <>
@@ -129,14 +91,16 @@ export const AuthenticatedHeaderView: React.FC = () => {
               <Flex>
                 <WidthGrid>
                   <PasswordInput
+                    value={oldPassword}
                     isValidatable={true}
                     label="old password"
-                    onChange={setOld}
+                    onChange={setOldPassword}
                   />
                   <PasswordInput
+                    value={newPassword}
                     isValidatable={true}
                     label="new password"
-                    onChange={setNew}
+                    onChange={setNewPassword}
                   />
                   <RightGrid>
                     <StyledButtonComponent

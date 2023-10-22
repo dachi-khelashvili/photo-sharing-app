@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { Flex, FlexItem, Typography, Search, Wrap } from './styles';
-import { PaginationBar } from './pagination';
 import {
   StyledButtonComponent,
   ImageCard,
   Modal,
   EditModal,
   Selector,
+  PaginationBar,
 } from 'components';
 import { getData, PageSize } from 'consts';
 

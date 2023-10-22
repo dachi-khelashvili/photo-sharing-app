@@ -48,7 +48,6 @@ export const PhotoShop: React.FC = () => {
             src={value.src}
             uploader={value.uploader}
             time={value.time}
-            open={open[index]}
             width={
               Math.floor(Math.random() * (600 - 200 + 1) + 200).toString() +
               'px'

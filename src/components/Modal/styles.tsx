@@ -81,18 +81,20 @@ const ContentFit = styled.img`
 `;
 
 type UploadImageProps = {
-  file: File;
   handleFile: (e: File | null) => void;
 };
 
 export const UploadImage: React.FC<UploadImageProps> = ({ handleFile }) => {
   const [file, setFile] = useState<File | null>(null);
+
   const handleEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) setFile(event.target.files[0]);
   };
+
   useEffect(() => {
     handleFile(file);
   }, [file]);
+
   return (
     <ImageContainer>
       <StyledUpload>

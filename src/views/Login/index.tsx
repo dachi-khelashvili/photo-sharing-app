@@ -31,6 +31,7 @@ export const LoginView: React.FC = () => {
         <Heading>Log in to PhotoShare</Heading>
         <EmailInput onChange={setEmail} />
         <PasswordInput
+          value={password}
           isValidatable={false}
           label="Password"
           onChange={setPassword}

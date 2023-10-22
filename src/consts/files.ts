@@ -6,7 +6,7 @@ export const getData = () => {
         path: './photos/' + i + '.jpg',
         uploader: 'Bruce',
         title: 'Cute Cat',
-        status: true,
+        status: 'public',
         description: 'Hello',
         tags: 'AI',
       },

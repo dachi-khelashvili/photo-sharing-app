@@ -134,7 +134,7 @@ const TextBox = styled.input`
 
 type StateType = {
   title: string;
-  status: boolean;
+  status: string;
   description: string;
   tags: string;
 };

@@ -1,28 +1,39 @@
-import { PATH } from 'consts';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Frame, Heading, SignUp, Img } from './styles';
+import { PATH } from 'consts';
 import { EmailInput, PasswordInput, BasicInput } from 'components';
+import { IRegisterUserInfo } from 'types';
+import { Container, Frame, Heading, SignUp, Img } from './styles';
 
 export const RegisterView: React.FC = () => {
-  const [fname, setFirstName] = useState('');
-  const [lname, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirm, setConfirm] = useState('');
+  const [registerUserInfo, setRegisterUserInfo] = useState<IRegisterUserInfo>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
   const navigate = useNavigate();
 
   const onJoin = () => {
     if (
-      fname.length &&
-      lname.length &&
-      email.length &&
-      password.length &&
-      confirm.length &&
-      password == confirm
-    )
+      registerUserInfo.firstName.length &&
+      registerUserInfo.lastName.length &&
+      registerUserInfo.email.length &&
+      registerUserInfo.password.length &&
+      registerUserInfo.confirmPassword.length &&
+      registerUserInfo.password == registerUserInfo.confirmPassword
+    ) {
       navigate(PATH.LOGIN);
+    }
+  };
+
+  const onRegisterUserInfoChange = (field: string, newValue: string) => {
+    setRegisterUserInfo({
+      ...registerUserInfo,
+      [field]: newValue,
+    });
   };
 
   return (
@@ -30,18 +41,36 @@ export const RegisterView: React.FC = () => {
       <Frame>
         <Img src="./logowithoutletter.png" />
         <Heading>Sign up for PhotoShare</Heading>
-        <BasicInput label="First Name" onChange={setFirstName} />
-        <BasicInput label="Last Name" onChange={setLastName} />
-        <EmailInput onChange={setEmail} />
-        <PasswordInput
-          label="Password"
-          isValidatable={true}
-          onChange={setPassword}
+        <BasicInput
+          label="First Name"
+          onChange={(newValue) =>
+            onRegisterUserInfoChange('firstName', newValue)
+          }
+        />
+        <BasicInput
+          label="Last Name"
+          onChange={(newValue) =>
+            onRegisterUserInfoChange('lastName', newValue)
+          }
+        />
+        <EmailInput
+          onChange={(newValue) => onRegisterUserInfoChange('email', newValue)}
         />
         <PasswordInput
+          value={registerUserInfo.password}
+          label="Password"
+          isValidatable={true}
+          onChange={(newValue) =>
+            onRegisterUserInfoChange('password', newValue)
+          }
+        />
+        <PasswordInput
+          value={registerUserInfo.confirmPassword}
           label="Confirm"
           isValidatable={false}
-          onChange={setConfirm}
+          onChange={(newValue) =>
+            onRegisterUserInfoChange('confirmPassword', newValue)
+          }
         />
         <SignUp onClick={onJoin}>Sign up</SignUp>
       </Frame>

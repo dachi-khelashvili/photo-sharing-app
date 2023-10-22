@@ -33,6 +33,8 @@ export const RadioGroup = styled.div`
   height: 100%;
 `;
 
+export const TitleInputContainer = styled.div``;
+
 export const TabItem = styled.div`
   cursor: pointer;
   display: flex;
