@@ -1,15 +1,9 @@
 import React from 'react';
-
-import { Image, GoToTopBtn } from 'components';
-// import { UpArrow } from './up-arrow.svg';
-
+import { Image, GoToTopBtn, SearchBar } from 'components';
 import {
   Container,
   Header,
   Caption,
-  Footer,
-  FootContainer,
-  Notification,
   Description,
   Block,
   BlockReverse,
@@ -17,8 +11,6 @@ import {
   ContextStart,
   ImageContainer,
 } from './styles';
-
-import { SearchBar } from 'components';
 
 export const HomeView: React.FC = () => {
   return (
@@ -62,12 +54,6 @@ export const HomeView: React.FC = () => {
           </Description>
         </ContextEnd>
       </BlockReverse>
-      <FootContainer>
-        <Footer>
-          <Notification>PhotoShare 2023</Notification>
-          <Caption>Thanks for visiting PhotoShare</Caption>
-        </Footer>
-      </FootContainer>
     </>
   );
 };
