@@ -1,15 +1,11 @@
+import { HTMLAttributes } from 'react';
 import { Input } from './styles';
 
-type StyledInputProps = {
-  width: string;
-  label: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface LabeledInputProps extends HTMLAttributes<HTMLInputElement> {
+  value: string;
+}
 
-export const StyledInput: React.FC<StyledInputProps> = ({
-  width,
-  label,
-  onChange,
-}) => {
-  return <Input width={width} placeholder={label} onChange={onChange} />;
+export const LabeledInput: React.FC<LabeledInputProps> = (props) => {
+  return <Input {...props} />;
 };

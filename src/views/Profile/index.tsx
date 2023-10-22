@@ -33,11 +33,13 @@ export const ProfileView: React.FC = () => {
                 onChange={setUsername}
               />
               <PasswordInput
+                value={password}
                 label="Password"
                 isValidatable={true}
                 onChange={setPassword}
               />
               <PasswordInput
+                value={password}
                 label="Confirm Password"
                 isValidatable={false}
                 onChange={setConfirm}

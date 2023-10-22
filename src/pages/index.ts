@@ -5,3 +5,4 @@ export * from './Gallery';
 export * from './Dashboard';
 export * from './Chatroom';
 export * from './Profile';
+export * from './Photos';

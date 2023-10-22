@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -12,6 +12,7 @@ import {
 
 import { StyledLink, StyledButton, StyledAvatar } from 'components';
 import { PATH } from 'consts';
+import { useOutsideAlerter } from 'hooks';
 interface HeaderComponentProps {
   isAuthenticated: boolean;
   setAuthentication: (e: boolean) => void;
@@ -20,24 +21,10 @@ interface HeaderComponentProps {
 export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
   const [isMenuShowed, showMenu] = useState(false);
 
-  const useOutsideMenuAlerter = (ref: React.RefObject<HTMLElement>) => {
-    useEffect(() => {
-      function handleClickOutside(event: MouseEvent) {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-          showMenu(false);
-        }
-      }
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, [ref]);
-  };
-
   const navigate = useNavigate();
 
   const menuRef = useRef(null);
-  useOutsideMenuAlerter(menuRef);
+  useOutsideAlerter(menuRef, showMenu);
 
   const onClickMyProfileAlerter = () => {
     navigate(PATH.PROFILE);

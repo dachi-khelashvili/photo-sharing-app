@@ -1,7 +1,5 @@
 import React from 'react';
-
-import { Image } from 'components';
-
+import { Image, GoToTopBtn, SearchBar } from 'components';
 import {
   Container,
   Header,
@@ -14,12 +12,12 @@ import {
   ImageContainer,
 } from './styles';
 
-import { SearchBar } from 'components';
-
 export const HomeView: React.FC = () => {
   return (
     <>
+      <GoToTopBtn />
       <Image src="./photos.png" alt="back" />
+
       <Container>
         <Header>Photo Share</Header>
         <Caption>Create and share your images</Caption>

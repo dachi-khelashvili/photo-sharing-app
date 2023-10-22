@@ -4,13 +4,18 @@ import { validatePassword } from 'consts';
 import { IconButton } from 'components';
 
 interface PasswordInputProps {
+  value: string;
   onChange: (e: string) => void;
   label: string;
   isValidatable: boolean;
-  value: string;
 }
 
-export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
+export const PasswordInput: React.FC<PasswordInputProps> = ({
+  value,
+  onChange,
+  label,
+  isValidatable,
+}) => {
   const [state, setState] = useState('STATE_NORMAL');
   const [inputType, setInputType] = useState('password');
 
@@ -18,23 +23,23 @@ export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
     <Container>
       <Label state={state}>
         <InvalidLabel state={state}>Weak</InvalidLabel>
-        {props.label}
+        {label}
       </Label>
       <Input
+        value={value}
         type={inputType}
         state={state}
-        value={props.value}
         onChange={(e) => {
           const temp = e.target.value;
-          if (props.isValidatable == true) {
+          if (isValidatable == true) {
             if (validatePassword(temp)) {
               setState('STATE_EDITED');
-              props.onChange(temp);
+              onChange(temp);
             } else {
               setState('STATE_INVALID');
-              props.onChange('');
+              onChange(temp);
             }
-          } else props.onChange(temp);
+          } else onChange(temp);
         }}
         onFocus={() => {
           if (state != 'STATE_INVALID') setState('STATE_EDITED');

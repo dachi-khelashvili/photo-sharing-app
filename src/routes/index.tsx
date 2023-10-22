@@ -11,6 +11,7 @@ import {
   GalleryPage,
   ChatRoomPage,
   ProfilePage,
+  PhotosPage,
 } from 'pages';
 ``;
 
@@ -34,6 +35,7 @@ export const RouteComponent: React.FC<RouteComponentProps> = (props) => {
           <Route path={PATH.GALLERY} element={<GalleryPage />} />
           <Route path={PATH.CHATROOM} element={<ChatRoomPage />} />
           <Route path={PATH.PROFILE} element={<ProfilePage />} />
+          <Route path={PATH.PHOTOS} element={<PhotosPage />} />
         </Routes>
       ) : (
         <Routes>
