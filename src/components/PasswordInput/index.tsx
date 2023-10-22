@@ -7,6 +7,7 @@ interface PasswordInputProps {
   onChange: (e: string) => void;
   label: string;
   isValidatable: boolean;
+  value: string;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
@@ -15,13 +16,14 @@ export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
 
   return (
     <Container>
-      <Label id={state}>
-        <InvalidLabel id={state}>Weak</InvalidLabel>
+      <Label state={state}>
+        <InvalidLabel state={state}>Weak</InvalidLabel>
         {props.label}
       </Label>
       <Input
         type={inputType}
-        id={state}
+        state={state}
+        value={props.value}
         onChange={(e) => {
           const temp = e.target.value;
           if (props.isValidatable == true) {
@@ -44,8 +46,8 @@ export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
       <IconButton
         width="40px"
         height="40px"
-        marginLeft="-50px"
-        marginRight="10px"
+        marginleft="-50px"
+        marginright="10px"
         iconPath={'./' + inputType + '-eye.png'}
         onClick={() => {
           if (inputType == 'password') setInputType('normal');

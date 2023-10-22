@@ -1,6 +1,10 @@
 import { LoginView } from 'views';
 import React from 'react';
 
-export const LoginPage: React.FC = () => {
-  return <LoginView />;
+interface LoginPageProps {
+  setAuthentication: (e: boolean) => void;
+}
+
+export const LoginPage: React.FC<LoginPageProps> = (props) => {
+  return <LoginView setAuthentication={props.setAuthentication} />;
 };

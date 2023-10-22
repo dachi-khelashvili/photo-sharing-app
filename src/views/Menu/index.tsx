@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { Container, MenuItem } from './styles';
-import { StyledLinkComponent } from 'components';
+import { Container } from './styles';
+import { StyledLink } from 'components';
 
 export const MenuView: React.FC = () => {
   return (
     <Container>
-      <MenuItem>
-        <StyledLinkComponent path="/gallery">Gallery</StyledLinkComponent>
-      </MenuItem>
-      <MenuItem>
-        <StyledLinkComponent path="/chatroom">Discussion</StyledLinkComponent>
-      </MenuItem>
+      <StyledLink to="/gallery" linkstyle="normal">
+        Community
+      </StyledLink>
+      <StyledLink to="/chatroom" linkstyle="normal">
+        Chatting Room
+      </StyledLink>
     </Container>
   );
 };

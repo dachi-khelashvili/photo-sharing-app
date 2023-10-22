@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Container, TabItem } from './styles';
 import {
-  StyledButtonComponent,
+  StyledButton,
   Radio,
   StyledInput,
   StyledTextAreaComponent,
@@ -81,12 +81,9 @@ export const Tab: React.FC = () => {
               <StyledTextAreaComponent onChange={changeDescription} />
               <div>
                 <div style={{ width: 'fit-content', margin: 'auto' }}>
-                  <StyledButtonComponent
-                    buttonStyle="blue"
-                    onClick={uploadFile}
-                  >
+                  <StyledButton buttonstyle="blue" onClick={uploadFile}>
                     Upload
-                  </StyledButtonComponent>
+                  </StyledButton>
                 </div>
               </div>
             </Grid>
@@ -98,9 +95,9 @@ export const Tab: React.FC = () => {
         <TabItem>My Photos</TabItem>
         <TabItem>Friends</TabItem>
         <RightGrid>
-          <StyledButtonComponent buttonStyle="transparent" onClick={onClick}>
+          <StyledButton buttonstyle="transparent" onClick={onClick}>
             Upload
-          </StyledButtonComponent>
+          </StyledButton>
         </RightGrid>
       </Container>
     </>

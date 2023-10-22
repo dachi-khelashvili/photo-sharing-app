@@ -1,28 +1,34 @@
 import styled from 'styled-components';
 
-export const Label = styled.label`
+export const Label = styled.label<{ state: string }>`
   position: absolute;
   margin-left: 20px;
   transition: all 200ms;
 
-  &#STATE_NORMAL {
+  ${({ state }) =>
+    state === 'STATE_NORMAL' &&
+    `
     color: rgb(137, 137, 137);
     margin-top: 17px;
     font-size: 20px;
-  }
-  &#STATE_EDITED {
+  `}
+  ${({ state }) =>
+    state === 'STATE_EDITED' &&
+    `
     color: dodgerblue;
     margin-top: 8px;
     font-size: 15px;
-  }
-  &#STATE_INVALID {
+  `}
+  ${({ state }) =>
+    state === 'STATE_INVALID' &&
+    `
     color: red;
     margin-top: 8px;
     font-size: 15px;
-  }
+  `}
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{ state: string }>`
   color: rgb(60, 60, 60);
   background-color: transparent;
 
@@ -37,15 +43,21 @@ export const Input = styled.input`
   font-size: 20px;
   font-weight: normal;
 
-  &#STATE_NORMAL {
+  ${({ state }) =>
+    state === 'STATE_NORMAL' &&
+    `
     border-color: rgb(137, 137, 137);
-  }
-  &#STATE_EDITED {
+  `}
+  ${({ state }) =>
+    state === 'STATE_EDITED' &&
+    `
     border-color: dodgerblue;
-  }
-  &#STATE_INVALID {
+  `}
+  ${({ state }) =>
+    state === 'STATE_INVALID' &&
+    `
     border-color: red;
-  }
+  `}
 
   z-index: 1;
 `;
@@ -56,12 +68,14 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
-export const InvalidLabel = styled.div`
+export const InvalidLabel = styled.div<{ state: string }>`
   color: red;
   display: none;
   margin-right: 5px;
 
-  &#STATE_INVALID {
+  ${({ state }) =>
+    state === 'STATE_INVALID' &&
+    `
     display: inline-block;
-  }
+  `}
 `;

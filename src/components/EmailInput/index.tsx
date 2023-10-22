@@ -4,26 +4,28 @@ import { Label, Input, Containter, InvalidLabel } from './styles';
 import { validateEmail } from 'consts';
 interface EmailInputProps {
   onChange: (e: string) => void;
+  value: string;
 }
 
-export const EmailInput: React.FC<EmailInputProps> = ({ onChange }) => {
+export const EmailInput: React.FC<EmailInputProps> = ({ onChange, value }) => {
   const [state, setState] = useState('STATE_NORMAL');
 
   return (
     <Containter>
-      <Label id={state}>
-        <InvalidLabel id={state}>Invalid</InvalidLabel>Email Address
+      <Label state={state}>
+        <InvalidLabel state={state}>Invalid</InvalidLabel>Email Address
       </Label>
       <Input
-        id={state}
+        state={state}
+        value={value}
         onChange={(e) => {
           const temp = e.target.value;
           if (validateEmail(temp)) {
             setState('STATE_EDITED');
-            onChange(temp);
+            onChange('#' + temp);
           } else {
             setState('STATE_INVALID');
-            onChange('');
+            onChange('$' + temp);
           }
         }}
         onFocus={() => {

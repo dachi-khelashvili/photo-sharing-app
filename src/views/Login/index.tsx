@@ -4,41 +4,56 @@ import { useNavigate } from 'react-router-dom';
 import {
   Container,
   Frame,
-  Comment,
   Heading,
-  SignIn,
-  SignUp,
+  ForgetPassWordLink,
   Group,
   Img,
+  RegisterButton,
+  LoginButton,
 } from './styles';
 import { EmailInput, PasswordInput } from 'components';
+interface LoginViewProps {
+  setAuthentication: (e: boolean) => void;
+}
 
-export const LoginView: React.FC = () => {
+export const LoginView: React.FC<LoginViewProps> = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
 
-  const onClickSignInHandler = () => {
-    console.log(email + password);
-    if (email.length && password.length) navigate(PATH.GALLERY);
+  const onClickLogInHandler = () => {
+    if (email.length && password.length) {
+      navigate(PATH.HOME);
+      props.setAuthentication(true);
+    }
+  };
+
+  const onClickRegisterHandler = () => {
+    navigate(PATH.REGISTER);
   };
 
   return (
     <Container>
       <Frame>
         <Img src="./logo.svg" />
-        <Heading>Log in to PhotoShare</Heading>
-        <EmailInput onChange={setEmail} />
+        <Heading>
+          Log in to <b>PHOTOSHARE</b> community
+        </Heading>
+        <EmailInput onChange={setEmail} value={email.substring(1)} />
         <PasswordInput
           isValidatable={false}
           label="Password"
           onChange={setPassword}
         />
-        <SignIn onClick={onClickSignInHandler}>Sign in</SignIn>
+        <ForgetPassWordLink to={PATH.FORGOT_PASSWORD}>
+          Forget password...
+        </ForgetPassWordLink>
         <Group>
-          <Comment>Don't have an account?</Comment>
-          <SignUp to={PATH.REGISTER}>Sign up here.</SignUp>
+          <LoginButton onClick={onClickLogInHandler}>Log in</LoginButton>
+          <RegisterButton onClick={onClickRegisterHandler}>
+            Register
+          </RegisterButton>
         </Group>
       </Frame>
     </Container>

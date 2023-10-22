@@ -5,17 +5,17 @@ interface IconButtonProps {
   iconPath: string;
   width: string;
   height: string;
-  marginLeft: string;
-  marginRight: string;
+  marginleft: string;
+  marginright: string;
   onClick: () => void;
 }
 
 export const IconButton: React.FC<IconButtonProps> = (props) => {
   return (
     <Button
-      marginLeft={props.marginLeft}
       onClick={props.onClick}
-      marginRight={props.marginRight ? props.marginRight : '0px'}
+      marginleft={props.marginleft}
+      marginright={props.marginright}
     >
       <Icon width={props.width} height={props.height} src={props.iconPath} />
     </Button>

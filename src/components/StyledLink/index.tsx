@@ -1,21 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-interface StyledLinkComponentProps {
-  path: string;
+import { Container } from './styles';
+interface StyledLinkProps {
   children: React.ReactNode;
+  linkstyle: string;
+  to: string;
 }
 
-export const StyledLinkComponent: React.FC<StyledLinkComponentProps> = ({
-  path,
-  children,
-}) => {
+export const StyledLink: React.FC<StyledLinkProps> = (props) => {
   return (
-    <Link
-      to={path}
-      style={{ width: '100%', textDecoration: 'none', color: 'white' }}
-    >
-      <div className="margin-left-10">{children}</div>
-    </Link>
+    <Container linkstyle={props.linkstyle} to={props.to}>
+      {props.children}
+    </Container>
   );
 };

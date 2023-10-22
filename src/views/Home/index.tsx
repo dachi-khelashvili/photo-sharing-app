@@ -6,9 +6,6 @@ import {
   Container,
   Header,
   Caption,
-  Footer,
-  FootContainer,
-  Notification,
   Description,
   Block,
   BlockReverse,
@@ -22,7 +19,7 @@ import { SearchBar } from 'components';
 export const HomeView: React.FC = () => {
   return (
     <>
-      <Image src="./Photos.png" alt="back" />
+      <Image src="./photos.png" alt="back" />
       <Container>
         <Header>Photo Share</Header>
         <Caption>Create and share your images</Caption>
@@ -59,12 +56,6 @@ export const HomeView: React.FC = () => {
           </Description>
         </ContextEnd>
       </BlockReverse>
-      <FootContainer>
-        <Footer>
-          <Notification>PhotoShare 2023</Notification>
-          <Caption>Thanks for visiting PhotoShare</Caption>
-        </Footer>
-      </FootContainer>
     </>
   );
 };
