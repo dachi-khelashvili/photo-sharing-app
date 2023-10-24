@@ -1,18 +1,45 @@
 import { StyledAvatar, PasswordInput, BasicInput } from 'components';
 import { Container, Frame, Group, LoginButton } from '../Login/styles';
 import { HGroup, VGroup } from './styles';
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
+
+import { InitialStateType, profileReducer } from './reducer';
+
+import {
+  CHANGE_ADDRESS,
+  CHANGE_BIRTHDAY,
+  CHANGE_CITY,
+  CHANGE_CONFIRM_PASSWORD,
+  CHANGE_COUNTY,
+  CHANGE_PASSWORD,
+  CHANGE_USERNAME,
+  CHANGE_COUNTRY,
+  CHANGE_GENDER,
+} from 'types';
+
+const InitialState: InitialStateType = {
+  username: '',
+  password: '',
+  confirmPassword: '',
+  address: '',
+  birthday: '',
+  gender: '',
+  city: '',
+  country: '',
+  county: '',
+};
 
 export const ProfileView: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirm, setConfirm] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [gender, setGender] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [county, setCounty] = useState('');
-  const [country, setCountry] = useState('');
+  const [state, dispatch] = useReducer(profileReducer, InitialState);
+
+  const handleChange = (newValue: string, field: string) => {
+    dispatch({
+      type: field,
+      payload: {
+        [field]: newValue,
+      },
+    });
+  };
 
   return (
     <>
@@ -29,38 +56,59 @@ export const ProfileView: React.FC = () => {
             <VGroup>
               <BasicInput
                 label="Username"
-                value={username}
-                onChange={setUsername}
+                value={state.username}
+                onChange={(e) => handleChange(e, CHANGE_USERNAME)}
               />
               <PasswordInput
-                value={password}
+                value={state.password}
                 label="Password"
                 isValidatable={true}
-                onChange={setPassword}
+                onChange={(e) => handleChange(e, CHANGE_PASSWORD)}
               />
               <PasswordInput
-                value={password}
+                value={state.confirmPassword}
                 label="Confirm Password"
-                isValidatable={false}
-                onChange={setConfirm}
+                isValidatable={true}
+                onChange={(e) => handleChange(e, CHANGE_CONFIRM_PASSWORD)}
               />
             </VGroup>
           </HGroup>
           <BasicInput
             label="Birthday"
-            value={birthday}
-            onChange={setBirthday}
+            type="date"
+            value={state.birthday}
+            onChange={(e) => handleChange(e, CHANGE_BIRTHDAY)}
           />
-          <BasicInput label="Gender" value={gender} onChange={setGender} />
-          <BasicInput label="Address" value={address} onChange={setAddress} />
-          <BasicInput label="City" value={city} onChange={setCity} />
-          <BasicInput label="County" value={county} onChange={setCounty} />
-          <BasicInput label="Country" value={country} onChange={setCountry} />
+          <BasicInput
+            label="Gender"
+            value={state.gender}
+            onChange={(e) => handleChange(e, CHANGE_GENDER)}
+          />
+          <BasicInput
+            label="Address"
+            value={state.address}
+            onChange={(e) => handleChange(e, CHANGE_ADDRESS)}
+          />
+          <BasicInput
+            label="City"
+            value={state.city}
+            onChange={(e) => handleChange(e, CHANGE_CITY)}
+          />
+          <BasicInput
+            label="County"
+            value={state.county}
+            onChange={(e) => handleChange(e, CHANGE_COUNTY)}
+          />
+          <BasicInput
+            label="Country"
+            value={state.country}
+            onChange={(e) => handleChange(e, CHANGE_COUNTRY)}
+          />
           <Group>
             <VGroup></VGroup>
             <LoginButton
               onClick={() => {
-                if (password == confirm) console.log(username);
+                console.log(state);
               }}
             >
               Save

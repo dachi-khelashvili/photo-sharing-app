@@ -22,10 +22,10 @@ export const EmailInput: React.FC<EmailInputProps> = ({ onChange, value }) => {
           const temp = e.target.value;
           if (validateEmail(temp)) {
             setState('STATE_EDITED');
-            onChange('#' + temp);
+            onChange(temp);
           } else {
             setState('STATE_INVALID');
-            onChange('$' + temp);
+            onChange(temp);
           }
         }}
         onFocus={() => {

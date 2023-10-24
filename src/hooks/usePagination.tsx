@@ -7,65 +7,53 @@ type PaginationProps = {
   currentPage: number;
 };
 
-type PaginationItem = {
-  index: number;
-  label: string;
-};
-
 export const usePagination = ({
   totalCount,
   pageSize,
   currentPage,
 }: PaginationProps) => {
-  const paginationData: {
-    paginationRange: PaginationItem[];
-    totalPageCount: number;
-  } = useMemo(() => {
-    const totalPageCount = Math.ceil(totalCount / pageSize);
+  const totalPageCount = Math.ceil(totalCount / pageSize);
+  const paginationRange = useMemo(() => {
+    const totalPageNumbers = 6;
 
-    // if (6 > totalPageCount) {
-    return {
-      paginationRange: generateRangeArray(1, totalPageCount).map((page) => ({
-        index: page,
-        label: page.toString(),
-      })),
-      totalPageCount,
-    };
-    // }
+    if (totalPageNumbers >= totalPageCount) {
+      return generateRangeArray(1, totalPageCount);
+    }
 
-    // const leftSiblingIndex = Math.max(currentPage - 1, 1);
-    // const rightSiblingIndex = Math.min(currentPage + 1, totalPageCount);
+    const leftSiblingIndex = Math.max(currentPage - 1, 1);
+    const rightSiblingIndex = Math.min(currentPage + 1, totalPageCount);
 
-    // const shouldShowLeftDots = leftSiblingIndex > 2;
-    // const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
+    const shouldShowLeftDots = leftSiblingIndex > 2;
+    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
 
-    // const firstPageIndex = 1;
-    // const lastPageIndex = totalPageCount;
+    const firstPageIndex = 1;
+    const lastPageIndex = totalPageCount;
 
-    // if (!shouldShowLeftDots && shouldShowRightDots) {
-    //   const leftItemCount = 3 + 2 * siblingCount;
-    //   const leftRange = generateRangeArray(1, leftItemCount);
+    if (!shouldShowLeftDots && shouldShowRightDots) {
+      const leftItemCount = 5;
+      const leftRange = generateRangeArray(1, leftItemCount);
 
-    //   return [...leftRange, DOTS, totalPageCount];
-    // }
+      return [...leftRange, -1, totalPageCount];
+    }
 
-    // if (shouldShowLeftDots && !shouldShowRightDots) {
-    //   const rightItemCount = 3 + 2 * siblingCount;
-    //   const rightRange = generateRangeArray(
-    //     totalPageCount - rightItemCount + 1,
-    //     totalPageCount
-    //   );
-    //   return [firstPageIndex, DOTS, ...rightRange];
-    // }
+    if (shouldShowLeftDots && !shouldShowRightDots) {
+      const rightItemCount = 5;
+      const rightRange = generateRangeArray(
+        totalPageCount - rightItemCount + 1,
+        totalPageCount
+      );
+      return [firstPageIndex, -1, ...rightRange];
+    }
 
-    // if (shouldShowLeftDots && shouldShowRightDots) {
-    //   const middleRange = generateRangeArray(
-    //     leftSiblingIndex,
-    //     rightSiblingIndex
-    //   );
-    //   return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
-    // }
+    if (shouldShowLeftDots && shouldShowRightDots) {
+      const middleRange = generateRangeArray(
+        leftSiblingIndex,
+        rightSiblingIndex
+      );
+      return [firstPageIndex, -1, ...middleRange, -1, lastPageIndex];
+    }
+    return [1];
   }, [totalCount, pageSize, currentPage]);
 
-  return paginationData;
+  return { paginationRange, totalPageCount };
 };

@@ -42,9 +42,12 @@ export const PhotoShop: React.FC = () => {
   return (
     <Container>
       {photosList.map((value, index) => (
-        <div onClick={() => handleOpen(index)} style={{ cursor: 'pointer' }}>
+        <div
+          key={index}
+          onClick={() => handleOpen(index)}
+          style={{ cursor: 'pointer' }}
+        >
           <Card
-            key={index}
             src={value.src}
             uploader={value.uploader}
             time={value.time}

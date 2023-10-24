@@ -75,7 +75,6 @@ export const MyPhotosView: React.FC = () => {
         <FlexItem>
           <PaginationBar
             totalCount={data.length}
-            siblingCount={1}
             currentPage={currentPage}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
@@ -86,20 +85,17 @@ export const MyPhotosView: React.FC = () => {
         </StyledButton>
       </Flex>
       <Wrap>
-        {currentData.map((option, index) => {
-          return (
-            <>
-              <ImageCard
-                photo={option.photo}
-                show={true}
-                like={option.like}
-                onClick={() => handleModal(index)}
-                onClickLike={() => handleLike(index)}
-                onClickDislike={() => handleDislike(index)}
-              />
-            </>
-          );
-        })}
+        {currentData.map((option, index) => (
+          <ImageCard
+            key={index}
+            photo={option.photo}
+            show={true}
+            like={option.like}
+            onClick={() => handleModal(index)}
+            onClickLike={() => handleLike(index)}
+            onClickDislike={() => handleDislike(index)}
+          />
+        ))}
       </Wrap>
     </>
   );

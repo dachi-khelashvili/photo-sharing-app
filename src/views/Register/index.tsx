@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PATH } from 'consts';
 import {
@@ -11,32 +11,38 @@ import {
   Group,
 } from '../Login/styles';
 import { EmailInput, PasswordInput } from 'components';
-import { IRegisterUserInfo } from 'types';
+import { registerReducer, InitialStateType } from './reducer';
+import { CHANGE_CONFIRM_PASSWORD, CHANGE_EMAIL, CHANGE_PASSWORD } from 'types';
+
+const InitialState: InitialStateType = {
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
 
 export const RegisterView: React.FC = () => {
-  const [registerUserInfo, setRegisterUserInfo] = useState<IRegisterUserInfo>({
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [state, dispatch] = useReducer(registerReducer, InitialState);
 
   const navigate = useNavigate();
 
   const onClickJoinAlerter = () => {
     if (
-      registerUserInfo.email.length &&
-      registerUserInfo.password.length &&
-      registerUserInfo.confirmPassword.length &&
-      registerUserInfo.password == registerUserInfo.confirmPassword
+      state.email.length &&
+      state.password.length &&
+      state.confirmPassword.length &&
+      state.password == state.confirmPassword
     ) {
       navigate(PATH.LOGIN);
     }
+    console.log(state);
   };
 
   const onRegisterUserInfoChange = (field: string, newValue: string) => {
-    setRegisterUserInfo({
-      ...registerUserInfo,
-      [field]: newValue,
+    dispatch({
+      type: field,
+      payload: {
+        [field]: newValue,
+      },
     });
   };
 
@@ -50,23 +56,25 @@ export const RegisterView: React.FC = () => {
         <Img src="./logo.svg" />
         <Heading>Sign up for PhotoShare</Heading>
         <EmailInput
-          value={registerUserInfo.email}
-          onChange={(newValue) => onRegisterUserInfoChange('email', newValue)}
-        />
-        <PasswordInput
-          value={registerUserInfo.password}
-          label="Password"
-          isValidatable={true}
+          value={state.email}
           onChange={(newValue) =>
-            onRegisterUserInfoChange('password', newValue)
+            onRegisterUserInfoChange(CHANGE_EMAIL, newValue)
           }
         />
         <PasswordInput
-          value={registerUserInfo.confirmPassword}
+          value={state.password}
+          label="Password"
+          isValidatable={true}
+          onChange={(newValue) =>
+            onRegisterUserInfoChange(CHANGE_PASSWORD, newValue)
+          }
+        />
+        <PasswordInput
+          value={state.confirmPassword}
           label="Confirm"
           isValidatable={false}
           onChange={(newValue) =>
-            onRegisterUserInfoChange('confirmPassword', newValue)
+            onRegisterUserInfoChange(CHANGE_CONFIRM_PASSWORD, newValue)
           }
         />
         <Group>

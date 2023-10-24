@@ -82,7 +82,22 @@ export const Header = styled.div`
 `;
 
 export const Caption = styled.div`
-  color: white;
+  color: #000000;
+  font-size: 14px;
+  line-height: 1;
+  margin: 12px 0px;
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1;
+  }
+  @media (min-width: 1024px) {
+    font-size: 24px;
+    line-height: 1;
+  }
+`;
+
+export const SubCaption = styled.div`
+  color: #ffffff;
   font-size: 14px;
   line-height: 1;
   margin: 12px 0px;

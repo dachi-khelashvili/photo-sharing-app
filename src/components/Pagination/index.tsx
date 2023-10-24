@@ -1,11 +1,11 @@
 import { usePagination } from 'hooks';
 import React from 'react';
 import { PaginationContainer, PaginationItem } from './styles';
+import { PAGINATION_SKIP_LABEL } from 'consts';
 
 type PaginationBarProps = {
   onPageChange: (e: number) => void;
   totalCount: number;
-  siblingCount: number;
   currentPage: number;
   pageSize: number;
 };
@@ -17,11 +17,10 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
   pageSize,
 }) => {
   const { paginationRange, totalPageCount } = usePagination({
-    currentPage,
     totalCount,
+    currentPage,
     pageSize,
   });
-
   const onNext = () => {
     onPageChange(Math.min(currentPage + 1, totalPageCount));
   };
@@ -43,14 +42,24 @@ export const PaginationBar: React.FC<PaginationBarProps> = ({
         <div className="arrow left" />
       </PaginationItem>
 
-      {paginationRange.map((pageData) => (
-        <PaginationItem
-          onClick={() => onPageChange(pageData.index)}
-          className={currentPage === pageData.index ? 'selected' : ''}
-        >
-          {pageData.label}
-        </PaginationItem>
-      ))}
+      {paginationRange.map((pageNumber) => {
+        if (pageNumber === -1) {
+          return (
+            <PaginationItem className="dots">
+              {PAGINATION_SKIP_LABEL}
+            </PaginationItem>
+          );
+        }
+        return (
+          <PaginationItem
+            onClick={() => onPageChange(pageNumber)}
+            key={pageNumber}
+            className={currentPage === pageNumber ? 'selected' : ''}
+          >
+            {pageNumber}
+          </PaginationItem>
+        );
+      })}
 
       <PaginationItem
         onClick={onNext}

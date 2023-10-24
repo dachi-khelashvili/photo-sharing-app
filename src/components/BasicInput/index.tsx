@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Label, Input, Container } from './styles';
 interface BasicInputProps {
-  onChange: (e: string) => void;
+  onChange: (value: string) => void;
   label: string;
   value: string;
+  type?: string;
 }
 
 export const BasicInput: React.FC<BasicInputProps> = (props) => {
@@ -15,6 +16,7 @@ export const BasicInput: React.FC<BasicInputProps> = (props) => {
     <Container>
       <Label state={state}>{props.label}</Label>
       <Input
+        type={props.type}
         state={state}
         value={props.value}
         onChange={(e) => props.onChange(e.target.value)}

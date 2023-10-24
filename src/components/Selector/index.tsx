@@ -7,8 +7,8 @@ export const Selector: React.FC = () => {
       <Label>Sort by:</Label>
       <Input list="sorts" name="sort" id="sort" placeholder="Sort..." />
       <datalist id="sorts">
-        <Option value="Date" />
-        <Option value="Uploader" />
+        <Option value="Date" key="Date" />
+        <Option value="Uploader" key="Uploader" />
       </datalist>
     </Flex>
   );

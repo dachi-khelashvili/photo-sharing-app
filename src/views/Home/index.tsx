@@ -3,6 +3,7 @@ import { Image, GoToTopBtn, SearchBar } from 'components';
 import {
   Container,
   Header,
+  SubCaption,
   Caption,
   Description,
   Block,
@@ -20,7 +21,7 @@ export const HomeView: React.FC = () => {
 
       <Container>
         <Header>Photo Share</Header>
-        <Caption>Create and share your images</Caption>
+        <SubCaption>Create and share your images</SubCaption>
         <SearchBar type="text" placeholder="Search image..." />
         <Description>Trending: flower, wallpapaer, beauty, love...</Description>
       </Container>
