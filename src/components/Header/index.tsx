@@ -64,7 +64,7 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
             </>
           ) : (
             <>
-              <StyledLink linkstyle="normal" to={PATH.GALLERY}>
+              <StyledLink linkstyle="normal" to={PATH.COMMUNITY}>
                 Community
               </StyledLink>
               <StyledLink linkstyle="normal" to={PATH.CHATROOM}>

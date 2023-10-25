@@ -1,18 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Flex, FlexItem, Typography, Search, Wrap } from './styles';
-import {
-  StyledButton,
-  ImageCard,
-  Modal,
-  EditModal,
-  Selector,
-  PaginationBar,
-} from 'components';
-import { getData, PageSize } from 'consts';
+import { Flex, FlexItem, Typography, Search, Wrap, RightGrid } from './styles';
+import { ImageCard, PhotoModal, Selector, PaginationBar } from 'components';
+import { getData, getFriends, PageSize } from 'consts';
 
-export const MyPhotosView: React.FC = () => {
+export const CommunityView: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [showUploadModal, setShowUploadModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState({
     show: false,
     index: 0,
@@ -20,15 +12,13 @@ export const MyPhotosView: React.FC = () => {
   const temp = getData();
   const [data, setData] = useState(temp);
 
+  const profiles = getFriends();
   const currentData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return data.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, data]);
 
-  const handleClick = () => {
-    setShowUploadModal(true);
-  };
   const handleLike = (index: number) => {
     const newData = [...data];
     newData[index] = {
@@ -53,12 +43,10 @@ export const MyPhotosView: React.FC = () => {
   };
   return (
     <>
-      {showUploadModal && (
-        <Modal handleCancel={() => setShowUploadModal(false)} />
-      )}
       {showEditModal.show && (
-        <EditModal
+        <PhotoModal
           photoInfo={data[showEditModal.index]}
+          profileInfo={profiles[showEditModal.index]}
           handleCancel={() =>
             setShowEditModal({ show: false, index: showEditModal.index })
           }
@@ -69,27 +57,30 @@ export const MyPhotosView: React.FC = () => {
           <Selector label="Sort by:" options={['Date', 'Uploader']} />
         </FlexItem>
         <FlexItem>
-          <Typography>Search:</Typography>
+          <Typography>Keyword:</Typography>
           <Search placeholder="Search..." />
         </FlexItem>
         <FlexItem>
-          <PaginationBar
-            totalCount={data.length}
-            currentPage={currentPage}
-            pageSize={PageSize}
-            onPageChange={(page) => setCurrentPage(page)}
-          />
+          <Typography>Type:</Typography>
+          <Search placeholder="Search..." />
         </FlexItem>
-        <StyledButton buttonstyle="green" onClick={handleClick}>
-          Upload New Photo
-        </StyledButton>
+        <RightGrid>
+          <FlexItem>
+            <PaginationBar
+              totalCount={data.length}
+              currentPage={currentPage}
+              pageSize={PageSize}
+              onPageChange={(page) => setCurrentPage(page)}
+            />
+          </FlexItem>
+        </RightGrid>
       </Flex>
       <Wrap>
         {currentData.map((option, index) => (
           <ImageCard
             key={index}
             photo={option.photo}
-            show={false}
+            show={true}
             like={option.like}
             onClick={() => handleModal(index)}
             onClickLike={() => handleLike(index)}

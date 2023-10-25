@@ -42,7 +42,7 @@ export const Flex = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
-  margin: 10px;
+  margin: 20px 10px;
 `;
 
 export const FlexItem = styled.div`

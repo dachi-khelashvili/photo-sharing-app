@@ -1,14 +1,20 @@
 import React from 'react';
 import { Flex, Label, Option, Input } from './styles';
 
-export const Selector: React.FC = () => {
+type SelectorProps = {
+  label: string;
+  options: string[];
+};
+
+export const Selector: React.FC<SelectorProps> = ({ label, options }) => {
   return (
     <Flex>
-      <Label>Sort by:</Label>
-      <Input list="sorts" name="sort" id="sort" placeholder="Sort..." />
-      <datalist id="sorts">
-        <Option value="Date" key="Date" />
-        <Option value="Uploader" key="Uploader" />
+      <Label>{label}</Label>
+      <Input list={label} name="sort" id="sort" placeholder={label + '...'} />
+      <datalist id={label}>
+        {options.map((option) => (
+          <Option value={option} key={option} />
+        ))}
       </datalist>
     </Flex>
   );

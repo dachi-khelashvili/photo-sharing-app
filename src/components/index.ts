@@ -8,6 +8,7 @@ export * from './StyledLink';
 export * from './StyledInput';
 export * from './Modal';
 export * from './EditModal';
+export * from './PhotoModal';
 export * from './PasswordInput';
 export * from './Image';
 export * from './Radio';

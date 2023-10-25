@@ -1,14 +1,14 @@
-import {
-  CHANGE_ADDRESS,
-  CHANGE_BIRTHDAY,
-  CHANGE_CITY,
-  CHANGE_CONFIRM_PASSWORD,
-  CHANGE_COUNTY,
-  CHANGE_PASSWORD,
-  CHANGE_USERNAME,
-  CHANGE_COUNTRY,
-  CHANGE_GENDER,
-} from 'types';
+export enum ProfileReducerActionTypes {
+  CHANGE_ADDRESS = 'CHANGE_ADDRESS',
+  CHANGE_BIRTHDAY = 'CHANGE_ADDRESS',
+  CHANGE_CITY = 'CHANGE_ADDRESS',
+  CHANGE_CONFIRM_PASSWORD = 'CHANGE_ADDRESS',
+  CHANGE_COUNTY = 'CHANGE_ADDRESS',
+  CHANGE_PASSWORD = 'CHANGE_ADDRESS',
+  CHANGE_USERNAME = 'CHANGE_ADDRESS',
+  CHANGE_COUNTRY = 'CHANGE_ADDRESS',
+  CHANGE_GENDER = 'CHANGE_ADDRESS',
+}
 
 export type InitialStateType = {
   username: string;
@@ -32,58 +32,59 @@ export const profileReducer = (
   state: InitialStateType,
   action: PayloadActionType
 ) => {
-  if (action.type === CHANGE_USERNAME) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_USERNAME) {
     return {
       ...state,
-      username: action.payload.CHANGE_USERNAME,
+      username: action.payload[ProfileReducerActionTypes.CHANGE_USERNAME],
     };
   }
-  if (action.type === CHANGE_PASSWORD) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_PASSWORD) {
     return {
       ...state,
-      password: action.payload.CHANGE_PASSWORD,
+      password: action.payload[ProfileReducerActionTypes.CHANGE_PASSWORD],
     };
   }
-  if (action.type === CHANGE_CONFIRM_PASSWORD) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_CONFIRM_PASSWORD) {
     return {
       ...state,
-      confirmPassword: action.payload.CHANGE_CONFIRM_PASSWORD,
+      confirmPassword:
+        action.payload[ProfileReducerActionTypes.CHANGE_CONFIRM_PASSWORD],
     };
   }
-  if (action.type === CHANGE_BIRTHDAY) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_BIRTHDAY) {
     return {
       ...state,
-      birthday: action.payload.CHANGE_BIRTHDAY,
+      birthday: action.payload[ProfileReducerActionTypes.CHANGE_BIRTHDAY],
     };
   }
-  if (action.type === CHANGE_ADDRESS) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_ADDRESS) {
     return {
       ...state,
-      address: action.payload.CHANGE_ADDRESS,
+      address: action.payload[ProfileReducerActionTypes.CHANGE_ADDRESS],
     };
   }
-  if (action.type === CHANGE_GENDER) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_GENDER) {
     return {
       ...state,
-      gender: action.payload.CHANGE_GENDER,
+      gender: action.payload[ProfileReducerActionTypes.CHANGE_GENDER],
     };
   }
-  if (action.type === CHANGE_CITY) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_CITY) {
     return {
       ...state,
-      city: action.payload.CHANGE_CITY,
+      city: action.payload[ProfileReducerActionTypes.CHANGE_CITY],
     };
   }
-  if (action.type === CHANGE_COUNTY) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_COUNTY) {
     return {
       ...state,
-      county: action.payload.CHANGE_COUNTY,
+      county: action.payload[ProfileReducerActionTypes.CHANGE_COUNTY],
     };
   }
-  if (action.type === CHANGE_COUNTRY) {
+  if (action.type === ProfileReducerActionTypes.CHANGE_COUNTRY) {
     return {
       ...state,
-      country: action.payload.CHANGE_COUNTRY,
+      country: action.payload[ProfileReducerActionTypes.CHANGE_COUNTRY],
     };
   }
 

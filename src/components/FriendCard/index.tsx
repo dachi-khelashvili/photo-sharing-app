@@ -4,6 +4,7 @@ import { Container, Grid, AlignRight, Description } from './styles';
 import { StyledAvatar, StyledButton } from 'components';
 
 export type FriendCardProps = {
+  type: string;
   friend: {
     path: string;
     name: string;
@@ -14,7 +15,11 @@ export type FriendCardProps = {
   onClick: () => void;
 };
 
-export const FriendCard: React.FC<FriendCardProps> = ({ onClick, friend }) => {
+export const FriendCard: React.FC<FriendCardProps> = ({
+  onClick,
+  friend,
+  type,
+}) => {
   const onAvatarClick = () => {
     return null;
   };
@@ -28,7 +33,7 @@ export const FriendCard: React.FC<FriendCardProps> = ({ onClick, friend }) => {
       <Grid>
         <AlignRight>
           <StyledButton buttonstyle="transparent" onClick={onClick}>
-            Remove
+            {type}
           </StyledButton>
         </AlignRight>
         <Description>

@@ -7,3 +7,4 @@ export * from './Chatroom';
 export * from './Profile';
 export * from './Photos';
 export * from './Friends';
+export * from './Community';

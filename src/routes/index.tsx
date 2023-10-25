@@ -8,11 +8,12 @@ import {
   HomePage,
   RegisterPage,
   DashboardPage,
-  GalleryPage,
+  // GalleryPage,
   ChatRoomPage,
   ProfilePage,
   PhotosPage,
   FriendsPage,
+  CommunityPage,
 } from 'pages';
 ``;
 
@@ -33,7 +34,7 @@ export const RouteComponent: React.FC<RouteComponentProps> = (props) => {
           />
           <Route path={PATH.REGISTER} element={<RegisterPage />} />
           <Route path={PATH.DASHBOARD} element={<DashboardPage />} />
-          <Route path={PATH.GALLERY} element={<GalleryPage />} />
+          <Route path={PATH.COMMUNITY} element={<CommunityPage />} />
           <Route path={PATH.CHATROOM} element={<ChatRoomPage />} />
           <Route path={PATH.PROFILE} element={<ProfilePage />} />
           <Route path={PATH.PHOTOS} element={<PhotosPage />} />

@@ -11,8 +11,11 @@ import {
   Group,
 } from '../Login/styles';
 import { EmailInput, PasswordInput } from 'components';
-import { registerReducer, InitialStateType } from './reducer';
-import { CHANGE_CONFIRM_PASSWORD, CHANGE_EMAIL, CHANGE_PASSWORD } from 'types';
+import {
+  registerReducer,
+  InitialStateType,
+  RegisterReducerActionTypes,
+} from './reducer';
 
 const InitialState: InitialStateType = {
   email: '',
@@ -58,7 +61,10 @@ export const RegisterView: React.FC = () => {
         <EmailInput
           value={state.email}
           onChange={(newValue) =>
-            onRegisterUserInfoChange(CHANGE_EMAIL, newValue)
+            onRegisterUserInfoChange(
+              RegisterReducerActionTypes.CHANGE_EMAIL,
+              newValue
+            )
           }
         />
         <PasswordInput
@@ -66,7 +72,10 @@ export const RegisterView: React.FC = () => {
           label="Password"
           isValidatable={true}
           onChange={(newValue) =>
-            onRegisterUserInfoChange(CHANGE_PASSWORD, newValue)
+            onRegisterUserInfoChange(
+              RegisterReducerActionTypes.CHANGE_PASSWORD,
+              newValue
+            )
           }
         />
         <PasswordInput
@@ -74,7 +83,10 @@ export const RegisterView: React.FC = () => {
           label="Confirm"
           isValidatable={false}
           onChange={(newValue) =>
-            onRegisterUserInfoChange(CHANGE_CONFIRM_PASSWORD, newValue)
+            onRegisterUserInfoChange(
+              RegisterReducerActionTypes.CHANGE_CONFIRM_PASSWORD,
+              newValue
+            )
           }
         />
         <Group>

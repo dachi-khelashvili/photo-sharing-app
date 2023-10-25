@@ -10,3 +10,4 @@ export * from './Chatroom';
 export * from './Profile';
 export * from './MyPhotos';
 export * from './MyFriends';
+export * from './Community';
