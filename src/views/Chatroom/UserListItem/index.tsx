@@ -32,8 +32,8 @@ export const UserListItem: React.FC<UserListIemProps> = (props) => {
           iconPath="./add-friend.svg"
           width="24px"
           height="24px"
-          marginLeft="-39px"
-          marginRight="15px"
+          marginleft="-39px"
+          marginright="15px"
           onClick={() => {
             props.onClick(['Friend', props.name, props.name, props.avatar]);
           }}

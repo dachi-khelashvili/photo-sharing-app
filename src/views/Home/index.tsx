@@ -1,14 +1,10 @@
 import React from 'react';
-
-import { Image } from 'components';
-
+import { Image, GoToTopBtn, SearchBar } from 'components';
 import {
   Container,
   Header,
+  SubCaption,
   Caption,
-  Footer,
-  FootContainer,
-  Notification,
   Description,
   Block,
   BlockReverse,
@@ -17,15 +13,15 @@ import {
   ImageContainer,
 } from './styles';
 
-import { SearchBar } from 'components';
-
 export const HomeView: React.FC = () => {
   return (
     <>
-      <Image src="./Photos.png" alt="back" />
+      <GoToTopBtn />
+      <Image src="./photos.png" alt="back" />
+
       <Container>
         <Header>Photo Share</Header>
-        <Caption>Create and share your images</Caption>
+        <SubCaption>Create and share your images</SubCaption>
         <SearchBar type="text" placeholder="Search image..." />
         <Description>Trending: flower, wallpapaer, beauty, love...</Description>
       </Container>
@@ -59,12 +55,6 @@ export const HomeView: React.FC = () => {
           </Description>
         </ContextEnd>
       </BlockReverse>
-      <FootContainer>
-        <Footer>
-          <Notification>PhotoShare 2023</Notification>
-          <Caption>Thanks for visiting PhotoShare</Caption>
-        </Footer>
-      </FootContainer>
     </>
   );
 };

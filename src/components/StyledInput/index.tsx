@@ -1,15 +1,10 @@
+import { HTMLAttributes } from 'react';
 import { Input } from './styles';
 
-type StyledInputProps = {
-  width: string;
-  label: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+interface LabeledInputProps extends HTMLAttributes<HTMLInputElement> {
+  value: string;
+}
 
-export const StyledInput: React.FC<StyledInputProps> = ({
-  width,
-  label,
-  onChange,
-}) => {
-  return <Input width={width} placeholder={label} onChange={onChange} />;
+export const LabeledInput: React.FC<LabeledInputProps> = (props) => {
+  return <Input {...props} />;
 };

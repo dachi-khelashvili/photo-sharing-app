@@ -4,35 +4,42 @@ import { validatePassword } from 'consts';
 import { IconButton } from 'components';
 
 interface PasswordInputProps {
+  value: string;
   onChange: (e: string) => void;
   label: string;
   isValidatable: boolean;
 }
 
-export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
+export const PasswordInput: React.FC<PasswordInputProps> = ({
+  value,
+  onChange,
+  label,
+  isValidatable,
+}) => {
   const [state, setState] = useState('STATE_NORMAL');
   const [inputType, setInputType] = useState('password');
 
   return (
     <Container>
-      <Label id={state}>
-        <InvalidLabel id={state}>Weak</InvalidLabel>
-        {props.label}
+      <Label state={state}>
+        <InvalidLabel state={state}>Weak</InvalidLabel>
+        {label}
       </Label>
       <Input
+        value={value}
         type={inputType}
-        id={state}
+        state={state}
         onChange={(e) => {
           const temp = e.target.value;
-          if (props.isValidatable == true) {
+          if (isValidatable == true) {
             if (validatePassword(temp)) {
               setState('STATE_EDITED');
-              props.onChange(temp);
+              onChange(temp);
             } else {
               setState('STATE_INVALID');
-              props.onChange('');
+              onChange(temp);
             }
-          } else props.onChange(temp);
+          } else onChange(temp);
         }}
         onFocus={() => {
           if (state != 'STATE_INVALID') setState('STATE_EDITED');
@@ -44,8 +51,8 @@ export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
       <IconButton
         width="40px"
         height="40px"
-        marginLeft="-50px"
-        marginRight="10px"
+        marginleft="-50px"
+        marginright="10px"
         iconPath={'./' + inputType + '-eye.png'}
         onClick={() => {
           if (inputType == 'password') setInputType('normal');

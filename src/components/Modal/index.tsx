@@ -1,25 +1,64 @@
-import styled from 'styled-components';
+import React, { useRef, useState } from 'react';
+import {
+  Screen,
+  Container,
+  Header,
+  Content,
+  UploadImage,
+  ImageProperty,
+  Footer,
+} from './styles';
+import { useOutsideAlerter, useEscapeKey } from 'hooks';
 
-export const Screen = styled.div`
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-`;
+type ModalProps = {
+  handleCancel: () => void;
+};
 
-export const SimpleModal = styled.div`
-  margin: auto;
-  margin-top: 200px;
-  width: 40%;
-  height: fit-content;
-  background-color: white;
-  border-radius: 1rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-`;
+export const Modal: React.FC<ModalProps> = ({ handleCancel }) => {
+  const ref = useRef(null);
+  useOutsideAlerter(ref, handleCancel);
+  useEscapeKey(handleCancel);
+
+  const [state, setState] = useState<{
+    file: File | null;
+    title: string;
+    status: string;
+    description: string;
+    tags: string;
+  }>({
+    file: null,
+    title: '',
+    status: '',
+    description: '',
+    tags: '',
+  });
+
+  const handleSubmit = () => {
+    console.log(state);
+    handleCancel();
+  };
+
+  const handleFile = (e: File | null) => {
+    setState({ ...state, file: e });
+  };
+
+  const handleChange = (
+    props: string,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setState({ ...state, [props]: e.target.value });
+  };
+
+  return (
+    <Screen>
+      <Container ref={ref}>
+        <Header>Upload New Photo</Header>
+        <Content>
+          <UploadImage handleFile={handleFile} />
+          <ImageProperty handleChange={handleChange} states={state} />
+        </Content>
+        <Footer handleCancel={handleCancel} handleSubmit={handleSubmit} />
+      </Container>
+    </Screen>
+  );
+};

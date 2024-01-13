@@ -1,24 +1,34 @@
 import styled from 'styled-components';
 
-export const Label = styled.label`
+export const Label = styled.label<{ state: string }>`
   position: absolute;
   margin-left: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   transition: all 200ms;
 
-  &#STATE_NORMAL {
+  ${({ state }) =>
+    state === 'STATE_NORMAL' &&
+    `
     color: rgb(137, 137, 137);
     margin-top: 17px;
     font-size: 20px;
-  }
-  &#STATE_EDITED {
+  `}
+  ${({ state }) =>
+    state === 'STATE_VALUED' &&
+    `
+    color: rgb(137, 137, 137);
+    margin-top: 8px;
+    font-size: 15px;
+  `}
+  ${({ state }) =>
+    state === 'STATE_EDITED' &&
+    `
     color: dodgerblue;
     margin-top: 8px;
     font-size: 15px;
-  }
+  `}
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{ state: string }>`
   color: rgb(60, 60, 60);
   background-color: transparent;
 
@@ -30,15 +40,23 @@ export const Input = styled.input`
   flex: 1;
 
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
 
-  &#STATE_NORMAL {
+  ${({ state }) =>
+    state === 'STATE_NORMAL' &&
+    `
     border-color: rgb(137, 137, 137);
-  }
-  &#STATE_EDITED {
+  `}
+  ${({ state }) =>
+    state === 'STATE_VALUED' &&
+    `
+    border-color: rgb(137, 137, 137);
+  `}
+  ${({ state }) =>
+    state === 'STATE_EDITED' &&
+    `
     border-color: dodgerblue;
-  }
+  `}
 
   z-index: 1;
 `;

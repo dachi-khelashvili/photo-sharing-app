@@ -6,11 +6,11 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: center;
 
-  background-image: url('./side.jpg');
+  background-image: url('./photos.png');
+  backdrop-filter: lighten(50%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -19,88 +19,96 @@ export const Container = styled.div`
 export const Frame = styled.div`
   background-color: white;
 
-  width: 400px;
+  width: fit-content;
   padding: 30px;
   border-radius: 10px;
 
-  grid-column-start: 3;
-  grid-column-end: 3;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2);
 
   display: flex;
   flex-direction: column;
   gap: 10px;
 
-  @media (max-width: 425px) {
+  @media (max-width: 530px) {
     width: 100%;
     border-radius: 0;
   }
 `;
 
-export const Heading = styled.div`
-  color: rgb(60, 60, 60);
+export const Heading = styled.p`
+  color: rgba(0, 0, 0, 0.8);
 
-  margin-bottom: 10px;
+  margin: 0 30px 10px 30px;
 
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-`;
 
-export const Comment = styled.div`
-  color: rgb(60, 60, 60);
-
-  text-align: center;
-  font-size: 20px;
+  & > b {
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
 `;
 
 export const Group = styled.div`
-  padding: 10px 0 0px 0;
-  border-radius: 10px;
+  margin-top: 3%;
 
-  display: flex;
-  justify-content: space-evenly;
-
-  @media (max-width: 320px) {
-    flex-direction: column;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 `;
 
-export const SignIn = styled.button`
+export const LoginButton = styled.button`
   color: white;
   background-color: rgb(211, 18, 110);
 
-  padding: 10px 0px;
-  margin-top: 20px;
+  padding: 10px 20px;
   border-radius: 30px;
   border: none;
 
-  text-align: center;
-  text-decoration: none;
   font-size: 20px;
 
-  transition: all 300ms;
+  transition: all 200ms;
 
   &:hover {
-    background-color: rgb(139, 28, 140);
+    background-color: rgba(211, 18, 110, 0.8);
   }
   &:active {
-    background-color: rgb(60, 60, 60);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+`;
+
+export const RegisterButton = styled.button`
+  color: white;
+  background-color: rgb(139, 28, 140);
+
+  padding: 10px 0px;
+  border-radius: 30px;
+  border: none;
+
+  font-size: 20px;
+
+  transition: all 200ms;
+
+  &:hover {
+    background-color: rgb(139, 28, 140, 0.8);
+  }
+  &:active {
+    background-color: rgba(0, 0, 0, 0.8);
   }
 `;
 
 export const Img = styled.img`
-  width: 40px;
+  width: 80px;
   height: auto;
-
-  margin-bottom: 10px;
 
   align-self: center;
 `;
 
-export const SignUp = styled(Link)`
+export const ForgetPassWordLink = styled(Link)`
   color: rgb(211, 18, 110);
 
-  text-align: center;
+  text-align: right;
   text-decoration: none;
   font-size: 20px;
 

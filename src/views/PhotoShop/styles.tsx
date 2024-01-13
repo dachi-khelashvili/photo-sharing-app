@@ -18,7 +18,6 @@ interface CardProps {
   uploader: string;
   time: string;
   width: string;
-  open: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({ src, uploader, time, width }) => {

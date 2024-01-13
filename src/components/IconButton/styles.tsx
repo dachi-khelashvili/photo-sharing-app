@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
-export const Button = styled.button<{
-  marginLeft: string;
-  marginRight: string;
+export const Button = styled.div<{
+  marginleft: string;
+  marginright: string;
 }>`
   background-color: transparent;
   padding: 0;
   border: none;
   outline: none;
-  margin-left: ${(props) => props.marginLeft};
-  margin-right: ${(props) => props.marginRight};
+  margin-top: 10px;
+  margin-left: ${(props) => props.marginleft};
+  margin-right: ${(props) => props.marginright};
   filter: opacity(0.4);
 
   &:hover {

@@ -3,14 +3,19 @@ import { HeaderComponent } from '../Header';
 import { FooterComponent } from '../Footer';
 
 interface LayoutProps {
+  isAuthenticated: boolean;
+  setAuthentication: (e: boolean) => void;
   children?: React.ReactNode;
 }
 
-export const LayoutComponent: React.FC<LayoutProps> = ({ children }) => {
+export const LayoutComponent: React.FC<LayoutProps> = (props) => {
   return (
     <>
-      <HeaderComponent />
-      {children}
+      <HeaderComponent
+        isAuthenticated={props.isAuthenticated}
+        setAuthentication={props.setAuthentication}
+      />
+      {props.children}
       <FooterComponent />
     </>
   );

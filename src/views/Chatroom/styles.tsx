@@ -2,11 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: calc(100vh - 80px);
-
-  margin: 10px 10px 10px 0px;
-
-  box-shadow: 5px 5px 20px gray;
+  height: calc(100vh - 60px);
 
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -85,7 +81,7 @@ export const MessageBox = styled.textarea`
   border-radius: 10px;
   border: none;
   outline: none;
-  overflow: none;
+  overflow: hidden;
   resize: none;
 `;
 

@@ -1,65 +1,66 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Container, TabItem } from './styles';
 import {
-  StyledButtonComponent,
+  StyledButton,
   Radio,
-  StyledInput,
+  LabeledInput,
   StyledTextAreaComponent,
 } from 'components';
-import { SimpleModal, Screen } from 'components/Modal';
-import { Grid, Flex, Img, RadioGroup, RightGrid } from './styles';
+import { SimpleModal, Screen } from 'components/Modal/styles';
+import {
+  Grid,
+  Flex,
+  Img,
+  RadioGroup,
+  RightGrid,
+  TitleInputContainer,
+} from './styles';
+import { useOutsideAlerter } from 'hooks';
 
 export const Tab: React.FC = () => {
-  const useOutsideMenuAlerter = (ref: React.RefObject<HTMLElement>) => {
-    useEffect(() => {
-      /**
-       * Alert if clicked on outside of element
-       */
-      function handleClickOutside(event: MouseEvent) {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-          // alert('You clicked outside of me!');
-          setShow(false);
-        }
-      }
-      // Bind the event listener
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, [ref]);
-  };
   const showRef = useRef(null);
-  useOutsideMenuAlerter(showRef);
 
   const [showUploadModal, setShow] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
+  useOutsideAlerter(showRef, setShow);
+
   const onClick = () => {
     setShow(true);
   };
+
   const changePhoto = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
+    console.log('changePhoto:', event.target.value);
   };
+
   const uploadFile = () => {
     console.log('upload file');
   };
+
   const changeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(title);
     setTitle(event.target.value);
   };
+
   const changeDescription = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(event.target.value);
-    console.log(description);
+    console.log('changeDescription:', description);
   };
+
   return (
     <>
       {showUploadModal && (
         <Screen>
           <SimpleModal ref={showRef} style={{ width: '25%' }}>
             <Grid>
-              <StyledInput width="100%" label="Title" onChange={changeTitle} />
+              <TitleInputContainer>
+                <LabeledInput
+                  value={title}
+                  placeholder="Title"
+                  onChange={changeTitle}
+                />
+              </TitleInputContainer>
               <Flex>
                 <Img
                   src="./avatar.jpg"
@@ -81,12 +82,9 @@ export const Tab: React.FC = () => {
               <StyledTextAreaComponent onChange={changeDescription} />
               <div>
                 <div style={{ width: 'fit-content', margin: 'auto' }}>
-                  <StyledButtonComponent
-                    buttonStyle="blue"
-                    onClick={uploadFile}
-                  >
+                  <StyledButton buttonstyle="blue" onClick={uploadFile}>
                     Upload
-                  </StyledButtonComponent>
+                  </StyledButton>
                 </div>
               </div>
             </Grid>
@@ -98,9 +96,9 @@ export const Tab: React.FC = () => {
         <TabItem>My Photos</TabItem>
         <TabItem>Friends</TabItem>
         <RightGrid>
-          <StyledButtonComponent buttonStyle="transparent" onClick={onClick}>
+          <StyledButton buttonstyle="transparent" onClick={onClick}>
             Upload
-          </StyledButtonComponent>
+          </StyledButton>
         </RightGrid>
       </Container>
     </>

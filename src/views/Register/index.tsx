@@ -1,28 +1,56 @@
-import { PATH } from 'consts';
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Frame, Heading, SignUp, Img } from './styles';
-import { EmailInput, PasswordInput, BasicInput } from 'components';
+import { PATH } from 'consts';
+import {
+  Container,
+  Frame,
+  Heading,
+  Img,
+  LoginButton,
+  RegisterButton,
+  Group,
+} from '../Login/styles';
+import { EmailInput, PasswordInput } from 'components';
+import {
+  registerReducer,
+  InitialStateType,
+  RegisterReducerActionTypes,
+} from './reducer';
+
+const InitialState: InitialStateType = {
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
 
 export const RegisterView: React.FC = () => {
-  const [fname, setFirstName] = useState('');
-  const [lname, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirm, setConfirm] = useState('');
+  const [state, dispatch] = useReducer(registerReducer, InitialState);
 
   const navigate = useNavigate();
 
-  const onJoin = () => {
+  const onClickJoinAlerter = () => {
     if (
-      fname.length &&
-      lname.length &&
-      email.length &&
-      password.length &&
-      confirm.length &&
-      password == confirm
-    )
+      state.email.length &&
+      state.password.length &&
+      state.confirmPassword.length &&
+      state.password == state.confirmPassword
+    ) {
       navigate(PATH.LOGIN);
+    }
+    console.log(state);
+  };
+
+  const onRegisterUserInfoChange = (field: string, newValue: string) => {
+    dispatch({
+      type: field,
+      payload: {
+        [field]: newValue,
+      },
+    });
+  };
+
+  const onClickLoginAlerter = () => {
+    navigate(PATH.LOGIN);
   };
 
   return (
@@ -30,20 +58,43 @@ export const RegisterView: React.FC = () => {
       <Frame>
         <Img src="./logo.svg" />
         <Heading>Sign up for PhotoShare</Heading>
-        <BasicInput label="First Name" onChange={setFirstName} />
-        <BasicInput label="Last Name" onChange={setLastName} />
-        <EmailInput onChange={setEmail} />
+        <EmailInput
+          value={state.email}
+          onChange={(newValue) =>
+            onRegisterUserInfoChange(
+              RegisterReducerActionTypes.CHANGE_EMAIL,
+              newValue
+            )
+          }
+        />
         <PasswordInput
+          value={state.password}
           label="Password"
           isValidatable={true}
-          onChange={setPassword}
+          onChange={(newValue) =>
+            onRegisterUserInfoChange(
+              RegisterReducerActionTypes.CHANGE_PASSWORD,
+              newValue
+            )
+          }
         />
         <PasswordInput
+          value={state.confirmPassword}
           label="Confirm"
           isValidatable={false}
-          onChange={setConfirm}
+          onChange={(newValue) =>
+            onRegisterUserInfoChange(
+              RegisterReducerActionTypes.CHANGE_CONFIRM_PASSWORD,
+              newValue
+            )
+          }
         />
-        <SignUp onClick={onJoin}>Sign up</SignUp>
+        <Group>
+          <RegisterButton onClick={onClickJoinAlerter}>Join</RegisterButton>
+          <LoginButton onClick={onClickLoginAlerter}>
+            Back to Log in
+          </LoginButton>
+        </Group>
       </Frame>
     </Container>
   );
