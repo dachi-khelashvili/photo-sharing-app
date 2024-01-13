@@ -22,6 +22,7 @@ export const HomeView: React.FC = () => {
       <Container>
         <Header>Photo Share</Header>
         <SubCaption>Create and share your images</SubCaption>
+        <Caption>Create and share your images</Caption>
         <SearchBar type="text" placeholder="Search image..." />
         <Description>Trending: flower, wallpapaer, beauty, love...</Description>
       </Container>
