@@ -17,7 +17,7 @@ export const HomeView: React.FC = () => {
   return (
     <>
       <GoToTopBtn />
-      <Image src="./photos.png" alt="back" />
+      <Image src="./back.png" alt="back" />
       <Container>
         <Header>Photo Share</Header>
         <SubCaption>Create and share your images</SubCaption>
