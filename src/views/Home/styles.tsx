@@ -21,8 +21,16 @@ export const SearchContainer = styled.div`
 export const BlockSection = styled.div`
   display: grid;
   width: 100%;
-  padding: 3rem 5rem;
+  padding: 3rem 10%;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 3rem 5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 2rem;
+  }
 `;
 
 export const Block = styled.div`
