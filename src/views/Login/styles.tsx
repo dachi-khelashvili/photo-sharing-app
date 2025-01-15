@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-image: url('./photos.png');
+  background-image: url('./back.png');
   backdrop-filter: lighten(50%);
   background-repeat: no-repeat;
   background-size: cover;

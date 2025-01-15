@@ -1,26 +1,19 @@
 import styled from 'styled-components';
 
 export const SearchBar = styled.input`
-  float: right;
-  padding: 8px;
-  border-width: 0px;
-  border-radius: 5px;
-  margin: 12px 0px;
-  width: 50vw;
-  background-color: #ebebeb;
+  padding: 1rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  background-color: #ffffff;
 
-  font-size: 12px;
-  line-height: 1;
-  @media (min-width: 768px) {
-    font-size: 14px;
-    line-height: 1;
-  }
-  @media (min-width: 1024px) {
-    font-size: 18px;
-    line-height: 1;
-  }
+  font-size: 16px;
+  line-height: 16px;
+
+  width: 50vw;
+  min-width: 300px;
+
   &:focus {
-    outline: none;
-    background-color: #cdcdcd;
+    background-color: #cccccc;
   }
 `;

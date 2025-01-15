@@ -19,7 +19,7 @@ export const Container = styled.header`
 `;
 
 export const Logo = styled(Link)`
-  color: rgba(0, 0, 0, 0.8);
+  color: #333333;
 
   display: flex;
   align-items: center;
@@ -28,10 +28,10 @@ export const Logo = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: rgba(0, 0, 0, 0.9);
+    color: #222222;
   }
   &:active {
-    color: rgb(0, 0, 0);
+    color: #111111;
   }
 `;
 
@@ -48,7 +48,7 @@ export const LogoTitle = styled.p`
   font-weight: bold;
   letter-spacing: -2px;
 
-  & > b {
+  & > small {
     font-size: 28px;
   }
 `;
@@ -69,7 +69,7 @@ export const ShortMenu = styled.div`
   margin-bottom: -140px;
   border-radius: 0 0 0 10px;
 
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 
   display: flex;

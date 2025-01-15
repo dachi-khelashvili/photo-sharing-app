@@ -49,7 +49,7 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
         <Logo to={PATH.HOME}>
           <LogoIcon src="./logo.svg" />
           <LogoTitle>
-            PH<b>O</b>T<b>O</b>SHARE
+            PH<small>O</small>T<small>O</small>SHARE
           </LogoTitle>
         </Logo>
         <LinkGroup>
