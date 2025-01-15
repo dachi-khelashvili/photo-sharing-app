@@ -56,19 +56,19 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
           {!props.isAuthenticated ? (
             <>
               <StyledLink linkstyle="normal" to={PATH.LOGIN}>
-                Sign In
+                SIGN IN
               </StyledLink>
               <StyledLink linkstyle="normal" to={PATH.REGISTER}>
-                Sign Up
+                SIGN UP
               </StyledLink>
             </>
           ) : (
             <>
               <StyledLink linkstyle="normal" to={PATH.COMMUNITY}>
-                Community
+                COMMUNITY
               </StyledLink>
               <StyledLink linkstyle="normal" to={PATH.CHATROOM}>
-                Chatting Room
+                CHATTING ROOM
               </StyledLink>
               <StyledAvatar
                 avatarstyle="small"

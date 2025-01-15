@@ -17,8 +17,8 @@ export const Container = styled.button<{ buttonstyle: string }>`
       margin: 0;
       border-radius: 0;
       background-color: transparent;
-      font-size: 18px;
-      font-weight: bold;
+      font-size: 16px;
+      font-weight: 500;
       color: rgba(0,0,0,0.8);
       &:hover{
         color: rgba(0,0,0,0.9);

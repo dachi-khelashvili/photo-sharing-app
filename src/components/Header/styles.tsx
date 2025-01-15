@@ -37,19 +37,19 @@ export const Logo = styled(Link)`
 
 export const LogoIcon = styled.img`
   width: auto;
-  height: 48px;
+  height: 40px;
 `;
 
 export const LogoTitle = styled.p`
   margin: 0 0 0 0;
   padding: 0;
 
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   letter-spacing: -2px;
 
   & > small {
-    font-size: 28px;
+    font-size: 24px;
   }
 `;
 
