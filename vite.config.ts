@@ -19,6 +19,6 @@ export default defineConfig({
     tsConfigPaths(),
   ],
   build: {
-    outDir: 'build',
+    outDir: 'dist',
   },
 });
