@@ -1,26 +1,31 @@
 import styled from 'styled-components';
+enum InputState {
+  NORMAL = 'NORMAL',
+  EDITED = 'EDITED',
+  INVALID = 'INVALID',
+}
 
-export const Label = styled.label<{ state: string }>`
+export const Label = styled.label<{ state: InputState }>`
   position: absolute;
   margin-left: 20px;
   transition: all 200ms;
 
   ${({ state }) =>
-    state === 'STATE_NORMAL' &&
+    state === InputState.NORMAL &&
     `
     color: rgb(137, 137, 137);
     margin-top: 17px;
     font-size: 20px;
   `}
   ${({ state }) =>
-    state === 'STATE_EDITED' &&
+    state === InputState.EDITED &&
     `
     color: dodgerblue;
     margin-top: 8px;
     font-size: 15px;
   `}
   ${({ state }) =>
-    state === 'STATE_INVALID' &&
+    state === InputState.INVALID &&
     `
     color: red;
     margin-top: 8px;
@@ -86,12 +91,13 @@ export const EyeButton = styled.button`
   width: 60px;
   margin-left: -60px;
   z-index: 1;
+  cursor: pointer;
 
   &:hover {
-    opacity: 0.9;
+    filter: brightness(0.7);
   }
 
   &:active {
-    opacity: 0.8;
+    filter: brightness(0.4);
   }
 `;
