@@ -1,59 +1,83 @@
 import React from 'react';
-import { Image, GoToTopBtn, SearchBar } from 'components';
+import { GoToTopBtn, SearchBar } from 'components';
 import {
   Container,
-  Header,
-  SubCaption,
-  Caption,
-  Description,
   Block,
   BlockReverse,
   ContextEnd,
   ContextStart,
-  ImageContainer,
+  Image,
+  SearchSection,
+  SearchContainer,
+  BlockSection,
 } from './styles';
+
+// Define types for feature blocks
+interface FeatureBlockProps {
+  imageSrc: string;
+  title: string;
+  description: string;
+  isReverse?: boolean;
+}
+
+const FeatureBlock: React.FC<FeatureBlockProps> = ({
+  imageSrc,
+  title,
+  description,
+  isReverse = false,
+}) => {
+  const BlockWrapper = isReverse ? BlockReverse : Block;
+  const Context = isReverse ? ContextEnd : ContextStart;
+
+  return (
+    <BlockWrapper>
+      <Image src={imageSrc} alt={title} />
+      <Context>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </Context>
+    </BlockWrapper>
+  );
+};
+
+const TRENDING_TAGS = ['flower', 'wallpaper', 'beauty', 'love'];
 
 export const HomeView: React.FC = () => {
   return (
-    <>
+    <Container>
       <GoToTopBtn />
-      <Image src="./back.png" alt="back" />
-      <Container>
-        <Header>Photo Share</Header>
-        <SubCaption>Create and share your images</SubCaption>
-        <SearchBar type="text" placeholder="Search image..." />
-        <Description>Trending: flower, wallpapaer, beauty, love...</Description>
-      </Container>
-      <BlockReverse>
-        <ImageContainer src="community.png" />
-        <ContextEnd>
-          <Caption>Welcome to our Community</Caption>
-          <Description>
-            Share everything with your community and find your value sharing
-            with others
-          </Description>
-        </ContextEnd>
-      </BlockReverse>
-      <Block>
-        <ImageContainer src="chatting.png" />
-        <ContextStart>
-          <Caption>Welcome to our Chatting</Caption>
-          <Description>
-            Share everything with your community and find your value sharing
-            with others
-          </Description>
-        </ContextStart>
-      </Block>
-      <BlockReverse>
-        <ImageContainer src="friends.png" />
-        <ContextEnd>
-          <Caption>Find and make your own friends</Caption>
-          <Description>
-            Make a friendship with photos and feel happy and sad with your
-            friends
-          </Description>
-        </ContextEnd>
-      </BlockReverse>
-    </>
+      <SearchSection>
+        <SearchContainer>
+          <h1>PhotoShare</h1>
+          <h3>Create and share your images</h3>
+          <SearchBar
+            type="text"
+            placeholder="Search image..."
+            aria-label="Search images"
+          />
+          <p>Trending: {TRENDING_TAGS.join(', ')}...</p>
+        </SearchContainer>
+      </SearchSection>
+
+      <BlockSection>
+        <FeatureBlock
+          imageSrc="community.png"
+          title="Welcome to our Community"
+          description="Share everything with your community and find your value sharing with others"
+          isReverse
+        />
+        <FeatureBlock
+          imageSrc="chatting.png"
+          title="Welcome to our Chatting"
+          description="Share everything with your community and find your value sharing with others"
+        />
+        <FeatureBlock
+          imageSrc="friends.png"
+          title="Find and make your own friends"
+          description="Make a friendship with photos and feel happy and sad with your friends"
+          isReverse
+        />
+      </BlockSection>
+    </Container>
   );
 };

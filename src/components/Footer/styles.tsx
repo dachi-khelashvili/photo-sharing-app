@@ -26,7 +26,7 @@ export const FooterIcon = styled.img`
   width: auto;
   height: 50px;
   margin-bottom: -10px;
-  filter: brightness(600%);
+  filter: brightness(1000%);
 `;
 
 export const FooterText = styled.p`
