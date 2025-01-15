@@ -79,3 +79,19 @@ export const InvalidLabel = styled.div<{ state: string }>`
     display: inline-block;
   `}
 `;
+
+export const EyeButton = styled.button`
+  background-color: transparent;
+  border: none;
+  width: 60px;
+  margin-left: -60px;
+  z-index: 1;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+`;
