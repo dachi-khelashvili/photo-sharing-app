@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Label, Input, Container, InvalidLabel } from './styles';
+import { Label, Input, Container, InvalidLabel, EyeButton } from './styles';
 import { validatePassword } from 'consts';
-import { IconButton } from 'components';
+import { Eye, EyeClosed } from 'lucide-react';
 
 interface PasswordInputProps {
   value: string;
@@ -17,7 +17,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
   isValidatable,
 }) => {
   const [state, setState] = useState('STATE_NORMAL');
-  const [inputType, setInputType] = useState('password');
+  const [visible, setVisible] = useState(true);
 
   return (
     <Container>
@@ -27,7 +27,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
       </Label>
       <Input
         value={value}
-        type={inputType}
+        type={visible ? 'password' : 'normal'}
         state={state}
         onChange={(e) => {
           const temp = e.target.value;
@@ -48,17 +48,9 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           if (e.target.value.length == 0) setState('STATE_NORMAL');
         }}
       ></Input>
-      <IconButton
-        width="40px"
-        height="40px"
-        marginleft="-50px"
-        marginright="10px"
-        iconPath={'./' + inputType + '-eye.png'}
-        onClick={() => {
-          if (inputType == 'password') setInputType('normal');
-          else setInputType('password');
-        }}
-      />
+      <EyeButton onClick={() => setVisible(!visible)}>
+        {visible ? <Eye color="#898989" /> : <EyeClosed color="#898989" />}
+      </EyeButton>
     </Container>
   );
 };
