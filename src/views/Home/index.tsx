@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoToTopBtn, SearchBar } from 'components';
+import { UpButton, SearchBar } from 'components';
 import {
   Container,
   Block,
@@ -45,10 +45,12 @@ const TRENDING_TAGS = ['flower', 'wallpaper', 'beauty', 'love'];
 export const HomeView: React.FC = () => {
   return (
     <Container>
-      <GoToTopBtn />
+      <UpButton />
       <SearchSection>
         <SearchContainer>
-          <h1>PhotoShare</h1>
+          <h1>
+            PH<small>O</small>T<small>O</small>SHARE
+          </h1>
           <h3>Create and share your images</h3>
           <SearchBar
             type="text"

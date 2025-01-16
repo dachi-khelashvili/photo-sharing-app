@@ -14,7 +14,7 @@ export * from './Image';
 export * from './Radio';
 export * from './StyledTextArea';
 export * from './IconButton';
-export * from './GoToTopBtn';
+export * from './UpButton';
 export * from './ImageCard';
 export * from './Selector';
 export * from './Pagination';
