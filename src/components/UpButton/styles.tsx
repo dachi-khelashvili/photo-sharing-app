@@ -1,37 +1,38 @@
 import styled from 'styled-components';
 
-export const StyledGoToTopBtn = styled.button`
+export const Container = styled.button`
   position: fixed;
-  bottom: 40px;
-  right: 25px;
-  z-index: 20;
-  background-color: #551b54;
-  border: 2px solid #fff;
+  bottom: 2rem;
+  right: calc(5% - 24px);
+
+  @media (max-width: 768px) {
+    right: 16px;
+  }
+
+  @media (max-width: 480px) {
+    right: 8px;
+  }
+
+  z-index: 2;
+  background-color: #00000060;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  border: none;
+  height: 3rem;
+  width: 3rem;
   color: #fff;
   cursor: pointer;
   animation: movebtn 3s ease-in-out infinite;
   transition: all 0.5s ease-in-out;
   &:hover {
     animation: none;
-    background: #fff;
-    color: #551b54;
-    border: 2px solid #551b54;
+    background: #000000a0;
   }
   @keyframes movebtn {
     0% {
       transform: translateY(0px);
     }
-    25% {
-      transform: translateY(20px);
-    }
     50% {
-      transform: translateY(0px);
-    }
-    75% {
-      transform: translateY(-20px);
+      transform: translateY(20px);
     }
     100% {
       transform: translateY(0px);
