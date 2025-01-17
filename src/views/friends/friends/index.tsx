@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import { Wrap, RightGrid } from './styles';
-import { FriendCard, PaginationBar } from 'components';
-import { getNewFriends, PageFriendsSize } from 'consts';
-import { Flex } from './styles';
+import { Wrap, RightGrid } from '../styles';
+import { FriendCard, PaginationBar, Selector } from 'components';
+import { getFriends, PageFriendsSize } from 'consts';
+import { Flex, FlexItem, Typography, Search } from '../styles';
 
-const temp = getNewFriends();
+const temp = getFriends();
 
-export const FriendRequestsView: React.FC = () => {
+export const MyFriendsView: React.FC = () => {
   const [friends] = useState(temp);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -22,6 +22,13 @@ export const FriendRequestsView: React.FC = () => {
   return (
     <>
       <Flex>
+        <FlexItem>
+          <Selector label="Sort by:" options={['Date', 'Uploader']} />
+        </FlexItem>
+        <FlexItem>
+          <Typography>Search:</Typography>
+          <Search placeholder="Search..." />
+        </FlexItem>
         <RightGrid>
           <PaginationBar
             totalCount={friends.length}
@@ -39,7 +46,7 @@ export const FriendRequestsView: React.FC = () => {
                 key={index}
                 friend={friend}
                 onClick={onClick}
-                type={'Accept'}
+                type={'Remove'}
               />
             );
           })}
