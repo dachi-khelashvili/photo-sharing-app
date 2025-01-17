@@ -11,7 +11,7 @@ import {
   Div,
   P,
 } from './styles';
-import { Screen } from 'components/modals/Modal/styles';
+import { Screen } from 'components/modals/basic/styles';
 import { UserListItem } from './UserListItem';
 import { UserListItemAvatar } from './UserListItem/styles';
 import { MessageListItem } from './MessageListItem/indext';
