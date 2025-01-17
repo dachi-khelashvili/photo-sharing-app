@@ -20,7 +20,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
     value ? INPUTSTATE.VALUED : INPUTSTATE.NORMAL
   );
 
-  const [eyeState, setEyeState] = useState<boolean>(false);
+  const [eyeState, setEyeState] = useState<boolean>(true);
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
