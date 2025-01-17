@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { Container, TabItem } from './styles';
 
-import { MyFriendsView } from './myFriends';
-import { AddNewFriendsView } from './addNewFriends';
-import { FriendRequestsView } from './friendRequests';
-import { PendingRequestsView } from './pendingRequests';
+import { MyFriendsView } from './friends';
+import { AddNewFriendsView } from './create';
+import { FriendRequestsView } from './requests';
+import { PendingRequestsView } from './pending';
 
 export const FriendsView: React.FC = () => {
   const [tabPage, setTabPage] = useState<number>(1);

@@ -1,4 +1,3 @@
-export {};
 import React, { useState, useMemo } from 'react';
 import { Wrap, RightGrid } from '../styles';
 import { FriendCard, PaginationBar } from 'components';
