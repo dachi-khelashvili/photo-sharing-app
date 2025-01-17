@@ -1,1 +1,1 @@
-export * from './generateRangeArray';
+export * from './generate_range_array';
