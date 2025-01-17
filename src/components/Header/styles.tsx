@@ -23,33 +23,30 @@ export const Logo = styled(Link)`
 
   display: flex;
   align-items: center;
-  gap: 5px;
-
   text-decoration: none;
+
+  div {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 480px) {
+    div {
+      display: none;
+    }
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
 
   &:hover {
     color: #222222;
   }
   &:active {
     color: #111111;
-  }
-`;
-
-export const LogoIcon = styled.img`
-  width: auto;
-  height: 40px;
-`;
-
-export const LogoTitle = styled.p`
-  margin: 0 0 0 0;
-  padding: 0;
-
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: -2px;
-
-  & > small {
-    font-size: 24px;
   }
 `;
 
@@ -64,8 +61,8 @@ export const ShortMenu = styled.div`
   left: 100vw;
   top: 60px;
   height: 140px;
-  width: 140px;
-  padding: 10px 0;
+  width: fit-content;
+  padding: 0.5rem 1rem;
   margin-bottom: -140px;
   border-radius: 0 0 0 10px;
 
@@ -74,7 +71,7 @@ export const ShortMenu = styled.div`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: space-evenly;
   gap: 5px;
   z-index: 2;

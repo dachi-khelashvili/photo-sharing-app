@@ -1,14 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import {
-  Container,
-  Logo,
-  ShortMenu,
-  LogoIcon,
-  LogoTitle,
-  LinkGroup,
-} from './styles';
+import { Container, Logo, ShortMenu, LinkGroup } from './styles';
 
 import { StyledLink, StyledButton, StyledAvatar } from 'components';
 import { PATH } from 'consts';
@@ -47,28 +40,27 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
     <>
       <Container>
         <Logo to={PATH.HOME}>
-          <LogoIcon src="./logo.svg" />
-          <LogoTitle>
-            PH<small>O</small>T<small>O</small>SHARE
-          </LogoTitle>
+          <div>phot</div>
+          <img src="./logo.svg" />
+          <div>share</div>
         </Logo>
         <LinkGroup>
           {!props.isAuthenticated ? (
             <>
               <StyledLink linkstyle="normal" to={PATH.LOGIN}>
-                SIGN IN
+                sign in
               </StyledLink>
               <StyledLink linkstyle="normal" to={PATH.REGISTER}>
-                SIGN UP
+                sign up
               </StyledLink>
             </>
           ) : (
             <>
               <StyledLink linkstyle="normal" to={PATH.COMMUNITY}>
-                COMMUNITY
+                community
               </StyledLink>
               <StyledLink linkstyle="normal" to={PATH.CHATROOM}>
-                CHATTING ROOM
+                chatting
               </StyledLink>
               <StyledAvatar
                 avatarstyle="small"
@@ -96,25 +88,25 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
               buttonstyle="transparent"
               onClick={onClickMyProfileAlerter}
             >
-              My Profile
+              my profile
             </StyledButton>
             <StyledButton
               buttonstyle="transparent"
               onClick={onClickMyPhotosAlerter}
             >
-              My Photos
+              my photos
             </StyledButton>
             <StyledButton
               buttonstyle="transparent"
               onClick={onClickMyFriendsAlerter}
             >
-              My Friends
+              my friends
             </StyledButton>
             <StyledButton
               buttonstyle="transparent"
               onClick={onClickLogOutAlerter}
             >
-              Log Out
+              log out
             </StyledButton>
           </ShortMenu>
         </>
