@@ -16,3 +16,4 @@ export * from './Selector';
 export * from './Pagination';
 export * from './FriendCard';
 export * from './inputs';
+export * from './layout';
