@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Label, Input, Container } from './styles';
 import { INPUTSTATE } from 'consts';
 
-interface PasswordInputProps {
+interface DateInputProps {
   onChange: (value: string) => void;
   label: string;
   value: string;
   className?: string;
 }
 
-export const BasicInput: React.FC<PasswordInputProps> = ({
+export const DateInput: React.FC<DateInputProps> = ({
   onChange,
   label,
   value,
@@ -19,7 +19,7 @@ export const BasicInput: React.FC<PasswordInputProps> = ({
     value ? INPUTSTATE.VALUED : INPUTSTATE.NORMAL
   );
 
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };
 
@@ -31,9 +31,10 @@ export const BasicInput: React.FC<PasswordInputProps> = ({
     <Container className={className}>
       <Label $inputState={inputState}>{label}</Label>
       <Input
+        type="date"
         $inputState={inputState}
         value={value}
-        onChange={handleTextChange}
+        onChange={handleDateChange}
         onFocus={() => setInputState(INPUTSTATE.EDITED)}
         onBlur={handleInputBlur}
       />

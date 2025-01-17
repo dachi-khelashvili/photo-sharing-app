@@ -43,7 +43,6 @@ export const LoginView: React.FC<LoginViewProps> = (props) => {
         <EmailInput onChange={setEmail} value={email} />
         <PasswordInput
           value={password}
-          isValidatable={false}
           label="Password"
           onChange={setPassword}
         />

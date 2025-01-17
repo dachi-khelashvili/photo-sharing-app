@@ -1,103 +1,67 @@
-import styled from 'styled-components';
-enum InputState {
-  NORMAL = 'NORMAL',
-  EDITED = 'EDITED',
-  INVALID = 'INVALID',
+import styled, { css } from 'styled-components';
+import { INPUTSTATE, THEME } from 'consts';
+
+interface StyledComponentProps {
+  $inputState: INPUTSTATE; // More descriptive name while keeping $ prefix
 }
 
-export const Label = styled.label<{ state: InputState }>`
-  position: absolute;
-  margin-left: 20px;
-  transition: all 200ms;
-
-  ${({ state }) =>
-    state === InputState.NORMAL &&
-    `
-    color: rgb(137, 137, 137);
+const LabelStates = {
+  [INPUTSTATE.NORMAL]: css`
+    color: ${THEME.COLORS.TEXT.SECONDARY};
     margin-top: 17px;
     font-size: 20px;
-  `}
-  ${({ state }) =>
-    state === InputState.EDITED &&
-    `
-    color: dodgerblue;
+  `,
+  [INPUTSTATE.VALUED]: css`
+    color: ${THEME.COLORS.TEXT.SECONDARY};
     margin-top: 8px;
     font-size: 15px;
-  `}
-  ${({ state }) =>
-    state === InputState.INVALID &&
-    `
-    color: red;
+  `,
+  [INPUTSTATE.EDITED]: css`
+    color: ${THEME.COLORS.TEXT.ACTIVE};
     margin-top: 8px;
     font-size: 15px;
-  `}
+  `,
+};
+
+export const Label = styled.label<StyledComponentProps>`
+  position: absolute;
+  margin-left: 20px;
+  transition: ${THEME.TRANSITIONS.DEFAULT};
+  ${({ $inputState }) => LabelStates[$inputState]}
 `;
 
-export const Input = styled.input<{ state: string }>`
-  color: rgb(60, 60, 60);
+export const Input = styled.input<StyledComponentProps>`
+  color: ${THEME.COLORS.TEXT.PRIMARY};
   background-color: transparent;
-
-  min-width: 0px;
-  padding: 27px 46px 7px 16px;
+  padding: 27px 16px 7px 16px;
   border-radius: 10px;
-  border: 2px solid rgb(137, 137, 137);
-  outline: none;
-
-  flex: 1;
-
+  border: 2px solid
+    ${({ $inputState }) =>
+      $inputState === INPUTSTATE.EDITED
+        ? THEME.COLORS.BORDER.ACTIVE
+        : THEME.COLORS.BORDER.DEFAULT};
   font-size: 20px;
   font-weight: normal;
+`;
 
-  ${({ state }) =>
-    state === 'STATE_NORMAL' &&
-    `
-    border-color: rgb(137, 137, 137);
-  `}
-  ${({ state }) =>
-    state === 'STATE_EDITED' &&
-    `
-    border-color: dodgerblue;
-  `}
-  ${({ state }) =>
-    state === 'STATE_INVALID' &&
-    `
-    border-color: red;
-  `}
-
-  z-index: 1;
+export const Button = styled.button`
+  position: absolute;
+  background: transparent;
+  border: none;
+  margin-left: calc(100% - 40px);
+  margin-top: 20px;
+  opacity: ${THEME.OPACITY.ICON.DEFAULT};
+  cursor: pointer;
+  &:hover {
+    opacity: ${THEME.OPACITY.ICON.HOVER};
+  }
+  &:hover {
+    opacity: ${THEME.OPACITY.ICON.ACTIVE};
+  }
 `;
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const InvalidLabel = styled.div<{ state: string }>`
-  color: red;
-  display: none;
-  margin-right: 5px;
-
-  ${({ state }) =>
-    state === 'STATE_INVALID' &&
-    `
-    display: inline-block;
-  `}
-`;
-
-export const EyeButton = styled.button`
-  background-color: transparent;
-  border: none;
-  width: 60px;
-  margin-left: -60px;
-  z-index: 1;
-  cursor: pointer;
-
-  &:hover {
-    filter: brightness(0.7);
-  }
-
-  &:active {
-    filter: brightness(0.4);
-  }
+  flex-direction: column;
 `;

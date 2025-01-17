@@ -5,7 +5,7 @@ interface StyledComponentProps {
   $inputState: INPUTSTATE; // More descriptive name while keeping $ prefix
 }
 
-const LabelStates = {
+const labelStyles = {
   [INPUTSTATE.NORMAL]: css`
     color: ${THEME.COLORS.TEXT.SECONDARY};
     margin-top: 17px;
@@ -27,7 +27,7 @@ export const Label = styled.label<StyledComponentProps>`
   position: absolute;
   margin-left: 20px;
   transition: ${THEME.TRANSITIONS.DEFAULT};
-  ${({ $inputState }) => LabelStates[$inputState]}
+  ${({ $inputState }) => labelStyles[$inputState]}
 `;
 
 export const Input = styled.input<StyledComponentProps>`
@@ -42,6 +42,27 @@ export const Input = styled.input<StyledComponentProps>`
         : THEME.COLORS.BORDER.DEFAULT};
   font-size: 20px;
   font-weight: normal;
+
+  &::-webkit-datetime-edit {
+    transition: ${THEME.TRANSITIONS.DEFAULT};
+    color: ${({ $inputState }) =>
+      $inputState === INPUTSTATE.NORMAL
+        ? 'transparent'
+        : THEME.COLORS.TEXT.PRIMARY};
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: ${THEME.OPACITY.ICON.DEFAULT};
+    cursor: pointer;
+  }
+
+  &::-webkit-calendar-picker-indicator:hover {
+    opacity: ${THEME.OPACITY.ICON.HOVER};
+  }
+
+  &::-webkit-calendar-picker-indicator:active {
+    opacity: ${THEME.OPACITY.ICON.ACTIVE};
+  }
 `;
 
 export const Container = styled.div`

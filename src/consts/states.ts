@@ -1,0 +1,5 @@
+export enum INPUTSTATE {
+  NORMAL = 'NORMAL',
+  VALUED = 'VALUED',
+  EDITED = 'EDITED',
+}

@@ -1,14 +1,14 @@
-import { Container, FooterIcon, FooterText, FooterTitle } from './styles';
+import { Container, FooterTitle } from './styles';
 
 export const FooterComponent: React.FC = () => {
   return (
     <Container>
       <FooterTitle>
-        PHOT
-        <FooterIcon src="./logo.svg" />
-        SHARE 2023
+        <div>phot</div>
+        <img src="./logo.svg" />
+        <div>share</div>
       </FooterTitle>
-      <FooterText>Thanks for visiting PhotoShare</FooterText>
+      <p>thanks for visiting photoshare</p>
     </Container>
   );
 };
