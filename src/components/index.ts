@@ -7,7 +7,7 @@ export * from './modals/photo';
 export * from './radio';
 export * from './styled_text_area';
 export * from './cards/image';
-export * from './selector';
+export * from './selector_c';
 export * from './pagination';
 export * from './cards/friend';
 export * from './inputs';
