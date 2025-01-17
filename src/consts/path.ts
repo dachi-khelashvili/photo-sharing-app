@@ -1,6 +1,7 @@
 export const HOME = '/';
 export const LOGIN = '/login';
 export const REGISTER = '/register';
+export const GALLERY = '/gallery';
 export const DASHBOARD = '/dashboard';
 export const COMMUNITY = '/community';
 export const CHATROOM = '/chatroom';
