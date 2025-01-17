@@ -30,5 +30,18 @@ export const THEME = {
       HOVER: 0.9,
       ACTIVE: 0.8,
     },
+    TEXT: {
+      DEFAULT: 0.8,
+      HOVER: 0.9,
+      ACTIVE: 1,
+    },
+  },
+  SHADOW: {
+    DEFAULT: '0 0 5px 0 rgba(0, 0, 0, 0.4)',
+  },
+  ZINDEX: {
+    DEFAULT: 0,
+    MENU: 1,
+    HEADER: 2,
   },
 };

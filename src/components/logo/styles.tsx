@@ -12,19 +12,11 @@ const baseLogoStyles = css`
 
   div {
     font-size: 24px;
-    line-height: 24px;
     font-weight: bold;
-  }
-
-  @media (max-width: 480px) {
-    div {
-      display: none;
-    }
   }
 
   img {
     width: 30px;
-    height: 30px;
   }
 
   &:hover {

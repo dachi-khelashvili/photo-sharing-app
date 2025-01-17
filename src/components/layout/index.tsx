@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderComponent } from './header';
+import { Header } from './header';
 import { FooterComponent } from './footer';
 
 interface LayoutProps {
@@ -11,7 +11,7 @@ interface LayoutProps {
 export const LayoutComponent: React.FC<LayoutProps> = (props) => {
   return (
     <>
-      <HeaderComponent
+      <Header
         isAuthenticated={props.isAuthenticated}
         setAuthentication={props.setAuthentication}
       />
