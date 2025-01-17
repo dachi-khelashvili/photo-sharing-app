@@ -1,13 +1,11 @@
-import { Container, FooterTitle } from './styles';
+import { Logo } from 'components/logo';
+import { Container } from './styles';
+import { COLORSTYLE } from 'consts';
 
 export const FooterComponent: React.FC = () => {
   return (
     <Container>
-      <FooterTitle>
-        <div>phot</div>
-        <img src="./logo.svg" />
-        <div>share</div>
-      </FooterTitle>
+      <Logo style={COLORSTYLE.LIGHT} />
       <p>thanks for visiting photoshare</p>
     </Container>
   );
