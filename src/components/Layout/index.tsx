@@ -1,6 +1,6 @@
 import React from 'react';
-import { HeaderComponent } from '../Header';
-import { FooterComponent } from '../Footer';
+import { HeaderComponent } from './header';
+import { FooterComponent } from './footer';
 
 interface LayoutProps {
   isAuthenticated: boolean;

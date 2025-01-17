@@ -5,7 +5,7 @@ interface StyledComponentProps {
   $inputState: INPUTSTATE; // More descriptive name while keeping $ prefix
 }
 
-const labelStyles = {
+const labelThemes = {
   [INPUTSTATE.NORMAL]: css`
     color: ${THEME.COLORS.TEXT.SECONDARY};
     margin-top: 17px;
@@ -17,9 +17,29 @@ const labelStyles = {
     font-size: 15px;
   `,
   [INPUTSTATE.EDITED]: css`
-    color: ${THEME.COLORS.TEXT.ACTIVE};
+    color: ${THEME.COLORS.TEXT.FOCUS};
     margin-top: 8px;
     font-size: 15px;
+  `,
+  [INPUTSTATE.INVALID]: css`
+    color: ${THEME.COLORS.TEXT.INVALID};
+    margin-top: 8px;
+    font-size: 15px;
+  `,
+};
+
+const inputThemes = {
+  [INPUTSTATE.NORMAL]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.DEFAULT};
+  `,
+  [INPUTSTATE.VALUED]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.DEFAULT};
+  `,
+  [INPUTSTATE.EDITED]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.FOCUS};
+  `,
+  [INPUTSTATE.INVALID]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.INVALID};
   `,
 };
 
@@ -27,42 +47,17 @@ export const Label = styled.label<StyledComponentProps>`
   position: absolute;
   margin-left: 20px;
   transition: ${THEME.TRANSITIONS.DEFAULT};
-  ${({ $inputState }) => labelStyles[$inputState]}
+  ${({ $inputState }) => labelThemes[$inputState]}
 `;
 
 export const Input = styled.input<StyledComponentProps>`
+  ${({ $inputState }) => inputThemes[$inputState]}
   color: ${THEME.COLORS.TEXT.PRIMARY};
   background-color: transparent;
   padding: 27px 16px 7px 16px;
   border-radius: 10px;
-  border: 2px solid
-    ${({ $inputState }) =>
-      $inputState === INPUTSTATE.EDITED
-        ? THEME.COLORS.BORDER.ACTIVE
-        : THEME.COLORS.BORDER.DEFAULT};
   font-size: 20px;
   font-weight: normal;
-
-  &::-webkit-datetime-edit {
-    transition: ${THEME.TRANSITIONS.DEFAULT};
-    color: ${({ $inputState }) =>
-      $inputState === INPUTSTATE.NORMAL
-        ? 'transparent'
-        : THEME.COLORS.TEXT.PRIMARY};
-  }
-
-  &::-webkit-calendar-picker-indicator {
-    opacity: ${THEME.OPACITY.ICON.DEFAULT};
-    cursor: pointer;
-  }
-
-  &::-webkit-calendar-picker-indicator:hover {
-    opacity: ${THEME.OPACITY.ICON.HOVER};
-  }
-
-  &::-webkit-calendar-picker-indicator:active {
-    opacity: ${THEME.OPACITY.ICON.ACTIVE};
-  }
 `;
 
 export const Container = styled.div`

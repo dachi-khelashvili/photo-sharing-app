@@ -1,4 +1,4 @@
-import { StyledAvatar, PasswordInput, BasicInput } from 'components';
+import { StyledAvatar, PasswordInput, BasicInput, DateInput } from 'components';
 import { Container, Frame, Group, LoginButton } from '../Login/styles';
 import { HGroup, VGroup } from './styles';
 import React, { useReducer } from 'react';
@@ -8,7 +8,6 @@ import {
   profileReducer,
   ProfileReducerActionTypes,
 } from './reducer';
-import { DateInput } from 'components/DateInput';
 
 const InitialState: InitialStateType = {
   username: '',
