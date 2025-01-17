@@ -59,6 +59,7 @@ export const RegisterView: React.FC = () => {
         <Img src="./logo.svg" />
         <Heading>Sign up for PhotoShare</Heading>
         <EmailInput
+          label="Email"
           value={state.email}
           onChange={(newValue) =>
             onRegisterUserInfoChange(
@@ -70,7 +71,6 @@ export const RegisterView: React.FC = () => {
         <PasswordInput
           value={state.password}
           label="Password"
-          isValidatable={true}
           onChange={(newValue) =>
             onRegisterUserInfoChange(
               RegisterReducerActionTypes.CHANGE_PASSWORD,
@@ -81,7 +81,6 @@ export const RegisterView: React.FC = () => {
         <PasswordInput
           value={state.confirmPassword}
           label="Confirm"
-          isValidatable={false}
           onChange={(newValue) =>
             onRegisterUserInfoChange(
               RegisterReducerActionTypes.CHANGE_CONFIRM_PASSWORD,

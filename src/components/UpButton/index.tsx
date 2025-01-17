@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import { StyledGoToTopBtn, SVG } from './styles';
+import { Container } from './styles';
+import { ChevronUp } from 'lucide-react';
 
-export const GoToTopBtn: React.FC = () => {
+export const UpButton: React.FC = () => {
   const [showTopButton, setShowTopButton] = useState(false);
 
   useEffect(() => {
@@ -33,8 +34,8 @@ export const GoToTopBtn: React.FC = () => {
   }
 
   return (
-    <StyledGoToTopBtn onClick={goToTop}>
-      <SVG src="./up-arrow.svg" />
-    </StyledGoToTopBtn>
+    <Container onClick={goToTop}>
+      <ChevronUp size={30} />
+    </Container>
   );
 };

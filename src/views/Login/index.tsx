@@ -40,10 +40,9 @@ export const LoginView: React.FC<LoginViewProps> = (props) => {
         <Heading>
           Log in to <b>PHOTOSHARE</b> community
         </Heading>
-        <EmailInput onChange={setEmail} value={email} />
+        <EmailInput label="Email" onChange={setEmail} value={email} />
         <PasswordInput
           value={password}
-          isValidatable={false}
           label="Password"
           onChange={setPassword}
         />
