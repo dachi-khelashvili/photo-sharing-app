@@ -9,7 +9,7 @@ import {
   LoginButton,
   RegisterButton,
   Group,
-} from '../login_v/styles';
+} from '../login/styles';
 import { EmailInput, PasswordInput } from 'components';
 import {
   registerReducer,
