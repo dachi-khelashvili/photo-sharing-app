@@ -59,6 +59,7 @@ export const RegisterView: React.FC = () => {
         <Img src="./logo.svg" />
         <Heading>Sign up for PhotoShare</Heading>
         <EmailInput
+          label="Email"
           value={state.email}
           onChange={(newValue) =>
             onRegisterUserInfoChange(

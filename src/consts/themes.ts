@@ -3,11 +3,13 @@ export const THEME = {
     TEXT: {
       PRIMARY: '#3C3C3C',
       SECONDARY: '#898989',
-      ACTIVE: '#1E90FF',
+      FOCUS: '#1E90FF',
+      INVALID: '#ff0000',
     },
     BORDER: {
       DEFAULT: '#898989',
-      ACTIVE: '#1E90FF',
+      FOCUS: '#1E90FF',
+      INVALID: '#ff0000',
     },
   },
   TRANSITIONS: {

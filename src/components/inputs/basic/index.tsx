@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Label, Input, Container } from './styles';
 import { INPUTSTATE } from 'consts';
 
-interface PasswordInputProps {
+interface BasicInputProps {
   onChange: (value: string) => void;
   label: string;
   value: string;
   className?: string;
 }
 
-export const BasicInput: React.FC<PasswordInputProps> = ({
+export const BasicInput: React.FC<BasicInputProps> = ({
   onChange,
   label,
   value,
