@@ -12,9 +12,9 @@ import {
   P,
 } from './styles';
 import { Screen } from 'components/modals/basic/styles';
-import { UserListItem } from './UserListItem';
-import { UserListItemAvatar } from './UserListItem/styles';
-import { MessageListItem } from './MessageListItem/indext';
+import { UserListItem } from './user';
+import { UserListItemAvatar } from './user/styles';
+import { MessageListItem } from './message/indext';
 
 const friends = [
   {

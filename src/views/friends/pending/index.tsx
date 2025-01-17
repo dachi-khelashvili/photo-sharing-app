@@ -1,9 +1,9 @@
 export {};
 import React, { useState, useMemo } from 'react';
-import { Wrap, RightGrid } from './styles';
+import { Wrap, RightGrid } from '../styles';
 import { FriendCard, PaginationBar } from 'components';
 import { getNewFriends, PageFriendsSize } from 'consts';
-import { Flex } from './styles';
+import { Flex } from '../styles';
 
 const temp = getNewFriends();
 

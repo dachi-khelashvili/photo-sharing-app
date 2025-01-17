@@ -6,7 +6,7 @@ import {
   MessageSendImg,
 } from './styles';
 
-import { UserListItemAvatar, UserListItemName } from '../UserListItem/styles';
+import { UserListItemAvatar, UserListItemName } from '../user/styles';
 
 interface MessageListItemProps {
   from: {

@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import { Wrap, RightGrid } from './styles';
+import { Wrap, RightGrid } from '../styles';
 import { FriendCard, PaginationBar, Selector } from 'components';
-import { getFriends, PageFriendsSize } from 'consts';
-import { Flex, FlexItem, Typography, Search } from './styles';
+import { getNewFriends, PageFriendsSize } from 'consts';
+import { Flex, FlexItem, Typography, Search } from '../styles';
 
-const temp = getFriends();
+const temp = getNewFriends();
 
-export const MyFriendsView: React.FC = () => {
+export const AddNewFriendsView: React.FC = () => {
   const [friends] = useState(temp);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -24,6 +24,7 @@ export const MyFriendsView: React.FC = () => {
       <Flex>
         <FlexItem>
           <Selector label="Sort by:" options={['Date', 'Uploader']} />
+          <Selector label="Gender:" options={['Man', 'Woman', 'Other']} />
         </FlexItem>
         <FlexItem>
           <Typography>Search:</Typography>
@@ -46,7 +47,7 @@ export const MyFriendsView: React.FC = () => {
                 key={index}
                 friend={friend}
                 onClick={onClick}
-                type={'Remove'}
+                type={'Request'}
               />
             );
           })}

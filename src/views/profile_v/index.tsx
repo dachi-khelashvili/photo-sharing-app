@@ -1,5 +1,5 @@
 import { StyledAvatar, PasswordInput, BasicInput, DateInput } from 'components';
-import { Container, Frame, Group, LoginButton } from '../Login/styles';
+import { Container, Frame, Group, LoginButton } from '../login_v/styles';
 import { HGroup, VGroup } from './styles';
 import React, { useReducer } from 'react';
 
