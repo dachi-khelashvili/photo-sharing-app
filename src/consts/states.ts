@@ -4,3 +4,8 @@ export enum INPUTSTATE {
   EDITED = 'EDITED',
   INVALID = 'INVALID',
 }
+
+export enum COLORSTYLE {
+  DARK = 'DARK',
+  LIGHT = 'LIGHT',
+}

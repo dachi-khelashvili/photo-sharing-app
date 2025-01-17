@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Logo } from 'components/logo';
 
-import { Container, Logo, ShortMenu, LinkGroup } from './styles';
+import { Container, ShortMenu, LinkGroup } from './styles';
 
 import { StyledLink, StyledButton, StyledAvatar } from 'components';
-import { PATH } from 'consts';
+import { COLORSTYLE, PATH } from 'consts';
 import { useOutsideAlerter } from 'hooks';
 interface HeaderComponentProps {
   isAuthenticated: boolean;
@@ -39,11 +40,7 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
   return (
     <>
       <Container>
-        <Logo to={PATH.HOME}>
-          <div>phot</div>
-          <img src="./logo.svg" />
-          <div>share</div>
-        </Logo>
+        <Logo style={COLORSTYLE.DARK} />
         <LinkGroup>
           {!props.isAuthenticated ? (
             <>

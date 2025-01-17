@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.header`
@@ -16,38 +15,6 @@ export const Container = styled.header`
   justify-content: space-between;
 
   z-index: 3;
-`;
-
-export const Logo = styled(Link)`
-  color: #333333;
-
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-
-  div {
-    font-size: 24px;
-    line-height: 24px;
-    font-weight: bold;
-  }
-
-  @media (max-width: 480px) {
-    div {
-      display: none;
-    }
-  }
-
-  img {
-    width: 30px;
-    height: 30px;
-  }
-
-  &:hover {
-    color: #222222;
-  }
-  &:active {
-    color: #111111;
-  }
 `;
 
 export const LinkGroup = styled.div`
