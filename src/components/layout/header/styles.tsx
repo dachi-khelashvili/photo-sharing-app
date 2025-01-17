@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { THEME } from 'consts';
 
 export const Container = styled.header`
   position: sticky;
@@ -6,40 +7,44 @@ export const Container = styled.header`
   height: 60px;
   padding: 0 20px;
   border: none;
-
   background-color: white;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
-
+  box-shadow: ${THEME.SHADOW.DEFAULT};
+  z-index: ${THEME.ZINDEX.HEADER};
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  z-index: 3;
 `;
 
-export const LinkGroup = styled.div`
+export const Group = styled.nav`
   display: flex;
   gap: 10px;
   align-items: center;
 `;
 
-export const ShortMenu = styled.div`
-  position: sticky;
-  left: 100vw;
+export const Menu = styled.div`
+  position: fixed;
+  right: 0;
   top: 60px;
-  height: 140px;
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  margin-bottom: -140px;
-  border-radius: 0 0 0 10px;
-
-  background-color: white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: space-evenly;
-  gap: 5px;
-  z-index: 2;
+  background-color: white;
+  padding: 15px 20px;
+  gap: 10px;
+  border-radius: 0 0 0 10px;
+  box-shadow: ${THEME.SHADOW.DEFAULT};
+  z-index: ${THEME.ZINDEX.MENU};
+
+  animation: slideIn 0.2s ease-out;
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;

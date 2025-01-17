@@ -1,113 +1,96 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Logo } from 'components/logo';
-
-import { Container, ShortMenu, LinkGroup } from './styles';
-
-import { StyledLink, StyledButton, StyledAvatar } from 'components';
+import { Container, Menu, Group } from './styles';
+import { TextButton } from 'components';
 import { COLORSTYLE, PATH } from 'consts';
 import { useOutsideAlerter } from 'hooks';
-interface HeaderComponentProps {
+
+interface HeaderProps {
   isAuthenticated: boolean;
   setAuthentication: (e: boolean) => void;
 }
 
-export const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
-  const [isMenuShowed, showMenu] = useState(false);
+type NavigationItem = {
+  path: string;
+  label: string;
+};
 
+const UserMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  const navigate = useNavigate();
+  const menuRef = useRef<HTMLDivElement>(null);
+  useOutsideAlerter(menuRef, () => onClose());
+
+  const menuItems: NavigationItem[] = [
+    { path: PATH.PROFILE, label: 'My Profile' },
+    { path: PATH.PHOTOS, label: 'My Photos' },
+    { path: PATH.FRIENDS, label: 'My Friends' },
+    { path: PATH.LOGIN, label: 'Log Out' },
+  ];
+
+  return (
+    <Menu ref={menuRef} role="menu" aria-label="User menu">
+      {menuItems.map(({ path, label }) => (
+        <TextButton
+          key={path}
+          onClick={() => {
+            navigate(path);
+            onClose();
+          }}
+        >
+          {label}
+        </TextButton>
+      ))}
+    </Menu>
+  );
+};
+
+export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const menuRef = useRef(null);
-  useOutsideAlerter(menuRef, showMenu);
+  const authButtons: NavigationItem[] = [
+    { path: PATH.LOGIN, label: 'Log In' },
+    { path: PATH.REGISTER, label: 'Register' },
+  ];
 
-  const onClickMyProfileAlerter = () => {
-    navigate(PATH.PROFILE);
-    showMenu(false);
-  };
-  const onClickMyPhotosAlerter = () => {
-    navigate(PATH.PHOTOS);
-    showMenu(false);
-  };
-  const onClickMyFriendsAlerter = () => {
-    navigate(PATH.FRIENDS);
-    showMenu(false);
-  };
-  const onClickLogOutAlerter = () => {
-    navigate(PATH.HOME);
-    showMenu(false);
-    props.setAuthentication(false);
-  };
+  const navButtons: NavigationItem[] = [
+    { path: PATH.COMMUNITY, label: 'Community' },
+    { path: PATH.CHATROOM, label: 'Chatting' },
+  ];
+
   return (
     <>
-      <Container>
+      <Container role="banner">
         <Logo style={COLORSTYLE.DARK} />
-        <LinkGroup>
-          {!props.isAuthenticated ? (
+        <Group role="navigation">
+          {!isAuthenticated ? (
             <>
-              <StyledLink linkstyle="normal" to={PATH.LOGIN}>
-                sign in
-              </StyledLink>
-              <StyledLink linkstyle="normal" to={PATH.REGISTER}>
-                sign up
-              </StyledLink>
+              {authButtons.map(({ path, label }) => (
+                <TextButton key={path} onClick={() => navigate(path)}>
+                  {label}
+                </TextButton>
+              ))}
             </>
           ) : (
             <>
-              <StyledLink linkstyle="normal" to={PATH.COMMUNITY}>
-                community
-              </StyledLink>
-              <StyledLink linkstyle="normal" to={PATH.CHATROOM}>
-                chatting
-              </StyledLink>
-              <StyledAvatar
-                avatarstyle="small"
-                onClick={() => {
-                  showMenu(true);
-                }}
-                src="./snoopy-3.jpg"
-              />
-              <StyledButton
-                buttonstyle="transparent"
-                onClick={() => {
-                  showMenu(true);
-                }}
+              {navButtons.map(({ path, label }) => (
+                <TextButton key={path} onClick={() => navigate(path)}>
+                  {label}
+                </TextButton>
+              ))}
+              <TextButton
+                onClick={() => setIsMenuOpen(true)}
+                aria-expanded={isMenuOpen}
+                aria-haspopup="menu"
               >
-                Steven
-              </StyledButton>
+                User
+              </TextButton>
             </>
           )}
-        </LinkGroup>
+        </Group>
       </Container>
-      {isMenuShowed && (
-        <>
-          <ShortMenu ref={menuRef}>
-            <StyledButton
-              buttonstyle="transparent"
-              onClick={onClickMyProfileAlerter}
-            >
-              my profile
-            </StyledButton>
-            <StyledButton
-              buttonstyle="transparent"
-              onClick={onClickMyPhotosAlerter}
-            >
-              my photos
-            </StyledButton>
-            <StyledButton
-              buttonstyle="transparent"
-              onClick={onClickMyFriendsAlerter}
-            >
-              my friends
-            </StyledButton>
-            <StyledButton
-              buttonstyle="transparent"
-              onClick={onClickLogOutAlerter}
-            >
-              log out
-            </StyledButton>
-          </ShortMenu>
-        </>
-      )}
+      {isMenuOpen && <UserMenu onClose={() => setIsMenuOpen(false)} />}
     </>
   );
 };
