@@ -8,6 +8,7 @@ import {
   profileReducer,
   ProfileReducerActionTypes,
 } from './reducer';
+import { DateInput } from 'components/DateInput';
 
 const InitialState: InitialStateType = {
   username: '',
@@ -56,7 +57,6 @@ export const ProfileView: React.FC = () => {
               <PasswordInput
                 value={state.password}
                 label="Password"
-                isValidatable={true}
                 onChange={(e) =>
                   handleChange(e, ProfileReducerActionTypes.CHANGE_PASSWORD)
                 }
@@ -64,7 +64,6 @@ export const ProfileView: React.FC = () => {
               <PasswordInput
                 value={state.confirmPassword}
                 label="Confirm Password"
-                isValidatable={true}
                 onChange={(e) =>
                   handleChange(
                     e,
@@ -74,9 +73,8 @@ export const ProfileView: React.FC = () => {
               />
             </VGroup>
           </HGroup>
-          <BasicInput
+          <DateInput
             label="Birthday"
-            type="date"
             value={state.birthday}
             onChange={(e) =>
               handleChange(e, ProfileReducerActionTypes.CHANGE_BIRTHDAY)

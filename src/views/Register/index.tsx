@@ -70,7 +70,6 @@ export const RegisterView: React.FC = () => {
         <PasswordInput
           value={state.password}
           label="Password"
-          isValidatable={true}
           onChange={(newValue) =>
             onRegisterUserInfoChange(
               RegisterReducerActionTypes.CHANGE_PASSWORD,
@@ -81,7 +80,6 @@ export const RegisterView: React.FC = () => {
         <PasswordInput
           value={state.confirmPassword}
           label="Confirm"
-          isValidatable={false}
           onChange={(newValue) =>
             onRegisterUserInfoChange(
               RegisterReducerActionTypes.CHANGE_CONFIRM_PASSWORD,

@@ -2,36 +2,36 @@ import styled from 'styled-components';
 
 export const Container = styled.footer`
   color: white;
-  background-color: rgba(0, 0, 0, 0.8);
-
-  padding: 10px;
-
+  background-color: #333333;
+  padding: 2rem;
   box-shadow: 0 0 5px 0px black;
+
+  gap: 0.5rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-
-  text-align: center;
+  align-items: center;
 `;
 
-export const FooterTitle = styled.h1`
-  margin: 0;
-  margin-bottom: 10px;
+export const FooterTitle = styled.div`
+  display: flex;
+  align-items: center;
 
-  font-size: 40px;
-`;
+  div {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+  }
 
-export const FooterIcon = styled.img`
-  width: auto;
-  height: 50px;
-  margin-bottom: -10px;
-  filter: brightness(1000%);
-`;
+  @media (max-width: 480px) {
+    div {
+      display: none;
+    }
+  }
 
-export const FooterText = styled.p`
-  margin: 0;
-  margin-bottom: 20px;
-
-  font-size: 20px;
+  img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(1000%);
+  }
 `;
