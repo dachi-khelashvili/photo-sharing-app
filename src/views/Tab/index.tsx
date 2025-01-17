@@ -3,8 +3,8 @@ import { Container, TabItem } from './styles';
 import {
   StyledButton,
   Radio,
-  LabeledInput,
   StyledTextAreaComponent,
+  BasicInput,
 } from 'components';
 import { SimpleModal, Screen } from 'components/Modal/styles';
 import {
@@ -38,9 +38,8 @@ export const Tab: React.FC = () => {
     console.log('upload file');
   };
 
-  const changeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(title);
-    setTitle(event.target.value);
+  const changeTitle = (title: string) => {
+    setTitle(title);
   };
 
   const changeDescription = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -55,11 +54,11 @@ export const Tab: React.FC = () => {
           <SimpleModal ref={showRef} style={{ width: '25%' }}>
             <Grid>
               <TitleInputContainer>
-                <LabeledInput
+                <BasicInput
+                  label="Title"
                   value={title}
-                  placeholder="Title"
                   onChange={changeTitle}
-                />
+                ></BasicInput>
               </TitleInputContainer>
               <Flex>
                 <Img
