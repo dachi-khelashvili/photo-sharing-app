@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Logo } from 'components/logo';
 import { Container, Menu, Group } from './styles';
 import { TextButton } from 'components';
-import { COLORSTYLE, PATH } from 'consts';
+import { PATH, SIZESTYLE } from 'consts';
 import { useOutsideAlerter } from 'hooks';
 
 interface HeaderProps {
@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
   return (
     <>
       <Container role="banner">
-        <Logo style={COLORSTYLE.DARK} />
+        <Logo style={SIZESTYLE.SMALL} />
         <Group role="navigation">
           {!isAuthenticated ? (
             <>

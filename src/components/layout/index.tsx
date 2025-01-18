@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from './header';
 import { Footer } from './footer';
+import { Container } from './styles';
 
 interface LayoutProps {
   isAuthenticated: boolean;
@@ -15,7 +16,7 @@ export const LayoutComponent: React.FC<LayoutProps> = (props) => {
         isAuthenticated={props.isAuthenticated}
         setAuthentication={props.setAuthentication}
       />
-      {props.children}
+      <Container>{props.children}</Container>
       <Footer />
     </>
   );
