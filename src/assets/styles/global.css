@@ -23,13 +23,13 @@ h3 {
 }
 
 p {
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 15px;
+  line-height: 17px;
 }
 
 input {
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 15px;
+  line-height: 17px;
 }
 
 @media (max-width: 1024px) {
@@ -76,12 +76,12 @@ input {
   }
 
   p {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 13px;
+    line-height: 15px;
   }
 
   input {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 13px;
+    line-height: 15px;
   }
 }
