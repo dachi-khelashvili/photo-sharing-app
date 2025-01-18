@@ -16,6 +16,9 @@ export const THEME = {
       FOCUS: '#1E90FF',
       INVALID: '#ff0000',
     },
+    BACKGROUND: {
+      DARK: '#3C3C3C',
+    },
   },
   TRANSITIONS: {
     DEFAULT: 'all 200ms',
