@@ -4,11 +4,11 @@ import { THEME } from 'consts';
 export const Container = styled.footer`
   color: ${THEME.COLORS.TEXT.LIGHT};
   background-color: ${THEME.COLORS.BACKGROUND.DARK};
-  padding: 40px;
+  padding: 60px;
   box-shadow: ${THEME.SHADOW.DEFAULT};
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 60px;
 `;
 
 export const Wrapper = styled.div`

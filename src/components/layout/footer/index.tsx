@@ -20,7 +20,7 @@ const FOOTER_TEXT = {
     chatting: 'Chatting',
   },
   additionalInfo:
-    'Photo sharing fosters connections among friends and family, enhancing relationships through shared experiences. It allows individuals to express their creativity and showcase their unique perspectives. Additionally, it serves as a way to preserve memories, making it easy to revisit significant moments in life.',
+    'Photo sharing fosters connections among friends and family, enhancing relationships through shared experiences. In today’s digital age, the ability to instantly share photos allows individuals to stay connected, regardless of geographical distances. Whether it’s a family gathering, a vacation, or a simple day out, sharing these moments helps create a sense of belonging and togetherness.',
 } as const;
 
 export const Footer = (): JSX.Element => {
