@@ -6,18 +6,10 @@ const baseLogoStyles = css`
   border: none;
   cursor: pointer;
   text-decoration: none;
+  font-weight: bold;
 
   display: flex;
   align-items: center;
-
-  div {
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  img {
-    width: 30px;
-  }
 
   &:hover {
     opacity: ${THEME.OPACITY.LOGO.HOVER};
@@ -26,10 +18,7 @@ const baseLogoStyles = css`
   &:active {
     opacity: ${THEME.OPACITY.LOGO.ACTIVE};
   }
-`;
 
-export const DarkLogo = styled.button`
-  ${baseLogoStyles}
   color: ${THEME.COLORS.TEXT.PRIMARY};
 
   .first {
@@ -41,19 +30,54 @@ export const DarkLogo = styled.button`
   }
 `;
 
-export const LightLogo = styled.button`
+export const SmallLogo = styled.button`
   ${baseLogoStyles}
-  color: ${THEME.COLORS.TEXT.LIGHT};
 
-  .first {
-    color: ${THEME.COLORS.TEXT.LIGHTPINK};
-  }
-
-  .second {
-    color: ${THEME.COLORS.TEXT.LIGHTRED};
-  }
+  font-size: 21px;
 
   img {
-    filter: brightness(1000%);
+    width: 26px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+
+    img {
+      width: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+
+    img {
+      width: 22px;
+    }
+  }
+`;
+
+export const BasicLogo = styled.button`
+  ${baseLogoStyles}
+
+  font-size: 25px;
+
+  img {
+    width: 37px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 23px;
+
+    img {
+      width: 29px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+
+    img {
+      width: 26px;
+    }
   }
 `;

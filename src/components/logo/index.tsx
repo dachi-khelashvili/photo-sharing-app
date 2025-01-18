@@ -1,17 +1,17 @@
 import React, { useCallback } from 'react';
-import { DarkLogo, LightLogo } from './styles';
-import { COLORSTYLE, PATH } from 'consts';
+import { SmallLogo, BasicLogo } from './styles';
+import { SIZESTYLE, PATH } from 'consts';
 import { useNavigate } from 'react-router-dom';
 
 interface LogoProps {
-  style: COLORSTYLE;
+  style: SIZESTYLE;
 }
 
 export const Logo: React.FC<LogoProps> = ({ style }) => {
   const navigate = useNavigate();
   const handleClick = useCallback(() => navigate(PATH.HOME), [navigate]);
 
-  const LogoComponent = style === COLORSTYLE.DARK ? DarkLogo : LightLogo;
+  const LogoComponent = style === SIZESTYLE.SMALL ? SmallLogo : BasicLogo;
 
   return (
     <LogoComponent onClick={handleClick} aria-label="Go to homepage">

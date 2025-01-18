@@ -5,7 +5,8 @@ export enum INPUTSTATE {
   INVALID = 'INVALID',
 }
 
-export enum COLORSTYLE {
-  DARK = 'DARK',
-  LIGHT = 'LIGHT',
+export enum SIZESTYLE {
+  BIG = 'BIG',
+  DEFAULT = 'DEFAULT',
+  SMALL = 'SMALL',
 }

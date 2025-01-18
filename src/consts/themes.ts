@@ -17,7 +17,7 @@ export const THEME = {
       INVALID: '#ff0000',
     },
     BACKGROUND: {
-      DARK: '#3C3C3C',
+      PINK: '#fff1f7',
     },
   },
   TRANSITIONS: {
