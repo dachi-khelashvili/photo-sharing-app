@@ -35,7 +35,7 @@ export const UpButton: React.FC = () => {
 
   return (
     <Container onClick={goToTop}>
-      <ChevronUp size={30} />
+      <ChevronUp size={24} />
     </Container>
   );
 };

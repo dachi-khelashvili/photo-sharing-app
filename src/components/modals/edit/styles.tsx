@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyledButton } from 'components';
+import { BasicButton } from 'components';
 import styled from 'styled-components';
 
 export const Screen = styled.div`
@@ -207,17 +207,17 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <ButtonLayout>
       {allow ? (
-        <StyledButton buttonstyle="black" onClick={handleSubmit}>
+        <BasicButton buttonstyle="black" onClick={handleSubmit}>
           show
-        </StyledButton>
+        </BasicButton>
       ) : (
-        <StyledButton buttonstyle="black" onClick={handleEdit}>
+        <BasicButton buttonstyle="black" onClick={handleEdit}>
           Edit
-        </StyledButton>
+        </BasicButton>
       )}
-      <StyledButton buttonstyle="black" onClick={handleCancel}>
+      <BasicButton buttonstyle="black" onClick={handleCancel}>
         Cancel
-      </StyledButton>
+      </BasicButton>
     </ButtonLayout>
   );
 };

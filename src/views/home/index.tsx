@@ -1,5 +1,5 @@
 import React from 'react';
-import { UpButton, SearchBar } from 'components';
+import { UpButton, Search } from 'components';
 import {
   Container,
   Block,
@@ -40,24 +40,13 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
   );
 };
 
-const TRENDING_TAGS = ['flower', 'wallpaper', 'beauty', 'love'];
-
 export const HomeView: React.FC = () => {
   return (
     <Container>
       <UpButton />
       <SearchSection>
         <SearchContainer>
-          <h1>
-            PH<small>O</small>T<small>O</small>SHARE
-          </h1>
-          <h3>Create and share your images</h3>
-          <SearchBar
-            type="text"
-            placeholder="Search image..."
-            aria-label="Search images"
-          />
-          <p>Trending: {TRENDING_TAGS.join(', ')}...</p>
+          <Search label="Search image..." />
         </SearchContainer>
       </SearchSection>
 

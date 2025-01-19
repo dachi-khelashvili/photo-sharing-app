@@ -1,4 +1,4 @@
-export * from './styled';
+export * from './basic';
 export * from './icon';
 export * from './up';
 export * from './text';

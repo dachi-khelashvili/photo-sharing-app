@@ -7,7 +7,7 @@ interface StyledButtonProps {
   onClick: () => void;
 }
 
-export const StyledButton: React.FC<StyledButtonProps> = (props) => {
+export const BasicButton: React.FC<StyledButtonProps> = (props) => {
   return (
     <Container buttonstyle={props.buttonstyle} onClick={props.onClick}>
       {props.children}

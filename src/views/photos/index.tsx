@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Flex, FlexItem, Typography, Search, Wrap } from './styles';
 import {
-  StyledButton,
+  BasicButton,
   ImageCard,
   Modal,
   EditModal,
@@ -80,9 +80,9 @@ export const MyPhotosView: React.FC = () => {
             onPageChange={(page) => setCurrentPage(page)}
           />
         </FlexItem>
-        <StyledButton buttonstyle="green" onClick={handleClick}>
+        <BasicButton buttonstyle="green" onClick={handleClick}>
           Upload New Photo
-        </StyledButton>
+        </BasicButton>
       </Flex>
       <Wrap>
         {currentData.map((option, index) => (

@@ -15,6 +15,11 @@ export const Wrapper = styled.div`
   align-items: flex-start;
   gap: 60px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 `;
 
 export const Nav = styled.nav`
