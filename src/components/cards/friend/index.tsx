@@ -25,11 +25,7 @@ export const FriendCard: React.FC<FriendCardProps> = ({
   };
   return (
     <Container>
-      <Avatar
-        avatarstyle="large"
-        src={friend.path}
-        onClick={onAvatarClick}
-      ></Avatar>
+      <Avatar src={friend.path} onClick={onAvatarClick}></Avatar>
       <Grid>
         <AlignRight>
           <BasicButton buttonstyle="transparent" onClick={onClick}>
