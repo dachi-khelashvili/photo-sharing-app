@@ -3,22 +3,22 @@ import styled from 'styled-components';
 export const Container = styled.button`
   position: fixed;
   bottom: 2rem;
-  right: calc(5% - 24px);
+  right: calc(5% - 20px);
 
   @media (max-width: 768px) {
-    right: 16px;
+    right: 10px;
   }
 
   @media (max-width: 480px) {
-    right: 8px;
+    right: 10px;
   }
 
   z-index: 2;
   background-color: #00000060;
   border-radius: 50%;
   border: none;
-  height: 3rem;
-  width: 3rem;
+  height: 40px;
+  width: 40px;
   color: #fff;
   cursor: pointer;
   animation: movebtn 3s ease-in-out infinite;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyledButton } from 'components';
+import { BasicButton } from 'components';
 import styled from 'styled-components';
 
 export const Screen = styled.div`
@@ -198,12 +198,12 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <ButtonLayout>
-      <StyledButton buttonstyle="black" onClick={handleSubmit}>
+      <BasicButton buttonstyle="black" onClick={handleSubmit}>
         Save
-      </StyledButton>
-      <StyledButton buttonstyle="black" onClick={handleCancel}>
+      </BasicButton>
+      <BasicButton buttonstyle="black" onClick={handleCancel}>
         Cancel
-      </StyledButton>
+      </BasicButton>
     </ButtonLayout>
   );
 };

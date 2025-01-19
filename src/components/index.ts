@@ -1,5 +1,4 @@
-export * from './search_bar';
-export * from './styled_avatar';
+export * from './avatar';
 export * from './styled_link';
 export * from './modals/basic';
 export * from './modals/edit';
@@ -13,3 +12,4 @@ export * from './cards/friend';
 export * from './inputs';
 export * from './layout';
 export * from './buttons';
+export * from './search';

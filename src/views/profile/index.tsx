@@ -1,4 +1,4 @@
-import { StyledAvatar, PasswordInput, BasicInput, DateInput } from 'components';
+import { Avatar, PasswordInput, BasicInput, DateInput } from 'components';
 import { Container, Frame, Group, LoginButton } from '../login/styles';
 import { HGroup, VGroup } from './styles';
 import React, { useReducer } from 'react';
@@ -38,9 +38,8 @@ export const ProfileView: React.FC = () => {
       <Container>
         <Frame>
           <HGroup>
-            <StyledAvatar
+            <Avatar
               src="./snoopy-3.jpg"
-              avatarstyle="large"
               onClick={() => {
                 console.log(1);
               }}

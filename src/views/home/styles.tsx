@@ -6,30 +6,41 @@ export const SearchSection = styled.div`
   width: 100%;
   height: calc(100vh - 60px);
   background: url('./back.png') no-repeat center / cover;
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 export const SearchContainer = styled.div`
   display: grid;
-  gap: 1rem;
-  width: fit-content;
-  color: #ffffff;
+  width: 100%;
+  padding: 0 30%;
+
+  @media (max-width: 1024px) {
+    padding: 0 20%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 90px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 30px;
+  }
 `;
 
 export const BlockSection = styled.div`
   display: grid;
   width: 100%;
-  padding: 3rem 10%;
-  gap: 2rem;
+  padding: 60px 10%;
+  gap: 30px;
 
   @media (max-width: 768px) {
-    padding: 3rem 5rem;
+    padding: 60px 60px;
   }
 
   @media (max-width: 480px) {
-    padding: 2rem 2rem;
+    padding: 30px 30px;
   }
 `;
 

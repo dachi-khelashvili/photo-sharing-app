@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Grid, AlignRight, Description } from './styles';
-import { StyledAvatar, StyledButton } from 'components';
+import { Avatar, BasicButton } from 'components';
 
 export type FriendCardProps = {
   type: string;
@@ -25,16 +25,16 @@ export const FriendCard: React.FC<FriendCardProps> = ({
   };
   return (
     <Container>
-      <StyledAvatar
+      <Avatar
         avatarstyle="large"
         src={friend.path}
         onClick={onAvatarClick}
-      ></StyledAvatar>
+      ></Avatar>
       <Grid>
         <AlignRight>
-          <StyledButton buttonstyle="transparent" onClick={onClick}>
+          <BasicButton buttonstyle="transparent" onClick={onClick}>
             {type}
-          </StyledButton>
+          </BasicButton>
         </AlignRight>
         <Description>
           <div>Name:</div>

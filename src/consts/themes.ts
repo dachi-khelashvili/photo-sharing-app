@@ -18,6 +18,7 @@ export const THEME = {
     },
     BACKGROUND: {
       PINK: '#fff1f7',
+      WHITE: '#FFFFFF',
     },
   },
   TRANSITIONS: {
