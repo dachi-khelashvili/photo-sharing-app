@@ -30,7 +30,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
     <Container>
       <Frame>
         <Image src="./logo.svg" />
-        <Text>Log in to PotOz community</Text>
+        <Text>Log in to FotOz community</Text>
         <EmailInput
           label="Email"
           value={state.email}
