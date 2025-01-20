@@ -30,7 +30,7 @@ export const Footer = (): JSX.Element => {
     <Container>
       <Wrapper>
         <Content>
-          <Logo style={SIZESTYLE.DEFAULT} />
+          <Logo style={SIZESTYLE.NORMAL} />
           <p>{FOOTER_TEXT.description}</p>
           <small>{FOOTER_TEXT.copyright}</small>
         </Content>

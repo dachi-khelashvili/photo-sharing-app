@@ -1,4 +1,4 @@
-import { BUTTONSTYLE, PATH } from 'consts';
+import { COLORSTYLE, PATH } from 'consts';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Frame, Text, HGroup, Image, Spacer } from 'components';
@@ -48,10 +48,16 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
           </TextButton>
         </HGroup>
         <HGroup>
-          <RoundButton onClick={onClickLogInHandler} style={BUTTONSTYLE.PINK}>
+          <RoundButton
+            onClick={onClickLogInHandler}
+            style={COLORSTYLE.DOGWOOD_ROSE}
+          >
             Log in
           </RoundButton>
-          <RoundButton onClick={onClickRegisterHandler} style={BUTTONSTYLE.RED}>
+          <RoundButton
+            onClick={onClickRegisterHandler}
+            style={COLORSTYLE.DARK_MAGENTA}
+          >
             Register
           </RoundButton>
         </HGroup>

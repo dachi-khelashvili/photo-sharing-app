@@ -1,18 +1,18 @@
 import styled, { css } from 'styled-components';
-import { BUTTONSTYLE, THEME } from 'consts';
+import { COLORSTYLE, THEME } from 'consts';
 
 export const buttonStyles = {
-  [BUTTONSTYLE.RED]: css`
-    background-color: ${THEME.COLORS.TEXT.RED};
+  [COLORSTYLE.DARK_MAGENTA]: css`
+    background-color: ${THEME.COLORS.TEXT.DOGWOOD_ROSE};
   `,
-  [BUTTONSTYLE.PINK]: css`
-    background-color: ${THEME.COLORS.TEXT.PINK};
+  [COLORSTYLE.DOGWOOD_ROSE]: css`
+    background-color: ${THEME.COLORS.TEXT.DARK_MAGENTA};
   `,
 };
 
-export const Container = styled.button<{ $style: BUTTONSTYLE }>`
+export const Container = styled.button<{ $style: COLORSTYLE }>`
   ${({ $style }) => buttonStyles[$style]}
-  color: ${THEME.COLORS.TEXT.LIGHT};
+  color: ${THEME.COLORS.TEXT.WHITE};
   border: none;
   padding: 10px 15px;
   border-radius: 20px;

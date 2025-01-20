@@ -8,7 +8,7 @@ import {
   Selector,
   PaginationBar,
 } from 'components';
-import { BUTTONSTYLE, getData, PageSize } from 'consts';
+import { COLORSTYLE, getData, PageSize } from 'consts';
 
 export const MyPhotosView: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -80,7 +80,7 @@ export const MyPhotosView: React.FC = () => {
             onPageChange={(page) => setCurrentPage(page)}
           />
         </FlexItem>
-        <RoundButton style={BUTTONSTYLE.PINK} onClick={handleClick}>
+        <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={handleClick}>
           Upload New Photo
         </RoundButton>
       </Flex>

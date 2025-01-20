@@ -4,21 +4,21 @@ import { StyledProps } from './types';
 
 export const labelStyles = {
   [INPUTSTATE.NORMAL]: css`
-    color: ${THEME.COLORS.TEXT.SECONDARY};
+    color: ${THEME.COLORS.TEXT.TAUPE_GRAY};
     margin-top: 12px;
   `,
   [INPUTSTATE.VALUED]: css`
-    color: ${THEME.COLORS.TEXT.SECONDARY};
+    color: ${THEME.COLORS.TEXT.TAUPE_GRAY};
     margin-top: 6px;
     font-size: 11px;
   `,
   [INPUTSTATE.EDITED]: css`
-    color: ${THEME.COLORS.TEXT.FOCUS};
+    color: ${THEME.COLORS.TEXT.DODGER_BLUE};
     margin-top: 6px;
     font-size: 11px;
   `,
   [INPUTSTATE.INVALID]: css`
-    color: ${THEME.COLORS.TEXT.INVALID};
+    color: ${THEME.COLORS.TEXT.RED};
     margin-top: 6px;
     font-size: 11px;
   `,
@@ -26,16 +26,16 @@ export const labelStyles = {
 
 const borderStyles = {
   [INPUTSTATE.NORMAL]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.DEFAULT};
+    border: 2px solid ${THEME.COLORS.BORDER.TAUPE_GRAY};
   `,
   [INPUTSTATE.VALUED]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.DEFAULT};
+    border: 2px solid ${THEME.COLORS.BORDER.TAUPE_GRAY};
   `,
   [INPUTSTATE.EDITED]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.FOCUS};
+    border: 2px solid ${THEME.COLORS.BORDER.DODGER_BLUE};
   `,
   [INPUTSTATE.INVALID]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.INVALID};
+    border: 2px solid ${THEME.COLORS.BORDER.RED};
   `,
 };
 
@@ -47,7 +47,7 @@ export const BaseLabel = styled.label<StyledProps>`
 `;
 
 export const BaseInput = styled.input<StyledProps>`
-  color: ${THEME.COLORS.TEXT.PRIMARY};
+  color: ${THEME.COLORS.TEXT.BLACK_OLIVE};
   background-color: transparent;
   padding: 17px 15px 3px 15px;
   border-radius: 10px;

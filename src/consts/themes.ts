@@ -1,23 +1,23 @@
 export const THEME = {
   COLORS: {
     TEXT: {
-      PRIMARY: '#3C3C3C',
-      SECONDARY: '#898989',
-      FOCUS: '#1E90FF',
-      INVALID: '#ff0000',
-      RED: '#D3126E',
-      PINK: '#8B1C8C',
-      LIGHTRED: '#ff82ff',
-      LIGHTPINK: '#ff00ff',
-      LIGHT: '#ffffff',
+      BLACK_OLIVE: '#3C3C3C',
+      TAUPE_GRAY: '#898989',
+      DODGER_BLUE: '#1E90FF',
+      RED: '#FF0000',
+      DOGWOOD_ROSE: '#D3126E',
+      DARK_MAGENTA: '#8B1C8C',
+      FUCHSIA_PINK: '#FF82FF',
+      FUCHSIA: '#FF00FF',
+      WHITE: '#FFFFFF',
     },
     BORDER: {
-      DEFAULT: '#898989',
-      FOCUS: '#1E90FF',
-      INVALID: '#ff0000',
+      TAUPE_GRAY: '#898989',
+      DODGER_BLUE: '#1E90FF',
+      RED: '#FF0000',
     },
     BACKGROUND: {
-      PINK: '#fff1f7',
+      LAVENDER_BLUSH: '#FFF1F7',
       WHITE: '#FFFFFF',
     },
   },
@@ -31,6 +31,7 @@ export const THEME = {
       ACTIVE: 0.8,
     },
     LOGO: {
+      DEFAULT: 1,
       HOVER: 0.9,
       ACTIVE: 0.8,
     },
@@ -46,7 +47,7 @@ export const THEME = {
   Z_INDEX: {
     DEFAULT: 0,
     INPUT: 1,
-    EYE: 2,
+    ICON: 2,
     MENU: 3,
     HEADER: 4,
   },

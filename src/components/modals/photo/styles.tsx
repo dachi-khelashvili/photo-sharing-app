@@ -1,5 +1,5 @@
 import { RoundButton } from 'components/buttons';
-import { BUTTONSTYLE } from 'consts';
+import { COLORSTYLE } from 'consts';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -146,10 +146,13 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <ButtonLayout>
-      <RoundButton style={BUTTONSTYLE.RED} onClick={handleFriendRequest}>
+      <RoundButton
+        style={COLORSTYLE.DARK_MAGENTA}
+        onClick={handleFriendRequest}
+      >
         Friend Request
       </RoundButton>
-      <RoundButton style={BUTTONSTYLE.PINK} onClick={handleCancel}>
+      <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={handleCancel}>
         Cancel
       </RoundButton>
     </ButtonLayout>

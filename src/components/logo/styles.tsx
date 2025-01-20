@@ -19,14 +19,14 @@ const baseLogoStyles = css`
     opacity: ${THEME.OPACITY.LOGO.ACTIVE};
   }
 
-  color: ${THEME.COLORS.TEXT.PRIMARY};
+  color: ${THEME.COLORS.TEXT.BLACK_OLIVE};
 
   .first {
-    color: ${THEME.COLORS.TEXT.PINK};
+    color: ${THEME.COLORS.TEXT.DARK_MAGENTA};
   }
 
   .second {
-    color: ${THEME.COLORS.TEXT.RED};
+    color: ${THEME.COLORS.TEXT.DOGWOOD_ROSE};
   }
 `;
 
