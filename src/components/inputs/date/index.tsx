@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { Label, Input, Container } from './styles';
 import { INPUTSTATE } from 'consts';
+import { InputProps } from '../types';
 
-interface DateInputProps {
-  onChange: (value: string) => void;
-  label: string;
-  value: string;
-  className?: string;
-}
-
-export const DateInput: React.FC<DateInputProps> = ({
+export const DateInput: React.FC<InputProps> = ({
   onChange,
   label,
   value,
@@ -27,6 +21,10 @@ export const DateInput: React.FC<DateInputProps> = ({
     setInputState(event.target.value ? INPUTSTATE.VALUED : INPUTSTATE.NORMAL);
   };
 
+  const handleFocus = () => {
+    setInputState(INPUTSTATE.EDITED);
+  };
+
   return (
     <Container className={className}>
       <Label $inputState={inputState}>{label}</Label>
@@ -35,7 +33,7 @@ export const DateInput: React.FC<DateInputProps> = ({
         $inputState={inputState}
         value={value}
         onChange={handleDateChange}
-        onFocus={() => setInputState(INPUTSTATE.EDITED)}
+        onFocus={handleFocus}
         onBlur={handleInputBlur}
       />
     </Container>

@@ -1,11 +1,8 @@
 import styled, { css } from 'styled-components';
 import { INPUTSTATE, THEME } from 'consts';
+import { StyledProps } from './types';
 
-interface StyledComponentProps {
-  $inputState: INPUTSTATE; // More descriptive name while keeping $ prefix
-}
-
-const LabelStates = {
+export const labelStyles = {
   [INPUTSTATE.NORMAL]: css`
     color: ${THEME.COLORS.TEXT.SECONDARY};
     margin-top: 17px;
@@ -28,28 +25,39 @@ const LabelStates = {
   `,
 };
 
-export const Label = styled.label<StyledComponentProps>`
+const borderStyles = {
+  [INPUTSTATE.NORMAL]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.DEFAULT};
+  `,
+  [INPUTSTATE.VALUED]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.DEFAULT};
+  `,
+  [INPUTSTATE.EDITED]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.FOCUS};
+  `,
+  [INPUTSTATE.INVALID]: css`
+    border: 2px solid ${THEME.COLORS.BORDER.INVALID};
+  `,
+};
+
+export const BaseLabel = styled.label<StyledProps>`
   position: absolute;
   margin-left: 20px;
   transition: ${THEME.TRANSITIONS.DEFAULT};
-  ${({ $inputState }) => LabelStates[$inputState]}
+  ${({ $inputState }) => labelStyles[$inputState]}
 `;
 
-export const Input = styled.input<StyledComponentProps>`
+export const BaseInput = styled.input<StyledProps>`
   color: ${THEME.COLORS.TEXT.PRIMARY};
   background-color: transparent;
   padding: 27px 16px 7px 16px;
   border-radius: 10px;
-  border: 2px solid
-    ${({ $inputState }) =>
-      $inputState === INPUTSTATE.EDITED
-        ? THEME.COLORS.BORDER.FOCUS
-        : THEME.COLORS.BORDER.DEFAULT};
   font-size: 20px;
   font-weight: normal;
+  ${({ $inputState }) => borderStyles[$inputState]}
 `;
 
-export const Container = styled.div`
+export const BaseContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;

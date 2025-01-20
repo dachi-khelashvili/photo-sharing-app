@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Logo } from 'components/logo';
 import { Container, Menu, Group } from './styles';
-import { TextButton } from 'components';
+import { Avatar, TextButton } from 'components';
 import { PATH, SIZESTYLE } from 'consts';
 import { useOutsideAlerter } from 'hooks';
 
@@ -79,13 +79,8 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
                   {label}
                 </TextButton>
               ))}
-              <TextButton
-                onClick={() => setIsMenuOpen(true)}
-                aria-expanded={isMenuOpen}
-                aria-haspopup="menu"
-              >
-                User
-              </TextButton>
+              <Avatar src="avatar.jpg" onClick={() => setIsMenuOpen(true)} />
+              <TextButton onClick={() => setIsMenuOpen(true)}>User</TextButton>
             </>
           )}
         </Group>

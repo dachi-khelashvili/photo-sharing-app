@@ -8,7 +8,7 @@ interface AvatarProps {
 
 export const Avatar: React.FC<AvatarProps> = ({ src, onClick }) => {
   return (
-    <Container onClick={() => onClick}>
+    <Container onClick={onClick}>
       <Image src={src} />
     </Container>
   );

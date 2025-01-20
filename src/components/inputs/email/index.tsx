@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { Label, Input, Container } from './styles';
 import { INPUTSTATE, validateEmail } from 'consts';
+import { InputProps } from '../types';
 
-interface EmailInputProps {
-  onChange: (value: string) => void;
-  label: string;
-  value: string;
-  className?: string;
-}
-
-export const EmailInput: React.FC<EmailInputProps> = ({
+export const EmailInput: React.FC<InputProps> = ({
   onChange,
   label,
   value,

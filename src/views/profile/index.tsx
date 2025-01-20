@@ -1,4 +1,4 @@
-import { Avatar, PasswordInput, BasicInput, DateInput } from 'components';
+import { Avatar, PasswordInput, TextInput, DateInput } from 'components';
 import { Container, Frame, Group, LoginButton } from '../login/styles';
 import { HGroup, VGroup } from './styles';
 import React, { useReducer } from 'react';
@@ -45,7 +45,7 @@ export const ProfileView: React.FC = () => {
               }}
             />
             <VGroup>
-              <BasicInput
+              <TextInput
                 label="Username"
                 value={state.username}
                 onChange={(e) =>
@@ -78,35 +78,35 @@ export const ProfileView: React.FC = () => {
               handleChange(e, ProfileReducerActionTypes.CHANGE_BIRTHDAY)
             }
           />
-          <BasicInput
+          <TextInput
             label="Gender"
             value={state.gender}
             onChange={(e) =>
               handleChange(e, ProfileReducerActionTypes.CHANGE_GENDER)
             }
           />
-          <BasicInput
+          <TextInput
             label="Address"
             value={state.address}
             onChange={(e) =>
               handleChange(e, ProfileReducerActionTypes.CHANGE_ADDRESS)
             }
           />
-          <BasicInput
+          <TextInput
             label="City"
             value={state.city}
             onChange={(e) =>
               handleChange(e, ProfileReducerActionTypes.CHANGE_CITY)
             }
           />
-          <BasicInput
+          <TextInput
             label="County"
             value={state.county}
             onChange={(e) =>
               handleChange(e, ProfileReducerActionTypes.CHANGE_COUNTY)
             }
           />
-          <BasicInput
+          <TextInput
             label="Country"
             value={state.country}
             onChange={(e) =>
