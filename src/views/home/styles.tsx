@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import BackImage from 'assets/images/background.png';
 
 export const Container = styled.main``;
 
 export const SearchSection = styled.div`
   width: 100%;
   height: calc(100vh - 60px);
-  background: url('./back.png') no-repeat center / cover;
+  background: url(${BackImage}) no-repeat center / cover;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { THEME } from 'consts';
+import BackImage from 'assets/images/background.png';
 
 export const Container = styled.div`
   height: calc(100vh - 60px);
@@ -9,7 +10,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-image: url('./back.png');
+  background-image: url(${BackImage});
   background-size: cover;
   background-position: center;
 

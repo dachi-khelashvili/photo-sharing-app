@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Frame, Text, HGroup, Image, Spacer } from 'components';
 import { RoundButton, EmailInput, PasswordInput, TextButton } from 'components';
+import LogoIcon from 'assets/images/logo.svg';
+
 interface LoginViewProps {
   setAuthentication: (e: boolean) => void;
 }
@@ -29,7 +31,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
   return (
     <Container>
       <Frame>
-        <Image src="./logo.svg" />
+        <Image src={LogoIcon} />
         <Text>Log in to FotOz community</Text>
         <EmailInput
           label="Email"

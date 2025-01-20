@@ -11,6 +11,9 @@ import {
   SearchContainer,
   BlockSection,
 } from './styles';
+import ChattingImage from 'assets/images/chatting.png';
+import CommunityImage from 'assets/images/community.png';
+import FriendsImage from 'assets/images/friends.png';
 
 // Define types for feature blocks
 interface FeatureBlockProps {
@@ -52,18 +55,18 @@ export const HomeView: React.FC = () => {
 
       <BlockSection>
         <FeatureBlock
-          imageSrc="community.png"
+          imageSrc={CommunityImage}
           title="Welcome to our Community"
           description="Share everything with your community and find your value sharing with others"
           isReverse
         />
         <FeatureBlock
-          imageSrc="chatting.png"
+          imageSrc={ChattingImage}
           title="Welcome to our Chatting"
           description="Share everything with your community and find your value sharing with others"
         />
         <FeatureBlock
-          imageSrc="friends.png"
+          imageSrc={FriendsImage}
           title="Find and make your own friends"
           description="Make a friendship with photos and feel happy and sad with your friends"
           isReverse
