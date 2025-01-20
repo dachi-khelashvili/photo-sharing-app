@@ -7,6 +7,10 @@ export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media (max-width: 480px) {
+    padding: 30px;
+  }
 `;
 
 export const Wrapper = styled.div`
