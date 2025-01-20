@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BUTTONSTYLE, PATH } from 'consts';
+import { COLORSTYLE, PATH } from 'consts';
 import {
   EmailInput,
   PasswordInput,
@@ -56,10 +56,10 @@ export const RegisterView: React.FC = () => {
           onChange={(value) => setState({ ...state, confirmPassword: value })}
         />
         <HGroup>
-          <RoundButton onClick={handleJoin} style={BUTTONSTYLE.PINK}>
+          <RoundButton onClick={handleJoin} style={COLORSTYLE.DOGWOOD_ROSE}>
             Join
           </RoundButton>
-          <RoundButton onClick={handleLogin} style={BUTTONSTYLE.RED}>
+          <RoundButton onClick={handleLogin} style={COLORSTYLE.DARK_MAGENTA}>
             Back
           </RoundButton>
         </HGroup>

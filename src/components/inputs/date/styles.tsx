@@ -10,7 +10,7 @@ export const Input = styled(BaseInput)`
     color: ${({ $inputState }) =>
       $inputState === INPUTSTATE.NORMAL
         ? 'transparent'
-        : THEME.COLORS.TEXT.PRIMARY};
+        : THEME.COLORS.TEXT.BLACK_OLIVE};
   }
 
   &::-webkit-calendar-picker-indicator {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Grid, AlignRight, Description } from './styles';
 import { Avatar, RoundButton } from 'components';
-import { BUTTONSTYLE } from 'consts';
+import { COLORSTYLE } from 'consts';
 
 export type FriendCardProps = {
   type: string;
@@ -29,7 +29,7 @@ export const FriendCard: React.FC<FriendCardProps> = ({
       <Avatar src={friend.path} onClick={onAvatarClick}></Avatar>
       <Grid>
         <AlignRight>
-          <RoundButton style={BUTTONSTYLE.PINK} onClick={onClick}>
+          <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={onClick}>
             {type}
           </RoundButton>
         </AlignRight>

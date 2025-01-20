@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container } from './styles';
-import { BUTTONSTYLE } from 'consts';
+import { COLORSTYLE } from 'consts';
 
 interface RoundButtonProps {
   children: React.ReactNode;
-  style: BUTTONSTYLE;
+  style: COLORSTYLE;
   onClick: () => void;
 }
 

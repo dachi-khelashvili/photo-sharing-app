@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RoundButton } from 'components';
-import { BUTTONSTYLE } from 'consts';
+import { COLORSTYLE } from 'consts';
 import styled from 'styled-components';
 
 export const Screen = styled.div`
@@ -199,10 +199,10 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <ButtonLayout>
-      <RoundButton style={BUTTONSTYLE.PINK} onClick={handleSubmit}>
+      <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={handleSubmit}>
         Save
       </RoundButton>
-      <RoundButton style={BUTTONSTYLE.PINK} onClick={handleCancel}>
+      <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={handleCancel}>
         Cancel
       </RoundButton>
     </ButtonLayout>

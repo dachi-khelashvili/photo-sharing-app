@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { RoundButton } from 'components';
 import styled from 'styled-components';
-import { BUTTONSTYLE } from 'consts';
+import { COLORSTYLE } from 'consts';
 
 export const Screen = styled.div`
   -webkit-backdrop-filter: blur(5px);
@@ -208,15 +208,15 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <ButtonLayout>
       {allow ? (
-        <RoundButton style={BUTTONSTYLE.PINK} onClick={handleSubmit}>
+        <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={handleSubmit}>
           show
         </RoundButton>
       ) : (
-        <RoundButton style={BUTTONSTYLE.PINK} onClick={handleEdit}>
+        <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={handleEdit}>
           Edit
         </RoundButton>
       )}
-      <RoundButton style={BUTTONSTYLE.PINK} onClick={handleCancel}>
+      <RoundButton style={COLORSTYLE.DOGWOOD_ROSE} onClick={handleCancel}>
         Cancel
       </RoundButton>
     </ButtonLayout>

@@ -10,7 +10,7 @@ import {
   VGroup,
   EmailInput,
 } from 'components';
-import { BUTTONSTYLE, PATH, SIZESTYLE } from 'consts';
+import { COLORSTYLE, PATH, SIZESTYLE } from 'consts';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -109,7 +109,7 @@ export const ProfileView: React.FC = () => {
             onChange={(value) => setState({ ...state, country: value })}
           />
           <RoundButton
-            style={BUTTONSTYLE.PINK}
+            style={COLORSTYLE.DOGWOOD_ROSE}
             onClick={() => navigate(PATH.COMMUNITY)}
           >
             Save

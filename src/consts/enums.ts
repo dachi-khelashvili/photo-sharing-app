@@ -7,11 +7,11 @@ export enum INPUTSTATE {
 
 export enum SIZESTYLE {
   BIG = 'BIG',
-  DEFAULT = 'DEFAULT',
+  NORMAL = 'NORMAL',
   SMALL = 'SMALL',
 }
 
-export enum BUTTONSTYLE {
-  PINK = 'PINK',
-  RED = 'RED',
+export enum COLORSTYLE {
+  DOGWOOD_ROSE = 'DOGWOOD_ROSE',
+  DARK_MAGENTA = 'DARK_MAGENTA',
 }

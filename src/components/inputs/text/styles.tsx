@@ -10,6 +10,6 @@ export const Input = styled(BaseInput)`
   border: 2px solid
     ${({ $inputState }) =>
       $inputState === INPUTSTATE.EDITED
-        ? THEME.COLORS.BORDER.FOCUS
-        : THEME.COLORS.BORDER.DEFAULT};
+        ? THEME.COLORS.BORDER.DODGER_BLUE
+        : THEME.COLORS.BORDER.TAUPE_GRAY};
 `;
