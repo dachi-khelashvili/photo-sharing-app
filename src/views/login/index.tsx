@@ -1,32 +1,25 @@
-import { PATH } from 'consts';
+import { BUTTONSTYLE, PATH } from 'consts';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Container,
-  Frame,
-  Heading,
-  ForgetPassWordLink,
-  Group,
-  Img,
-  RegisterButton,
-  LoginButton,
-} from './styles';
-import { EmailInput, PasswordInput } from 'components';
+import { Container, Frame, Text, HGroup, Image, Spacer } from 'components';
+import { RoundButton, EmailInput, PasswordInput, TextButton } from 'components';
 interface LoginViewProps {
   setAuthentication: (e: boolean) => void;
 }
 
-export const LoginView: React.FC<LoginViewProps> = (props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+interface LoginState {
+  email: string;
+  password: string;
+}
+
+export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
+  const [state, setState] = useState<LoginState>({ email: '', password: '' });
 
   const navigate = useNavigate();
 
   const onClickLogInHandler = () => {
-    if (email.length && password.length) {
-      navigate(PATH.HOME);
-      props.setAuthentication(true);
-    }
+    navigate(PATH.HOME);
+    setAuthentication(true);
   };
 
   const onClickRegisterHandler = () => {
@@ -36,25 +29,32 @@ export const LoginView: React.FC<LoginViewProps> = (props) => {
   return (
     <Container>
       <Frame>
-        <Img src="./logo.svg" />
-        <Heading>
-          Log in to <b>PHOTOSHARE</b> community
-        </Heading>
-        <EmailInput label="Email" onChange={setEmail} value={email} />
-        <PasswordInput
-          value={password}
-          label="Password"
-          onChange={setPassword}
+        <Image src="./logo.svg" />
+        <Text>Log in to PotOz community</Text>
+        <EmailInput
+          label="Email"
+          value={state.email}
+          onChange={(value) => setState({ ...state, email: value })}
         />
-        <ForgetPassWordLink to={PATH.FORGOT_PASSWORD}>
-          Forget password...
-        </ForgetPassWordLink>
-        <Group>
-          <LoginButton onClick={onClickLogInHandler}>Log in</LoginButton>
-          <RegisterButton onClick={onClickRegisterHandler}>
+        <PasswordInput
+          label="Password"
+          value={state.password}
+          onChange={(value) => setState({ ...state, password: value })}
+        />
+        <HGroup>
+          <Spacer />
+          <TextButton onClick={() => navigate(PATH.FORGOT_PASSWORD)}>
+            Forget password...
+          </TextButton>
+        </HGroup>
+        <HGroup>
+          <RoundButton onClick={onClickLogInHandler} style={BUTTONSTYLE.PINK}>
+            Log in
+          </RoundButton>
+          <RoundButton onClick={onClickRegisterHandler} style={BUTTONSTYLE.RED}>
             Register
-          </RegisterButton>
-        </Group>
+          </RoundButton>
+        </HGroup>
       </Frame>
     </Container>
   );

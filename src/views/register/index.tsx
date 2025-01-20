@@ -1,99 +1,68 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PATH } from 'consts';
+import { BUTTONSTYLE, PATH } from 'consts';
 import {
+  EmailInput,
+  PasswordInput,
   Container,
   Frame,
-  Heading,
-  Img,
-  LoginButton,
-  RegisterButton,
-  Group,
-} from '../login/styles';
-import { EmailInput, PasswordInput } from 'components';
-import {
-  registerReducer,
-  InitialStateType,
-  RegisterReducerActionTypes,
-} from './reducer';
+  Text,
+  Image,
+  HGroup,
+  RoundButton,
+} from 'components';
 
-const InitialState: InitialStateType = {
-  email: '',
-  password: '',
-  confirmPassword: '',
-};
+interface RegisterState {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 
 export const RegisterView: React.FC = () => {
-  const [state, dispatch] = useReducer(registerReducer, InitialState);
+  const [state, setState] = useState<RegisterState>({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
   const navigate = useNavigate();
 
-  const onClickJoinAlerter = () => {
-    if (
-      state.email.length &&
-      state.password.length &&
-      state.confirmPassword.length &&
-      state.password == state.confirmPassword
-    ) {
-      navigate(PATH.LOGIN);
-    }
-    console.log(state);
+  const handleJoin = () => {
+    navigate(PATH.COMMUNITY);
   };
 
-  const onRegisterUserInfoChange = (field: string, newValue: string) => {
-    dispatch({
-      type: field,
-      payload: {
-        [field]: newValue,
-      },
-    });
-  };
-
-  const onClickLoginAlerter = () => {
+  const handleLogin = () => {
     navigate(PATH.LOGIN);
   };
 
   return (
     <Container>
       <Frame>
-        <Img src="./logo.svg" />
-        <Heading>Sign up for PhotoShare</Heading>
+        <Image src="./logo.svg" />
+        <Text>Sign up for PhotoShare</Text>
         <EmailInput
           label="Email"
           value={state.email}
-          onChange={(newValue) =>
-            onRegisterUserInfoChange(
-              RegisterReducerActionTypes.CHANGE_EMAIL,
-              newValue
-            )
-          }
+          onChange={(value) => setState({ ...state, email: value })}
         />
         <PasswordInput
           value={state.password}
           label="Password"
-          onChange={(newValue) =>
-            onRegisterUserInfoChange(
-              RegisterReducerActionTypes.CHANGE_PASSWORD,
-              newValue
-            )
-          }
+          onChange={(value) => setState({ ...state, password: value })}
         />
         <PasswordInput
           value={state.confirmPassword}
           label="Confirm"
-          onChange={(newValue) =>
-            onRegisterUserInfoChange(
-              RegisterReducerActionTypes.CHANGE_CONFIRM_PASSWORD,
-              newValue
-            )
-          }
+          onChange={(value) => setState({ ...state, confirmPassword: value })}
         />
-        <Group>
-          <RegisterButton onClick={onClickJoinAlerter}>Join</RegisterButton>
-          <LoginButton onClick={onClickLoginAlerter}>
-            Back to Log in
-          </LoginButton>
-        </Group>
+        <HGroup>
+          <RoundButton onClick={handleJoin} style={BUTTONSTYLE.PINK}>
+            Join
+          </RoundButton>
+          <RoundButton onClick={handleLogin} style={BUTTONSTYLE.RED}>
+            Back
+          </RoundButton>
+        </HGroup>
       </Frame>
     </Container>
   );

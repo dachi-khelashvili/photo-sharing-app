@@ -10,3 +10,8 @@ export enum SIZESTYLE {
   DEFAULT = 'DEFAULT',
   SMALL = 'SMALL',
 }
+
+export enum BUTTONSTYLE {
+  PINK = 'PINK',
+  RED = 'RED',
+}

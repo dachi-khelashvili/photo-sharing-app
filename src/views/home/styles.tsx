@@ -12,21 +12,10 @@ export const SearchSection = styled.div`
 `;
 
 export const SearchContainer = styled.div`
-  display: grid;
+  display: flex;
   width: 100%;
-  padding: 0 30%;
-
-  @media (max-width: 1024px) {
-    padding: 0 20%;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 90px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 0 30px;
-  }
+  padding: 30px 30px;
+  justify-content: center;
 `;
 
 export const BlockSection = styled.div`

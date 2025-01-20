@@ -1,5 +1,6 @@
+import { RoundButton } from 'components/buttons';
+import { BUTTONSTYLE } from 'consts';
 import React from 'react';
-import { BasicButton } from 'components';
 import styled from 'styled-components';
 
 export const Screen = styled.div`
@@ -145,12 +146,12 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <ButtonLayout>
-      <BasicButton buttonstyle="black" onClick={handleFriendRequest}>
+      <RoundButton style={BUTTONSTYLE.RED} onClick={handleFriendRequest}>
         Friend Request
-      </BasicButton>
-      <BasicButton buttonstyle="black" onClick={handleCancel}>
+      </RoundButton>
+      <RoundButton style={BUTTONSTYLE.PINK} onClick={handleCancel}>
         Cancel
-      </BasicButton>
+      </RoundButton>
     </ButtonLayout>
   );
 };

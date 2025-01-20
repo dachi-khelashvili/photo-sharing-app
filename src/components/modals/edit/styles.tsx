@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BasicButton } from 'components';
+import { RoundButton } from 'components';
 import styled from 'styled-components';
+import { BUTTONSTYLE } from 'consts';
 
 export const Screen = styled.div`
   -webkit-backdrop-filter: blur(5px);
@@ -207,17 +208,17 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <ButtonLayout>
       {allow ? (
-        <BasicButton buttonstyle="black" onClick={handleSubmit}>
+        <RoundButton style={BUTTONSTYLE.PINK} onClick={handleSubmit}>
           show
-        </BasicButton>
+        </RoundButton>
       ) : (
-        <BasicButton buttonstyle="black" onClick={handleEdit}>
+        <RoundButton style={BUTTONSTYLE.PINK} onClick={handleEdit}>
           Edit
-        </BasicButton>
+        </RoundButton>
       )}
-      <BasicButton buttonstyle="black" onClick={handleCancel}>
+      <RoundButton style={BUTTONSTYLE.PINK} onClick={handleCancel}>
         Cancel
-      </BasicButton>
+      </RoundButton>
     </ButtonLayout>
   );
 };

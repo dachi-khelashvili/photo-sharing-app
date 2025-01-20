@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Container, Grid, AlignRight, Description } from './styles';
-import { Avatar, BasicButton } from 'components';
+import { Avatar, RoundButton } from 'components';
+import { BUTTONSTYLE } from 'consts';
 
 export type FriendCardProps = {
   type: string;
@@ -28,9 +29,9 @@ export const FriendCard: React.FC<FriendCardProps> = ({
       <Avatar src={friend.path} onClick={onAvatarClick}></Avatar>
       <Grid>
         <AlignRight>
-          <BasicButton buttonstyle="transparent" onClick={onClick}>
+          <RoundButton style={BUTTONSTYLE.PINK} onClick={onClick}>
             {type}
-          </BasicButton>
+          </RoundButton>
         </AlignRight>
         <Description>
           <div>Name:</div>

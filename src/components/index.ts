@@ -13,3 +13,4 @@ export * from './inputs';
 export * from './layout';
 export * from './buttons';
 export * from './search';
+export * from './form';

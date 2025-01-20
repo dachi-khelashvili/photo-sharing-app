@@ -1,37 +1,47 @@
-import { Avatar, PasswordInput, BasicInput, DateInput } from 'components';
-import { Container, Frame, Group, LoginButton } from '../login/styles';
-import { HGroup, VGroup } from './styles';
-import React, { useReducer } from 'react';
-
 import {
-  InitialStateType,
-  profileReducer,
-  ProfileReducerActionTypes,
-} from './reducer';
+  Avatar,
+  PasswordInput,
+  TextInput,
+  DateInput,
+  RoundButton,
+  Container,
+  Frame,
+  HGroup,
+  VGroup,
+  EmailInput,
+} from 'components';
+import { BUTTONSTYLE, PATH, SIZESTYLE } from 'consts';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const InitialState: InitialStateType = {
-  username: '',
-  password: '',
-  confirmPassword: '',
-  address: '',
-  birthday: '',
-  gender: '',
-  city: '',
-  country: '',
-  county: '',
-};
+interface ProfileState {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  birthday: string;
+  gender: string;
+  address: string;
+  city: string;
+  county: string;
+  country: string;
+}
 
 export const ProfileView: React.FC = () => {
-  const [state, dispatch] = useReducer(profileReducer, InitialState);
+  const [state, setState] = useState<ProfileState>({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    birthday: '',
+    gender: '',
+    address: '',
+    city: '',
+    county: '',
+    country: '',
+  });
 
-  const handleChange = (newValue: string, field: string) => {
-    dispatch({
-      type: field,
-      payload: {
-        [field]: newValue,
-      },
-    });
-  };
+  const navigate = useNavigate();
 
   return (
     <>
@@ -40,89 +50,70 @@ export const ProfileView: React.FC = () => {
           <HGroup>
             <Avatar
               src="./snoopy-3.jpg"
+              style={SIZESTYLE.BIG}
               onClick={() => {
                 console.log(1);
               }}
             />
             <VGroup>
-              <BasicInput
+              <EmailInput
+                label="Email"
+                value={state.email}
+                onChange={(value) => setState({ ...state, email: value })}
+              />
+              <TextInput
                 label="Username"
                 value={state.username}
-                onChange={(e) =>
-                  handleChange(e, ProfileReducerActionTypes.CHANGE_USERNAME)
-                }
-              />
-              <PasswordInput
-                value={state.password}
-                label="Password"
-                onChange={(e) =>
-                  handleChange(e, ProfileReducerActionTypes.CHANGE_PASSWORD)
-                }
-              />
-              <PasswordInput
-                value={state.confirmPassword}
-                label="Confirm Password"
-                onChange={(e) =>
-                  handleChange(
-                    e,
-                    ProfileReducerActionTypes.CHANGE_CONFIRM_PASSWORD
-                  )
-                }
+                onChange={(value) => setState({ ...state, username: value })}
               />
             </VGroup>
           </HGroup>
+          <PasswordInput
+            value={state.password}
+            label="Password"
+            onChange={(value) => setState({ ...state, password: value })}
+          />
+          <PasswordInput
+            value={state.confirmPassword}
+            label="Confirm Password"
+            onChange={(value) => setState({ ...state, confirmPassword: value })}
+          />
           <DateInput
             label="Birthday"
             value={state.birthday}
-            onChange={(e) =>
-              handleChange(e, ProfileReducerActionTypes.CHANGE_BIRTHDAY)
-            }
+            onChange={(value) => setState({ ...state, birthday: value })}
           />
-          <BasicInput
+          <TextInput
             label="Gender"
             value={state.gender}
-            onChange={(e) =>
-              handleChange(e, ProfileReducerActionTypes.CHANGE_GENDER)
-            }
+            onChange={(value) => setState({ ...state, gender: value })}
           />
-          <BasicInput
+          <TextInput
             label="Address"
             value={state.address}
-            onChange={(e) =>
-              handleChange(e, ProfileReducerActionTypes.CHANGE_ADDRESS)
-            }
+            onChange={(value) => setState({ ...state, address: value })}
           />
-          <BasicInput
+          <TextInput
             label="City"
             value={state.city}
-            onChange={(e) =>
-              handleChange(e, ProfileReducerActionTypes.CHANGE_CITY)
-            }
+            onChange={(value) => setState({ ...state, city: value })}
           />
-          <BasicInput
+          <TextInput
             label="County"
             value={state.county}
-            onChange={(e) =>
-              handleChange(e, ProfileReducerActionTypes.CHANGE_COUNTY)
-            }
+            onChange={(value) => setState({ ...state, county: value })}
           />
-          <BasicInput
+          <TextInput
             label="Country"
             value={state.country}
-            onChange={(e) =>
-              handleChange(e, ProfileReducerActionTypes.CHANGE_COUNTRY)
-            }
+            onChange={(value) => setState({ ...state, country: value })}
           />
-          <Group>
-            <VGroup></VGroup>
-            <LoginButton
-              onClick={() => {
-                console.log(state);
-              }}
-            >
-              Save
-            </LoginButton>
-          </Group>
+          <RoundButton
+            style={BUTTONSTYLE.PINK}
+            onClick={() => navigate(PATH.COMMUNITY)}
+          >
+            Save
+          </RoundButton>
         </Frame>
       </Container>
     </>

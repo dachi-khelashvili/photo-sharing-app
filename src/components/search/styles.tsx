@@ -8,6 +8,8 @@ export const Container = styled.div`
   display: flex;
   padding: 10px;
   gap: 10px;
+  max-width: 480px;
+  width: 100%;
 `;
 
 export const Input = styled.input`
