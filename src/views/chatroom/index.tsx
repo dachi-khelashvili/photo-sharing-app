@@ -19,29 +19,34 @@ import { MessageListItem } from './message_list_item/indext';
 const friends = [
   {
     name: 'Iolanthe Claude',
-    avatar: './snoopy-1.jpg',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     friend: true,
   },
   {
     name: 'Vijaya Katarina',
-    avatar: './snoopy-2.jpg',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     friend: true,
   },
 ];
 const users = [
   {
     name: 'Bruce Wang',
-    avatar: './snoopy-3.jpg',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     friend: false,
   },
   {
     name: 'Nakio Akira',
-    avatar: './snoopy-4.jpg',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     friend: false,
   },
   {
     name: 'Lily Potter',
-    avatar: './snoopy-5.jpg',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     friend: false,
   },
 ];
@@ -49,7 +54,8 @@ const messages = [
   {
     from: {
       name: 'Iolanthe Claude',
-      avatar: './snoopy-1.jpg',
+      avatar:
+        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     },
     to: {
       name: 'Everyone',
@@ -60,29 +66,34 @@ const messages = [
   {
     from: {
       name: 'Iolanthe Claude',
-      avatar: './snoopy-2.jpg',
+      avatar:
+        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     },
     to: {
       name: 'Me',
-      avatar: './snoopy-6.jpg',
+      avatar:
+        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     },
     text: 'i am\nspecially kevin\ndid you forget',
   },
   {
     from: {
       name: 'Me',
-      avatar: './snoopy-6.jpg',
+      avatar:
+        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     },
     to: {
       name: 'Iolanthe Claude',
-      avatar: './snoopy-3.jpg',
+      avatar:
+        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     },
     text: 'Hey, we are looking for experienced moderators for an project on Ethereum, the salaries are very high https://discord.gg/gm9r4dyJa',
   },
   {
     from: {
       name: 'Me',
-      avatar: './snoopy-6.jpg',
+      avatar:
+        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     },
     to: {
       name: 'Everyone',

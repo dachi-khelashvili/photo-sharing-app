@@ -49,7 +49,7 @@ export const ProfileView: React.FC = () => {
         <Frame>
           <HGroup>
             <Avatar
-              src="./snoopy-3.jpg"
+              src="https://fastly.picsum.photos/id/111/600/600.jpg?hmac=lcOMUfnTHx39V8ZXAD0efwM33vmYs4I70hQGDILdRqI"
               style={SIZESTYLE.BIG}
               onClick={() => {
                 console.log(1);

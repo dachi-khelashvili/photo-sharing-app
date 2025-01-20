@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { SmallLogo, BasicLogo } from './styles';
 import { SIZESTYLE, PATH } from 'consts';
 import { useNavigate } from 'react-router-dom';
+import LogoIcon from 'assets/images/logo.svg';
 
 interface LogoProps {
   style: SIZESTYLE;
@@ -18,7 +19,7 @@ export const Logo: React.FC<LogoProps> = ({ style }) => {
       <div className="first">F</div>
       <div className="second">o</div>
       <div>t</div>
-      <img src="./logo.svg" alt="Fotz logo" />
+      <img src={LogoIcon} alt="Fotz logo" />
       <div>z</div>
     </LogoComponent>
   );

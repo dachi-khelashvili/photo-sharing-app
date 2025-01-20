@@ -79,7 +79,10 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
                   {label}
                 </TextButton>
               ))}
-              <Avatar src="avatar.jpg" onClick={() => setIsMenuOpen(true)} />
+              <Avatar
+                src="https://fastly.picsum.photos/id/111/600/600.jpg?hmac=lcOMUfnTHx39V8ZXAD0efwM33vmYs4I70hQGDILdRqI"
+                onClick={() => setIsMenuOpen(true)}
+              />
               <TextButton onClick={() => setIsMenuOpen(true)}>User</TextButton>
             </>
           )}

@@ -11,6 +11,7 @@ import {
   HGroup,
   RoundButton,
 } from 'components';
+import LogoIcon from 'assets/images/logo.svg';
 
 interface RegisterState {
   email: string;
@@ -38,7 +39,7 @@ export const RegisterView: React.FC = () => {
   return (
     <Container>
       <Frame>
-        <Image src="./logo.svg" />
+        <Image src={LogoIcon} />
         <Text>Sign up for FotOz community</Text>
         <EmailInput
           label="Email"
