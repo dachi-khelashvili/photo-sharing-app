@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { Flex, FlexItem, Typography, Search, Wrap } from './styles';
 import {
-  StyledButton,
+  RoundButton,
   ImageCard,
   Modal,
   EditModal,
   Selector,
   PaginationBar,
 } from 'components';
-import { getData, PageSize } from 'consts';
+import { BUTTONSTYLE, getData, PageSize } from 'consts';
 
 export const MyPhotosView: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -80,9 +80,9 @@ export const MyPhotosView: React.FC = () => {
             onPageChange={(page) => setCurrentPage(page)}
           />
         </FlexItem>
-        <StyledButton style="green" onClick={handleClick}>
+        <RoundButton style={BUTTONSTYLE.PINK} onClick={handleClick}>
           Upload New Photo
-        </StyledButton>
+        </RoundButton>
       </Flex>
       <Wrap>
         {currentData.map((option, index) => (

@@ -22,7 +22,7 @@ export const Frame = styled.div`
   width: 100%;
   padding: 30px;
   border-radius: 10px;
-  max-width: 480px;
+  max-width: 400px;
 
   box-shadow: ${THEME.SHADOW.DEFAULT};
 
