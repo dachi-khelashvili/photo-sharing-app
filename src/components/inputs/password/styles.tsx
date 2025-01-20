@@ -10,8 +10,10 @@ export const Button = styled.button`
   position: absolute;
   background: transparent;
   border: none;
-  margin-left: calc(100% - 40px);
-  margin-top: 20px;
+  margin-left: calc(100% - 35px);
+
+  margin-top: 11px;
+
   opacity: ${THEME.OPACITY.ICON.DEFAULT};
   cursor: pointer;
   &:hover {
@@ -20,4 +22,5 @@ export const Button = styled.button`
   &:hover {
     opacity: ${THEME.OPACITY.ICON.ACTIVE};
   }
+  z-index: 2;
 `;

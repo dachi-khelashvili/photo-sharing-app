@@ -45,7 +45,7 @@ export const THEME = {
   },
   ZINDEX: {
     DEFAULT: 0,
-    MENU: 1,
-    HEADER: 2,
+    MENU: 3,
+    HEADER: 4,
   },
 };

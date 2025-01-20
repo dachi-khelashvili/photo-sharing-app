@@ -3,14 +3,18 @@ import { Container } from './styles';
 
 interface StyledButtonProps {
   children: React.ReactNode;
-  buttonstyle: string;
+  style: string;
   onClick: () => void;
 }
 
-export const BasicButton: React.FC<StyledButtonProps> = (props) => {
+export const StyledButton: React.FC<StyledButtonProps> = ({
+  children,
+  style,
+  onClick,
+}) => {
   return (
-    <Container buttonstyle={props.buttonstyle} onClick={props.onClick}>
-      {props.children}
+    <Container style={style} onClick={onClick}>
+      {children}
     </Container>
   );
 };

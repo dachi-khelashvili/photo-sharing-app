@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.button<{ buttonstyle: string }>`
+export const Container = styled.button<{ style: string }>`
   cursor: pointer;
   display: inline;
   border: none;
@@ -9,7 +9,7 @@ export const Container = styled.button<{ buttonstyle: string }>`
   font-size: 14px;
   inline-size: 1;
   border-radius: 10px;
-  ${({ buttonstyle }) =>
+  ${({ style: buttonstyle }) =>
     buttonstyle === 'transparent' &&
     `
       border: none;
@@ -27,7 +27,7 @@ export const Container = styled.button<{ buttonstyle: string }>`
         color: rgb(0,0,0);
       }
   `};
-  ${({ buttonstyle }) =>
+  ${({ style: buttonstyle }) =>
     buttonstyle === 'blue' &&
     `background-color: #1eff00;
     color: #000000;
@@ -36,7 +36,7 @@ export const Container = styled.button<{ buttonstyle: string }>`
         background-color: #c3ff00;
     }
     `};
-  ${({ buttonstyle }) =>
+  ${({ style: buttonstyle }) =>
     buttonstyle === 'green' &&
     `background-color: #1eff00;
     color: #000000;
@@ -46,7 +46,7 @@ export const Container = styled.button<{ buttonstyle: string }>`
         background-color: #c3ff00;
     }
     `};
-  ${({ buttonstyle }) =>
+  ${({ style: buttonstyle }) =>
     buttonstyle === 'black' &&
     `background: none;
     font-size: 24px;

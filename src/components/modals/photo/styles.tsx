@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicButton } from 'components';
+import { StyledButton } from 'components';
 import styled from 'styled-components';
 
 export const Screen = styled.div`
@@ -145,12 +145,12 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <ButtonLayout>
-      <BasicButton buttonstyle="black" onClick={handleFriendRequest}>
+      <StyledButton style="black" onClick={handleFriendRequest}>
         Friend Request
-      </BasicButton>
-      <BasicButton buttonstyle="black" onClick={handleCancel}>
+      </StyledButton>
+      <StyledButton style="black" onClick={handleCancel}>
         Cancel
-      </BasicButton>
+      </StyledButton>
     </ButtonLayout>
   );
 };

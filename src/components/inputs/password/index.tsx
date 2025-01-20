@@ -40,7 +40,7 @@ export const PasswordInput: React.FC<InputProps> = ({
         onBlur={handleInputBlur}
       />
       <Button onClick={() => setEyeState(!eyeState)}>
-        {eyeState ? <Eye /> : <EyeClosed />}
+        {eyeState ? <Eye size={20} /> : <EyeClosed size={20} />}
       </Button>
     </Container>
   );

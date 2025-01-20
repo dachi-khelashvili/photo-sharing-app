@@ -21,8 +21,10 @@ h3 {
 }
 
 p,
-input {
-  font-size: 14px;
+input,
+button,
+label {
+  font-size: 15px;
 }
 
 @media (max-width: 1024px) {
@@ -39,8 +41,10 @@ input {
   }
 
   p,
-  input {
-    font-size: 13px;
+  input,
+  button,
+  label {
+    font-size: 14px;
   }
 }
 
@@ -58,7 +62,9 @@ input {
   }
 
   p,
-  input {
-    font-size: 12px;
+  input,
+  button,
+  label {
+    font-size: 13px;
   }
 }

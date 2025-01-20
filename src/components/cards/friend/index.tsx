@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Grid, AlignRight, Description } from './styles';
-import { Avatar, BasicButton } from 'components';
+import { Avatar, StyledButton } from 'components';
 
 export type FriendCardProps = {
   type: string;
@@ -28,9 +28,9 @@ export const FriendCard: React.FC<FriendCardProps> = ({
       <Avatar src={friend.path} onClick={onAvatarClick}></Avatar>
       <Grid>
         <AlignRight>
-          <BasicButton buttonstyle="transparent" onClick={onClick}>
+          <StyledButton style="transparent" onClick={onClick}>
             {type}
-          </BasicButton>
+          </StyledButton>
         </AlignRight>
         <Description>
           <div>Name:</div>
