@@ -10,7 +10,7 @@ import {
 } from 'components';
 import { COLORSTYLE, getData, PageSize } from 'consts';
 
-export const MyPhotosView: React.FC = () => {
+export const PhotosView: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState({
