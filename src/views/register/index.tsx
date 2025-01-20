@@ -39,7 +39,7 @@ export const RegisterView: React.FC = () => {
     <Container>
       <Frame>
         <Image src="./logo.svg" />
-        <Text>Sign up for PhotoShare</Text>
+        <Text>Sign up for FotOz community</Text>
         <EmailInput
           label="Email"
           value={state.email}

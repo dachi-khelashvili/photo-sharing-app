@@ -44,7 +44,6 @@ export const BaseLabel = styled.label<StyledProps>`
   margin-left: 20px;
   transition: ${THEME.TRANSITIONS.DEFAULT};
   ${({ $inputState }) => labelStyles[$inputState]}
-  z-index: 0;
 `;
 
 export const BaseInput = styled.input<StyledProps>`
@@ -54,7 +53,7 @@ export const BaseInput = styled.input<StyledProps>`
   border-radius: 10px;
   font-weight: normal;
   ${({ $inputState }) => borderStyles[$inputState]}
-  z-index: 1;
+  z-index: ${THEME.Z_INDEX.INPUT};
   width: 100%;
 `;
 

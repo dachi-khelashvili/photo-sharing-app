@@ -43,8 +43,10 @@ export const THEME = {
   SHADOW: {
     DEFAULT: '0 0 5px 0 rgba(0, 0, 0, 0.4)',
   },
-  ZINDEX: {
+  Z_INDEX: {
     DEFAULT: 0,
+    INPUT: 1,
+    EYE: 2,
     MENU: 3,
     HEADER: 4,
   },

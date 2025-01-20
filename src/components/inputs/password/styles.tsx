@@ -22,5 +22,5 @@ export const Button = styled.button`
   &:hover {
     opacity: ${THEME.OPACITY.ICON.ACTIVE};
   }
-  z-index: 2;
+  z-index: ${THEME.Z_INDEX.EYE};
 `;
