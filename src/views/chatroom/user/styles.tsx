@@ -30,6 +30,13 @@ export const Container = styled.button`
   }
 
   cursor: pointer;
+
+  &::-ms-tooltip {
+    background-color: red;
+  }
+
+  &[title] {
+  }
 `;
 
 export const Label = styled.p`
@@ -37,4 +44,8 @@ export const Label = styled.p`
   text-align: left;
   font-weight: 500;
   width: 100%;
+
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;

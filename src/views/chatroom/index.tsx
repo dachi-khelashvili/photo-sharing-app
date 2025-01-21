@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { Send } from 'lucide-react';
 import { Container, Input, MessageBox, MessageList, UserList } from './styles';
 import { UserItem } from './user';
 import { MessageItem } from './message';
-import { RoundButton } from 'components';
-import { COLORSTYLE } from 'consts';
 
 const friends = [
   {
@@ -39,7 +36,7 @@ const messages = [
     avatar:
       'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     to: 'Jasper Kingsley',
-    text: 'Hey Jasper,\n\nI hope this message finds you well! I was just thinking about you and wanted to reach out to see how your day is going. Are you having a productive day so far? Anything interesting on your schedule? I always enjoy hearing about what you’re up to!\n\nLooking forward to catching up soon!\n\nBest,\nLuna',
+    text: "Hey Jasper,\n\nI hope this message finds you well! I was just thinking about you and wanted to reach out to see how your day is going. Are you having a productive day so far? Anything interesting on your schedule? I always enjoy hearing about what you're up to!\n\nLooking forward to catching up soon!\n\nBest,\nLuna",
   },
   {
     from: 'Jasper Kingsley',
@@ -109,16 +106,21 @@ const messages = [
     avatar:
       'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
     to: 'Jasper Kingsley',
-    text: 'Sure! I’d love to join.',
+    text: "Sure! I'd love to join.",
   },
 ];
 
 export const ChatRoomView: React.FC = () => {
   const [username, setUsername] = useState('Luna Everhart');
-  const [msgBoxRow, setMsgBoxRow] = useState(1);
 
   const onClickUserHandler = (value: string) => {
     setUsername(value);
+  };
+
+  const handleTextareaInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = e.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
   };
 
   return (
@@ -148,15 +150,10 @@ export const ChatRoomView: React.FC = () => {
       </MessageList>
       <MessageBox>
         <Input
-          rows={msgBoxRow}
-          onChange={(e) => {
-            setMsgBoxRow(e.target.value.split('\n').length);
-          }}
-        ></Input>
-        <RoundButton style={COLORSTYLE.DARK_MAGENTA}>
-          <Send size={16} />
-          Send
-        </RoundButton>
+          onInput={handleTextareaInput}
+          rows={1}
+          placeholder={'Message @' + username}
+        />
       </MessageBox>
     </Container>
   );

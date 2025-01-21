@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
                 </TextButton>
               ))}
               <Avatar
-                src="https://fastly.picsum.photos/id/111/600/600.jpg?hmac=lcOMUfnTHx39V8ZXAD0efwM33vmYs4I70hQGDILdRqI"
+                src="https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk"
                 onClick={() => setIsMenuOpen(true)}
               />
               <TextButton onClick={() => setIsMenuOpen(true)}>User</TextButton>

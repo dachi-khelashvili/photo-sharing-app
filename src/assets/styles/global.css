@@ -11,6 +11,10 @@ body {
   min-width: 375px;
 }
 
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
 h1 {
   font-size: 48px;
 }

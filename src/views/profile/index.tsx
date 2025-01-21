@@ -57,7 +57,7 @@ export const ProfileView: React.FC = () => {
         <Frame>
           <HGroup>
             <Avatar
-              src="https://fastly.picsum.photos/id/111/600/600.jpg?hmac=lcOMUfnTHx39V8ZXAD0efwM33vmYs4I70hQGDILdRqI"
+              src="https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk"
               style={SIZESTYLE.BIG}
               onClick={() => {
                 console.log(1);
