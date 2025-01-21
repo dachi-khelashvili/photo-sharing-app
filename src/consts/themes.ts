@@ -1,8 +1,8 @@
 export const THEME = {
   COLORS: {
     TEXT: {
-      BLACK_OLIVE: '#3C3C3C',
-      TAUPE_GRAY: '#898989',
+      DARK_LAVENDAR: '#6f5883',
+      ENGLISH_VIOLET: '#5b415b',
       DODGER_BLUE: '#1E90FF',
       RED: '#FF0000',
       DOGWOOD_ROSE: '#D3126E',
@@ -12,13 +12,15 @@ export const THEME = {
       WHITE: '#FFFFFF',
     },
     BORDER: {
-      TAUPE_GRAY: '#898989',
+      ENGLISH_VIOLET_25: '#5b415b40',
       DODGER_BLUE: '#1E90FF',
       RED: '#FF0000',
+      DOGWOOD_ROSE: '#D3126E',
     },
     BACKGROUND: {
-      LAVENDER_BLUSH: '#FFF1F7',
+      SEA_SHELL: '#FFF4EFA0',
       WHITE: '#FFFFFF',
+      DOGWOOD_ROSE: '#D3126E',
     },
   },
   TRANSITIONS: {

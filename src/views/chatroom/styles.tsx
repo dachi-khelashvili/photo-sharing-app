@@ -1,3 +1,4 @@
+import { THEME } from 'consts';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -11,8 +12,9 @@ export const Container = styled.div`
   gap: 20px 0;
 `;
 
-export const UserListFrame = styled.div`
-  background-color: rgba(0, 0, 0, 0.7);
+export const UserList = styled.div`
+  background-color: ${THEME.COLORS.BACKGROUND.WHITE};
+  box-shadow: ${THEME.SHADOW.DEFAULT};
 
   height: 100%;
   width: 220px;
@@ -25,84 +27,36 @@ export const UserListFrame = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  z-index: ${THEME.Z_INDEX.MENU};
 `;
 
-export const AllUsers = styled.button`
-  height: 42px;
-  margin: 10px 10px;
-  border: 2px solid white;
-  border-radius: 5px;
-  outline: none;
-
-  color: white;
-  background-color: rgb(143, 35, 144);
-
-  font-weight: bold;
-
-  transition: all 200ms;
-
-  &:disabled {
-    margin: 10px 0px;
-    border-radius: 0;
-    border-width: 2px 0;
-    background-color: rgb(212, 23, 113);
-  }
-  &:enabled:hover {
-    background-color: rgba(212, 23, 113, 0.6);
-  }
-  &:enabled:active {
-    background-color: rgb(212, 23, 113);
-  }
-`;
-
-export const MessageListFrame = styled.div`
+export const MessageList = styled.div`
   height: 100%;
   margin: 20px;
 
   overflow-y: scroll;
 `;
 
-export const MessageBoxFrame = styled.div`
-  margin: 10px;
-  padding: 10px;
+export const MessageBox = styled.div`
+  padding: 10px 15px;
 
   grid-column: 2;
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 100px;
   gap: 10px;
+  background-color: ${THEME.COLORS.BACKGROUND.WHITE};
+  box-shadow: ${THEME.SHADOW.DEFAULT};
 `;
 
-export const MessageBox = styled.textarea`
-  color: white;
-  background-color: rgb(0, 0, 0, 0.7);
+export const Input = styled.textarea`
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
+  border: ${THEME.COLORS.BORDER.ENGLISH_VIOLET_25} solid 2px;
   width: 100%;
   padding: 10px 15px;
   border-radius: 10px;
-  border: none;
-  outline: none;
   overflow: hidden;
   resize: none;
-`;
-
-export const SendButton = styled.button`
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  height: fit-content;
-
-  transition: background-color 300ms;
-
-  color: white;
-  background-color: rgb(143, 35, 144);
-
-  &:enabled:hover {
-    background-color: rgba(212, 23, 113, 0.8);
-  }
-  &:enabled:active {
-    background-color: rgb(212, 23, 113);
-  }
 `;
 
 export const FriendModal = styled.div`

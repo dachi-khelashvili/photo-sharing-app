@@ -44,6 +44,28 @@ export const BigContainer = styled.button`
   cursor: pointer;
 `;
 
+export const MiddleContainer = styled.button`
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+
+  @media (max-width: 1024px) {
+    width: 39px;
+    min-width: 39px;
+    height: 39px;
+  }
+
+  @media (max-width: 768px) {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+`;
+
 export const Image = styled.img`
   width: 100%;
   height: 100%;

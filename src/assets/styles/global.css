@@ -27,7 +27,8 @@ h3 {
 p,
 input,
 button,
-label {
+label,
+textarea {
   font-size: 15px;
 }
 
@@ -47,7 +48,8 @@ label {
   p,
   input,
   button,
-  label {
+  label,
+  textarea {
     font-size: 14px;
   }
 }
@@ -68,7 +70,8 @@ label {
   p,
   input,
   button,
-  label {
+  label,
+  textarea {
     font-size: 13px;
   }
 }

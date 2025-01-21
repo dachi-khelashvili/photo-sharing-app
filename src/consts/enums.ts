@@ -7,7 +7,7 @@ export enum INPUTSTATE {
 
 export enum SIZESTYLE {
   BIG = 'BIG',
-  NORMAL = 'NORMAL',
+  MIDDLE = 'MIDDLE',
   SMALL = 'SMALL',
 }
 
