@@ -1,5 +1,8 @@
 import React from 'react';
-import { Grid, Image, Footer, Caption, FeatureBar, SVG } from './styles';
+import { Container, Image, Footer, Title, Group } from './styles';
+import { ThumbsUp, ThumbsDown } from 'lucide-react';
+import { THEME } from 'consts';
+import { IconButton } from 'components';
 
 export type PhotoType = {
   path: string;
@@ -25,18 +28,22 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   onClickDislike,
 }) => {
   return (
-    <Grid>
+    <Container>
       <Image src={photo.path} alt={photo.path} onClick={onClick} />
       <Footer>
-        <Caption>{photo.uploader}</Caption>
+        <Title>{photo.uploader}</Title>
         {show && (
-          <FeatureBar>
-            <SVG src="./thumb-up.svg" onClick={onClickLike} />
-            <SVG src="./thumb-down.svg" onClick={onClickDislike} />
+          <Group>
+            <IconButton onClick={onClickLike}>
+              <ThumbsUp size={16} color={THEME.COLORS.BORDER.GREEN} />
+            </IconButton>
+            <IconButton onClick={onClickDislike}>
+              <ThumbsDown size={16} color={THEME.COLORS.BORDER.RED} />
+            </IconButton>
             {like}
-          </FeatureBar>
+          </Group>
         )}
       </Footer>
-    </Grid>
+    </Container>
   );
 };

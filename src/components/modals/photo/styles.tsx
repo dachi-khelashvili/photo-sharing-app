@@ -1,5 +1,5 @@
 import { RoundButton } from 'components/buttons';
-import { COLORSTYLE } from 'consts';
+import { COLORSTYLE, THEME } from 'consts';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -9,7 +9,7 @@ export const Screen = styled.div`
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 10;
+  z-index: ${THEME.Z_INDEX.MODAL};
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -38,10 +38,8 @@ export const Container = styled.div`
   gap: 20px;
 `;
 
-export const Header = styled.div`
+export const Header = styled.h3`
   margin: 20px auto;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 32px;
 `;
 
 export const Content = styled.div`
@@ -81,20 +79,16 @@ const GridContainer = styled.div`
   padding: 10px;
 `;
 
-const Label = styled.div`
+const Label = styled.label`
   display: flex;
   align-items: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 24px;
 `;
 
 const TextBox = styled.input`
   width: 100%;
   height: 50px;
   &:disabled {
-    font-size: 24px;
     color: black;
-    font-family: sans-serif;
   }
 `;
 

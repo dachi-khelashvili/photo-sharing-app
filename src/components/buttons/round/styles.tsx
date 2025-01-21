@@ -22,6 +22,7 @@ export const Container = styled.button<{ $style: COLORSTYLE }>`
   gap: 5px;
   align-items: center;
   justify-content: center;
+  min-width: fit-content;
 
   &:hover {
     opacity: ${THEME.OPACITY.LOGO.HOVER};
