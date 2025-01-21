@@ -33,7 +33,9 @@ const baseLogoStyles = css`
 export const SmallLogo = styled.button`
   ${baseLogoStyles}
 
-  font-size: 21px;
+  div {
+    font-size: 21px;
+  }
 
   img {
     width: 26px;
@@ -59,7 +61,9 @@ export const SmallLogo = styled.button`
 export const BasicLogo = styled.button`
   ${baseLogoStyles}
 
-  font-size: 25px;
+  div {
+    font-size: 25px;
+  }
 
   img {
     width: 37px;

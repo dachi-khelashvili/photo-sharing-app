@@ -1,6 +1,5 @@
 const templates = [
   'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-  'https://fastly.picsum.photos/id/111/600/600.jpg?hmac=lcOMUfnTHx39V8ZXAD0efwM33vmYs4I70hQGDILdRqI',
   'https://fastly.picsum.photos/id/153/600/600.jpg?hmac=QestEq1QK7okR9gxUd8mRs3TEcVFz0gCtWU5S9OvwWo',
   'https://fastly.picsum.photos/id/522/600/600.jpg?hmac=hMsiSZIkns7dauzjEFb9aY8qUIOVK-FFDRvBha1ggkc',
   'https://fastly.picsum.photos/id/178/600/600.jpg?hmac=O8l7flEwbL_y3cym-o1MhuMzKIBl_3zAN0cGeyHFLn0',

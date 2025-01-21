@@ -6,10 +6,11 @@ export const Container = styled.div`
   height: calc(100vh - 60px);
 
   display: grid;
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: 1fr max-content;
-
-  gap: 20px 0;
+  grid-template-areas:
+    'user-list message-list'
+    'user-list message-box';
+  grid-template-rows: 1fr auto;
+  grid-template-columns: auto 1fr;
 `;
 
 export const UserList = styled.div`
@@ -17,12 +18,11 @@ export const UserList = styled.div`
   box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
 
   height: 100%;
-  width: 200px;
+  width: fit-content;
 
   padding: 10px 0;
 
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-area: user-list;
 
   display: flex;
   flex-direction: column;
@@ -31,19 +31,31 @@ export const UserList = styled.div`
 
 export const MessageList = styled.div`
   height: 100%;
-  margin: 20px;
+  padding: 20px;
 
   overflow-y: scroll;
+
+  grid-area: message-list;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
+    opacity: 0;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+  }
 `;
 
 export const MessageBox = styled.div`
-  padding: 10px 15px;
+  grid-area: message-box;
 
-  grid-column: 2;
-
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  gap: 10px;
+  padding: 10px 15px 30px 15px;
   background-color: ${THEME.COLORS.BACKGROUND.WHITE};
   box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
 `;
@@ -54,6 +66,7 @@ export const Input = styled.textarea`
   width: 100%;
   padding: 10px 15px;
   border-radius: 10px;
-  overflow: hidden;
   resize: none;
+  max-height: 200px;
+  overflow-y: hidden;
 `;
