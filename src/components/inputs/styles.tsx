@@ -4,11 +4,11 @@ import { StyledProps } from './types';
 
 export const labelStyles = {
   [INPUTSTATE.NORMAL]: css`
-    color: ${THEME.COLORS.TEXT.TAUPE_GRAY};
+    color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
     margin-top: 12px;
   `,
   [INPUTSTATE.VALUED]: css`
-    color: ${THEME.COLORS.TEXT.TAUPE_GRAY};
+    color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
     margin-top: 6px;
     font-size: 11px;
   `,
@@ -26,10 +26,10 @@ export const labelStyles = {
 
 const borderStyles = {
   [INPUTSTATE.NORMAL]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.TAUPE_GRAY};
+    border: 2px solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_25};
   `,
   [INPUTSTATE.VALUED]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.TAUPE_GRAY};
+    border: 2px solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_25};
   `,
   [INPUTSTATE.EDITED]: css`
     border: 2px solid ${THEME.COLORS.BORDER.DODGER_BLUE};
@@ -42,12 +42,13 @@ const borderStyles = {
 export const BaseLabel = styled.label<StyledProps>`
   position: absolute;
   margin-left: 20px;
+  font-weight: 500;
   transition: ${THEME.TRANSITIONS.DEFAULT};
   ${({ $inputState }) => labelStyles[$inputState]}
 `;
 
 export const BaseInput = styled.input<StyledProps>`
-  color: ${THEME.COLORS.TEXT.BLACK_OLIVE};
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
   background-color: transparent;
   padding: 17px 15px 3px 15px;
   border-radius: 10px;

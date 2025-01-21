@@ -11,5 +11,5 @@ export const Input = styled(BaseInput)`
     ${({ $inputState }) =>
       $inputState === INPUTSTATE.EDITED
         ? THEME.COLORS.BORDER.DODGER_BLUE
-        : THEME.COLORS.BORDER.TAUPE_GRAY};
+        : THEME.COLORS.BORDER.ENGLISH_VIOLET_25};
 `;

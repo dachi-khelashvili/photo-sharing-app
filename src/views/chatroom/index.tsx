@@ -1,105 +1,125 @@
 import React, { useState } from 'react';
+import { Send } from 'lucide-react';
 import {
-  AllUsers,
   Container,
+  Input,
   MessageBox,
-  MessageBoxFrame,
-  MessageListFrame,
-  SendButton,
-  UserListFrame,
+  MessageList,
+  UserList,
   FriendModal,
   Div,
   P,
 } from './styles';
 import { Screen } from 'components/modals/basic/styles';
-import { UserListItem } from './user_list_item';
-import { UserListItemAvatar } from './user_list_item/styles';
-import { MessageListItem } from './message_list_item/indext';
+import { UserItem } from './user';
+import { MessageItem } from './message';
+import { Avatar, RoundButton } from 'components';
+import { COLORSTYLE } from 'consts';
 
 const friends = [
   {
-    name: 'Iolanthe Claude',
+    name: 'Luna Everhart',
     avatar:
       'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    friend: true,
   },
   {
-    name: 'Vijaya Katarina',
+    name: 'Jasper Kingsley',
     avatar:
-      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    friend: true,
-  },
-];
-const users = [
-  {
-    name: 'Bruce Wang',
-    avatar:
-      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    friend: false,
+      'https://fastly.picsum.photos/id/153/600/600.jpg?hmac=QestEq1QK7okR9gxUd8mRs3TEcVFz0gCtWU5S9OvwWo',
   },
   {
-    name: 'Nakio Akira',
+    name: 'Amelia Whittaker',
     avatar:
-      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    friend: false,
+      'https://fastly.picsum.photos/id/522/600/600.jpg?hmac=hMsiSZIkns7dauzjEFb9aY8qUIOVK-FFDRvBha1ggkc',
   },
   {
-    name: 'Lily Potter',
+    name: 'Finnian Prescott',
     avatar:
-      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    friend: false,
+      'https://fastly.picsum.photos/id/916/600/600.jpg?hmac=2SVGfuvjb7F1z6AhGa6yiIoK79honmvlSqvtHtTBt5g',
+  },
+  {
+    name: 'Clara Montgomery',
+    avatar:
+      'https://fastly.picsum.photos/id/111/600/600.jpg?hmac=lcOMUfnTHx39V8ZXAD0efwM33vmYs4I70hQGDILdRqI',
   },
 ];
 const messages = [
   {
-    from: {
-      name: 'Iolanthe Claude',
-      avatar:
-        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    },
-    to: {
-      name: 'Everyone',
-      avatar: '',
-    },
-    text: 'Hi @Phoenix @Fatto I think both of you are really fan of "Despicable Me"\nAny fan of minions?',
+    from: 'Luna Everhart',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Jasper Kingsley',
+    text: 'Hey Jasper,\n\nI hope this message finds you well! I was just thinking about you and wanted to reach out to see how your day is going. Are you having a productive day so far? Anything interesting on your schedule? I always enjoy hearing about what you’re up to!\n\nLooking forward to catching up soon!\n\nBest,\nLuna',
   },
   {
-    from: {
-      name: 'Iolanthe Claude',
-      avatar:
-        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    },
-    to: {
-      name: 'Me',
-      avatar:
-        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    },
-    text: 'i am\nspecially kevin\ndid you forget',
+    from: 'Jasper Kingsley',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Luna Everhart',
+    text: "I'm doing well, thanks! Want to meet up later?",
   },
   {
-    from: {
-      name: 'Me',
-      avatar:
-        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    },
-    to: {
-      name: 'Iolanthe Claude',
-      avatar:
-        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    },
-    text: 'Hey, we are looking for experienced moderators for an project on Ethereum, the salaries are very high https://discord.gg/gm9r4dyJa',
+    from: 'Luna Everhart',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Amelia Whittaker',
+    text: "Hi Amelia! I heard you have a new project. How's it going?",
   },
   {
-    from: {
-      name: 'Me',
-      avatar:
-        'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
-    },
-    to: {
-      name: 'Everyone',
-      avatar: '',
-    },
-    text: 'Hey, we are looking for experienced web3 moderators (honest salary) https://discord.gg/wgp8J3bz',
+    from: 'Amelia Whittaker',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Finnian Prescott',
+    text: 'Hey Finnian, do you want to collaborate on something?',
+  },
+  {
+    from: 'Finnian Prescott',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Clara Montgomery',
+    text: 'Clara, can I get your opinion on my latest design?',
+  },
+  {
+    from: 'Clara Montgomery',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Jasper Kingsley',
+    text: "Jasper, let's grab coffee soon!",
+  },
+  {
+    from: 'Jasper Kingsley',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Luna Everhart',
+    text: 'Sure, when is a good time for you?',
+  },
+  {
+    from: 'Luna Everhart',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Finnian Prescott',
+    text: 'Finnian, have you seen the new cafe downtown?',
+  },
+  {
+    from: 'Finnian Prescott',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Amelia Whittaker',
+    text: "Yes, I went there last week! It's great.",
+  },
+  {
+    from: 'Amelia Whittaker',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Clara Montgomery',
+    text: 'Clara, do you want to join us next time?',
+  },
+  {
+    from: 'Clara Montgomery',
+    avatar:
+      'https://fastly.picsum.photos/id/507/600/600.jpg?hmac=rOqut4F9CmwnmdZhtV_76pQXBEG5Y1wibCCKzxb5luk',
+    to: 'Jasper Kingsley',
+    text: 'Sure! I’d love to join.',
   },
 ];
 
@@ -124,68 +144,52 @@ export const ChatRoomView: React.FC = () => {
               Do you really want to send Friend Request to <b>{userData[2]}</b>?
             </P>
             <Div>
-              <UserListItemAvatar
-                src={userData[3]}
-                width="128px"
-                height="128px"
-              />
-              <SendButton onClick={() => showFriendModal(false)}>OK</SendButton>
+              <Avatar src={userData[3]} />
+              <RoundButton
+                onClick={() => showFriendModal(false)}
+                style={COLORSTYLE.DARK_MAGENTA}
+              >
+                OK
+              </RoundButton>
             </Div>
           </FriendModal>
         </Screen>
       )}
-      <UserListFrame>
-        <AllUsers
-          disabled={userData[1] == 'All'}
-          onClick={() => {
-            onClickUserHandler(['User', 'All', 'All', 'All']);
-          }}
-        >
-          To Everyone
-        </AllUsers>
+      <UserList>
         {friends.map((value) => {
           return (
-            <UserListItem
+            <UserItem
               name={value.name}
               avatar={value.avatar}
               disabled={value.name == userData[1]}
-              friend={value.friend}
               onClick={onClickUserHandler}
             />
           );
         })}
-        {users.map((value) => {
-          return (
-            <UserListItem
-              name={value.name}
-              avatar={value.avatar}
-              disabled={value.name == userData[1]}
-              friend={value.friend}
-              onClick={onClickUserHandler}
-            />
-          );
-        })}
-      </UserListFrame>
-      <MessageListFrame>
+      </UserList>
+      <MessageList>
         {messages.map((value) => {
           return (
-            <MessageListItem
-              from={value.from}
-              to={value.to}
+            <MessageItem
+              name={value.from}
               text={value.text}
+              avatar={value.avatar}
             />
           );
         })}
-      </MessageListFrame>
-      <MessageBoxFrame>
-        <MessageBox
+      </MessageList>
+      <MessageBox>
+        <Input
           rows={msgBoxRow}
           onChange={(e) => {
             setMsgBoxRow(e.target.value.split('\n').length);
           }}
-        ></MessageBox>
-        <SendButton>Send</SendButton>
-      </MessageBoxFrame>
+        ></Input>
+        <RoundButton style={COLORSTYLE.DARK_MAGENTA}>
+          <Send size={16} />
+          Send
+        </RoundButton>
+      </MessageBox>
     </Container>
   );
 };

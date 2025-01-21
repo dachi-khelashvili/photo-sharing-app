@@ -5,7 +5,7 @@ import { COLORSTYLE } from 'consts';
 interface RoundButtonProps {
   children: React.ReactNode;
   style: COLORSTYLE;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const RoundButton: React.FC<RoundButtonProps> = ({

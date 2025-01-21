@@ -33,7 +33,7 @@ export const Frame = styled.div`
 `;
 
 export const Text = styled.p`
-  color: ${THEME.COLORS.TEXT.BLACK_OLIVE};
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
   text-align: center;
   font-weight: 500;
 `;

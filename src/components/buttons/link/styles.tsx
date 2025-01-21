@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.button`
   background: transparent;
-  border: solid ${THEME.COLORS.BORDER.TAUPE_GRAY};
+  border: solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_25};
   border-width: 0 0 2px 0;
   padding-bottom: 4px;
   cursor: pointer;

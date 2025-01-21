@@ -10,7 +10,7 @@ type SearchProps = {
 export const Search: React.FC<SearchProps> = ({ label }) => {
   return (
     <Container>
-      <SearchIcon color={THEME.COLORS.TEXT.BLACK_OLIVE} size={20} />
+      <SearchIcon color={THEME.COLORS.TEXT.DARK_LAVENDAR} size={20} />
       <Input placeholder={label}></Input>
     </Container>
   );

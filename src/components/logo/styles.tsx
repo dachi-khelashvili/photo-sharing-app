@@ -19,7 +19,7 @@ const baseLogoStyles = css`
     opacity: ${THEME.OPACITY.LOGO.ACTIVE};
   }
 
-  color: ${THEME.COLORS.TEXT.BLACK_OLIVE};
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
 
   .first {
     color: ${THEME.COLORS.TEXT.DARK_MAGENTA};

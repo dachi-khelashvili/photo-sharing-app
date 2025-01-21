@@ -7,6 +7,9 @@ export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative;
+  z-index: ${THEME.Z_INDEX.HEADER};
+  background-color: ${THEME.COLORS.BACKGROUND.WHITE};
 
   @media (max-width: 480px) {
     padding: 30px;

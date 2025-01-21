@@ -18,6 +18,10 @@ export const Container = styled.button<{ $style: COLORSTYLE }>`
   border-radius: 20px;
   cursor: pointer;
   width: 100%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     opacity: ${THEME.OPACITY.LOGO.HOVER};
