@@ -10,6 +10,7 @@ import {
   VGroup,
   EmailInput,
 } from 'components';
+import { NumberInput } from 'components/inputs/number';
 import { SelectInput } from 'components/inputs/select';
 import { COLORSTYLE, PATH, SIZESTYLE } from 'consts';
 import { useState } from 'react';
@@ -28,6 +29,7 @@ interface ProfileState {
   country: string;
   firstname: string;
   lastname: string;
+  age: string;
 }
 
 export const ProfileView: React.FC = () => {
@@ -44,6 +46,7 @@ export const ProfileView: React.FC = () => {
     country: '',
     firstname: '',
     lastname: '',
+    age: '',
   });
 
   const navigate = useNavigate();
@@ -98,12 +101,19 @@ export const ProfileView: React.FC = () => {
             value={state.birthday}
             onChange={(value) => setState({ ...state, birthday: value })}
           />
-          <SelectInput
-            label="Gender"
-            value={state.gender}
-            items={['male', 'female']}
-            onChange={(value) => setState({ ...state, gender: value })}
-          />
+          <HGroup>
+            <SelectInput
+              label="Gender"
+              value={state.gender}
+              items={['Male', 'Female']}
+              onChange={(value) => setState({ ...state, gender: value })}
+            />
+            <NumberInput
+              label="Age"
+              value={state.age}
+              onChange={(value) => setState({ ...state, age: value })}
+            />
+          </HGroup>
           <HGroup>
             <TextInput
               label="Address"
