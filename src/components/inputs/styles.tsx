@@ -24,7 +24,7 @@ export const labelStyles = {
   `,
 };
 
-const borderStyles = {
+export const borderStyles = {
   [INPUTSTATE.NORMAL]: css`
     border: 2px solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
   `,

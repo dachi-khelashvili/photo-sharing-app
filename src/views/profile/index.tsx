@@ -10,6 +10,7 @@ import {
   VGroup,
   EmailInput,
 } from 'components';
+import { SelectInput } from 'components/inputs/select';
 import { COLORSTYLE, PATH, SIZESTYLE } from 'consts';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -25,6 +26,8 @@ interface ProfileState {
   city: string;
   county: string;
   country: string;
+  firstname: string;
+  lastname: string;
 }
 
 export const ProfileView: React.FC = () => {
@@ -39,6 +42,8 @@ export const ProfileView: React.FC = () => {
     city: '',
     county: '',
     country: '',
+    firstname: '',
+    lastname: '',
   });
 
   const navigate = useNavigate();
@@ -56,18 +61,28 @@ export const ProfileView: React.FC = () => {
               }}
             />
             <VGroup>
-              <EmailInput
-                label="Email"
-                value={state.email}
-                onChange={(value) => setState({ ...state, email: value })}
+              <TextInput
+                label="First Name"
+                value={state.firstname}
+                onChange={(value) => setState({ ...state, firstname: value })}
               />
               <TextInput
-                label="Username"
-                value={state.username}
-                onChange={(value) => setState({ ...state, username: value })}
+                label="Last Name"
+                value={state.lastname}
+                onChange={(value) => setState({ ...state, lastname: value })}
               />
             </VGroup>
           </HGroup>
+          <EmailInput
+            label="Email"
+            value={state.email}
+            onChange={(value) => setState({ ...state, email: value })}
+          />
+          <TextInput
+            label="Username"
+            value={state.username}
+            onChange={(value) => setState({ ...state, username: value })}
+          />
           <PasswordInput
             value={state.password}
             label="Password"
@@ -83,31 +98,36 @@ export const ProfileView: React.FC = () => {
             value={state.birthday}
             onChange={(value) => setState({ ...state, birthday: value })}
           />
-          <TextInput
+          <SelectInput
             label="Gender"
             value={state.gender}
+            items={['male', 'female']}
             onChange={(value) => setState({ ...state, gender: value })}
           />
-          <TextInput
-            label="Address"
-            value={state.address}
-            onChange={(value) => setState({ ...state, address: value })}
-          />
-          <TextInput
-            label="City"
-            value={state.city}
-            onChange={(value) => setState({ ...state, city: value })}
-          />
-          <TextInput
-            label="County"
-            value={state.county}
-            onChange={(value) => setState({ ...state, county: value })}
-          />
-          <TextInput
-            label="Country"
-            value={state.country}
-            onChange={(value) => setState({ ...state, country: value })}
-          />
+          <HGroup>
+            <TextInput
+              label="Address"
+              value={state.address}
+              onChange={(value) => setState({ ...state, address: value })}
+            />
+            <TextInput
+              label="City"
+              value={state.city}
+              onChange={(value) => setState({ ...state, city: value })}
+            />
+          </HGroup>
+          <HGroup>
+            <TextInput
+              label="County"
+              value={state.county}
+              onChange={(value) => setState({ ...state, county: value })}
+            />
+            <TextInput
+              label="Country"
+              value={state.country}
+              onChange={(value) => setState({ ...state, country: value })}
+            />
+          </HGroup>
           <RoundButton
             style={COLORSTYLE.DOGWOOD_ROSE}
             onClick={() => navigate(PATH.COMMUNITY)}
