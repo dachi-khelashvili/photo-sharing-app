@@ -1,4 +1,77 @@
 * {
   box-sizing: border-box;
-  font-family: 'system-ui';
+  font-family: 'Work Sans';
+  margin: 0;
+  padding: 0;
+  outline: none;
+  line-height: 1.35;
+}
+
+body {
+  min-width: 375px;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+p,
+input,
+button,
+label,
+textarea {
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p,
+  input,
+  button,
+  label,
+  textarea {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p,
+  input,
+  button,
+  label,
+  textarea {
+    font-size: 13px;
+  }
 }

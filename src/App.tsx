@@ -1,4 +1,4 @@
-import { LayoutComponent } from 'components/Layout';
+import { LayoutComponent } from 'components';
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { RouteComponent } from 'routes';
