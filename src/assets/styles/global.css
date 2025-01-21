@@ -28,7 +28,10 @@ p,
 input,
 button,
 label,
-textarea {
+textarea,
+div,
+select,
+option {
   font-size: 15px;
 }
 
@@ -49,7 +52,10 @@ textarea {
   input,
   button,
   label,
-  textarea {
+  textarea,
+  div,
+  select,
+  option {
     font-size: 14px;
   }
 }
@@ -72,7 +78,9 @@ textarea {
   button,
   label,
   textarea,
-  div {
+  div,
+  select,
+  option {
     font-size: 13px;
   }
 }
