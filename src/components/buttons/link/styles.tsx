@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.button`
   background: transparent;
-  border: solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
+  border: solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_40};
   border-width: 0 0 2px 0;
   padding-bottom: 4px;
   cursor: pointer;
@@ -19,13 +19,15 @@ export const Container = styled.button`
     font-size: 12px;
   }
 
-  opacity: ${THEME.OPACITY.TEXT.DEFAULT};
+  color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
+
+  opacity: ${THEME.OPACITY.LOGO.DEFAULT};
 
   &:hover {
-    opacity: ${THEME.OPACITY.TEXT.HOVER};
+    opacity: ${THEME.OPACITY.LOGO.HOVER};
   }
 
   &:active {
-    opacity: ${THEME.OPACITY.TEXT.ACTIVE};
+    opacity: ${THEME.OPACITY.LOGO.ACTIVE};
   }
 `;

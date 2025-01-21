@@ -13,6 +13,7 @@ export const THEME = {
     },
     BORDER: {
       ENGLISH_VIOLET_10: '#5b415b1A',
+      ENGLISH_VIOLET_40: '#5b415b66',
       DODGER_BLUE: '#1E90FF',
       RED: '#FF0000',
       DOGWOOD_ROSE: '#D3126E',

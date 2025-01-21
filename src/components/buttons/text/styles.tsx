@@ -9,13 +9,15 @@ export const Container = styled.button`
   font-weight: 500;
   min-width: fit-content;
 
-  opacity: ${THEME.OPACITY.TEXT.DEFAULT};
+  color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
+
+  opacity: ${THEME.OPACITY.LOGO.DEFAULT};
 
   &:hover {
-    opacity: ${THEME.OPACITY.TEXT.HOVER};
+    opacity: ${THEME.OPACITY.LOGO.HOVER};
   }
 
   &:active {
-    opacity: ${THEME.OPACITY.TEXT.ACTIVE};
+    opacity: ${THEME.OPACITY.LOGO.ACTIVE};
   }
 `;
