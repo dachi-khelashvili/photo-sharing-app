@@ -28,6 +28,8 @@ export const Container = styled.button`
   &:enabled:active {
     background-color: ${THEME.COLORS.BACKGROUND.DOGWOOD_ROSE}20;
   }
+
+  cursor: pointer;
 `;
 
 export const Label = styled.p`

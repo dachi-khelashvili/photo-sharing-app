@@ -6,19 +6,24 @@ interface UserIemProps {
   name: string;
   avatar: string;
   disabled: boolean;
-  onClick: (e: [string, string, string, string]) => void;
+  onClick: (value: string) => void;
 }
 
-export const UserItem: React.FC<UserIemProps> = (props) => {
+export const UserItem: React.FC<UserIemProps> = ({
+  name,
+  avatar,
+  disabled,
+  onClick,
+}) => {
   return (
     <Container
-      disabled={props.disabled}
+      disabled={disabled}
       onClick={() => {
-        props.onClick(['User', props.name, props.name, props.avatar]);
+        onClick(name);
       }}
     >
-      <Avatar src={props.avatar} />
-      <Label>{props.name}</Label>
+      <Avatar src={avatar} />
+      <Label>{name}</Label>
     </Container>
   );
 };

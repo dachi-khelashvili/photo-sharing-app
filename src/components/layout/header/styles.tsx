@@ -8,7 +8,7 @@ export const Container = styled.header`
   padding: 0 20px;
   border: none;
   background-color: white;
-  box-shadow: ${THEME.SHADOW.DEFAULT};
+  box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
   z-index: ${THEME.Z_INDEX.HEADER};
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@ export const Menu = styled.div`
   padding: 15px 20px;
   gap: 10px;
   border-radius: 0 0 0 10px;
-  box-shadow: ${THEME.SHADOW.DEFAULT};
+  box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
   z-index: ${THEME.Z_INDEX.MENU};
 
   animation: slideIn 0.2s ease-out;
