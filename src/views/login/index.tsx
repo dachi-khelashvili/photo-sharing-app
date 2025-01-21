@@ -18,14 +18,21 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
   const [state, setState] = useState<LoginState>({ email: '', password: '' });
 
   const navigate = useNavigate();
+  const goTo = (path: string) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   const onClickLogInHandler = () => {
-    navigate(PATH.HOME);
+    goTo(PATH.HOME);
     setAuthentication(true);
   };
 
   const onClickRegisterHandler = () => {
-    navigate(PATH.REGISTER);
+    goTo(PATH.REGISTER);
   };
 
   return (
@@ -45,7 +52,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
         />
         <HGroup>
           <Spacer />
-          <TextButton onClick={() => navigate(PATH.FORGOT_PASSWORD)}>
+          <TextButton onClick={() => goTo(PATH.FORGOT_PASSWORD)}>
             Forget password...
           </TextButton>
         </HGroup>

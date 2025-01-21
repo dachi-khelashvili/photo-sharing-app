@@ -54,6 +54,7 @@ export const THEME = {
     ICON: 2,
     MENU: 3,
     HEADER: 4,
+    UP: 5,
     MODAL: 5,
   },
 };

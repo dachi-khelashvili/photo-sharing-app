@@ -140,7 +140,13 @@ export const ProfileView: React.FC = () => {
           </HGroup>
           <RoundButton
             style={COLORSTYLE.DOGWOOD_ROSE}
-            onClick={() => navigate(PATH.COMMUNITY)}
+            onClick={() => {
+              navigate(PATH.COMMUNITY);
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+              });
+            }}
           >
             Save
           </RoundButton>

@@ -28,12 +28,20 @@ export const RegisterView: React.FC = () => {
 
   const navigate = useNavigate();
 
+  const goTo = (path: string) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const handleJoin = () => {
-    navigate(PATH.COMMUNITY);
+    goTo(PATH.COMMUNITY);
   };
 
   const handleLogin = () => {
-    navigate(PATH.LOGIN);
+    goTo(PATH.LOGIN);
   };
 
   return (

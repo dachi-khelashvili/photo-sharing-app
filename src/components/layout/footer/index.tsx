@@ -26,6 +26,14 @@ const FOOTER_TEXT = {
 export const Footer = (): JSX.Element => {
   const navigate = useNavigate();
 
+  const goTo = (path: string) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -35,10 +43,10 @@ export const Footer = (): JSX.Element => {
           <small>{FOOTER_TEXT.copyright}</small>
         </Content>
         <Nav>
-          <LinkButton onClick={() => navigate(PATH.COMMUNITY)}>
+          <LinkButton onClick={() => goTo(PATH.COMMUNITY)}>
             {FOOTER_TEXT.navigation.community}
           </LinkButton>
-          <LinkButton onClick={() => navigate(PATH.CHATROOM)}>
+          <LinkButton onClick={() => goTo(PATH.CHATROOM)}>
             {FOOTER_TEXT.navigation.chatting}
           </LinkButton>
         </Nav>
