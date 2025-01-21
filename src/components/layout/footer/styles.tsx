@@ -3,7 +3,7 @@ import { THEME } from 'consts';
 
 export const Container = styled.footer`
   padding: 60px;
-  box-shadow: ${THEME.SHADOW.DEFAULT};
+  box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
   display: flex;
   flex-direction: column;
   gap: 40px;

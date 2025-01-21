@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
-import {
-  Container,
-  Input,
-  MessageBox,
-  MessageList,
-  UserList,
-  FriendModal,
-  Div,
-  P,
-} from './styles';
-import { Screen } from 'components/modals/basic/styles';
+import { Container, Input, MessageBox, MessageList, UserList } from './styles';
 import { UserItem } from './user';
 import { MessageItem } from './message';
-import { Avatar, RoundButton } from 'components';
+import { RoundButton } from 'components';
 import { COLORSTYLE } from 'consts';
 
 const friends = [
@@ -124,44 +114,22 @@ const messages = [
 ];
 
 export const ChatRoomView: React.FC = () => {
-  const [userData, setUserData] = useState(['User', 'All', 'All', 'All']);
+  const [username, setUsername] = useState('Luna Everhart');
   const [msgBoxRow, setMsgBoxRow] = useState(1);
-  const [isFriendModalShow, showFriendModal] = useState(false);
 
-  const onClickUserHandler = (data: [string, string, string, string]) => {
-    if (data[0] == 'Friend') {
-      showFriendModal(true);
-      setUserData([userData[0], userData[1], data[2], data[3]]);
-    } else setUserData(data);
+  const onClickUserHandler = (value: string) => {
+    setUsername(value);
   };
 
   return (
     <Container>
-      {isFriendModalShow && (
-        <Screen>
-          <FriendModal>
-            <P>
-              Do you really want to send Friend Request to <b>{userData[2]}</b>?
-            </P>
-            <Div>
-              <Avatar src={userData[3]} />
-              <RoundButton
-                onClick={() => showFriendModal(false)}
-                style={COLORSTYLE.DARK_MAGENTA}
-              >
-                OK
-              </RoundButton>
-            </Div>
-          </FriendModal>
-        </Screen>
-      )}
       <UserList>
         {friends.map((value) => {
           return (
             <UserItem
               name={value.name}
               avatar={value.avatar}
-              disabled={value.name == userData[1]}
+              disabled={value.name == username}
               onClick={onClickUserHandler}
             />
           );

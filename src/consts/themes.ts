@@ -12,7 +12,7 @@ export const THEME = {
       WHITE: '#FFFFFF',
     },
     BORDER: {
-      ENGLISH_VIOLET_25: '#5b415b40',
+      ENGLISH_VIOLET_10: '#5b415b1A',
       DODGER_BLUE: '#1E90FF',
       RED: '#FF0000',
       DOGWOOD_ROSE: '#D3126E',
@@ -43,8 +43,8 @@ export const THEME = {
       ACTIVE: 1,
     },
   },
-  SHADOW: {
-    DEFAULT: '0 0 5px 0 rgba(0, 0, 0, 0.4)',
+  BOX_SHADOW: {
+    DEFAULT: '3px 5px 20px 0 rgba(0, 0, 0, 0.06)',
   },
   Z_INDEX: {
     DEFAULT: 0,

@@ -25,7 +25,7 @@ export const Frame = styled.div`
   border-radius: 10px;
   max-width: 400px;
 
-  box-shadow: ${THEME.SHADOW.DEFAULT};
+  box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
 
   display: flex;
   flex-direction: column;

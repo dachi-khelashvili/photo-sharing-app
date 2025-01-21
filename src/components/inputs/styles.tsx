@@ -26,10 +26,10 @@ export const labelStyles = {
 
 const borderStyles = {
   [INPUTSTATE.NORMAL]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_25};
+    border: 2px solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
   `,
   [INPUTSTATE.VALUED]: css`
-    border: 2px solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_25};
+    border: 2px solid ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
   `,
   [INPUTSTATE.EDITED]: css`
     border: 2px solid ${THEME.COLORS.BORDER.DODGER_BLUE};
