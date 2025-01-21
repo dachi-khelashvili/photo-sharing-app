@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { RoundButton } from 'components';
 import { COLORSTYLE } from 'consts';
 import styled from 'styled-components';
+import { Upload } from 'lucide-react';
 
 export const Screen = styled.div`
   -webkit-backdrop-filter: blur(5px);
@@ -38,11 +39,7 @@ export const Container = styled.div`
   gap: 20px;
 `;
 
-export const Header = styled.div`
-  margin: auto;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 32px;
-`;
+export const Header = styled.h3``;
 
 export const Content = styled.div`
   display: flex;
@@ -101,7 +98,7 @@ export const UploadImage: React.FC<UploadImageProps> = ({ handleFile }) => {
       <StyledUpload>
         <UploadButton>
           <label>
-            <ContentFit src="./upload-sign.svg" />
+            <Upload />
             <input
               type="file"
               style={{ display: 'none' }}
@@ -125,10 +122,7 @@ const GridContainer = styled.div`
   padding: 10px;
 `;
 
-const Label = styled.a`
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 24px;
-`;
+const Label = styled.label``;
 
 const TextBox = styled.input`
   width: 100%;

@@ -38,10 +38,8 @@ export const Container = styled.div`
   gap: 20px;
 `;
 
-export const Header = styled.div`
+export const Header = styled.h3`
   margin: auto;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 32px;
 `;
 
 export const Content = styled.div`
@@ -123,10 +121,7 @@ const GridContainer = styled.div`
   padding: 10px;
 `;
 
-const Label = styled.a`
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 24px;
-`;
+const Label = styled.a``;
 
 const TextBox = styled.input`
   width: 100%;

@@ -1,23 +1,14 @@
 import React from 'react';
-import { Button, Icon } from './styles';
+import { Container } from './styles';
 
 interface IconButtonProps {
-  iconPath: string;
-  width: string;
-  height: string;
-  marginleft: string;
-  marginright: string;
-  onClick: () => void;
+  onClick?: () => void;
+  children: React.ReactNode;
 }
 
-export const IconButton: React.FC<IconButtonProps> = (props) => {
-  return (
-    <Button
-      onClick={props.onClick}
-      marginleft={props.marginleft}
-      marginright={props.marginright}
-    >
-      <Icon width={props.width} height={props.height} src={props.iconPath} />
-    </Button>
-  );
+export const IconButton: React.FC<IconButtonProps> = ({
+  onClick,
+  children,
+}) => {
+  return <Container onClick={onClick}>{children}</Container>;
 };

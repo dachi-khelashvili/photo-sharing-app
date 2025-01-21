@@ -71,7 +71,8 @@ textarea {
   input,
   button,
   label,
-  textarea {
+  textarea,
+  div {
     font-size: 13px;
   }
 }

@@ -21,7 +21,6 @@ export const TabItem = styled.div`
   border: none;
   height: 50px;
   color: #000000;
-  font-size: 18px;
   padding: 0px 10px;
   border-radius: 5px;
   &:hover {
@@ -51,10 +50,7 @@ export const FlexItem = styled.div`
   margin: 0px 10px;
 `;
 
-export const Typography = styled.a`
-  font-family: fantasy;
-  font-size: 22px;
-`;
+export const Typography = styled.p``;
 
 export const Search = styled.input`
   background-color: #d2d2d2;
@@ -63,7 +59,6 @@ export const Search = styled.input`
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
-  font-size: 18px;
 `;
 
 export const Wrap = styled.div`

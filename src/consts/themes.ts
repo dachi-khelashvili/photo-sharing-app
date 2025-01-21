@@ -1,8 +1,8 @@
 export const THEME = {
   COLORS: {
     TEXT: {
-      DARK_LAVENDAR: '#6f5883',
-      ENGLISH_VIOLET: '#5b415b',
+      DARK_LAVENDAR: '#6F5883',
+      ENGLISH_VIOLET: '#5B415B',
       DODGER_BLUE: '#1E90FF',
       RED: '#FF0000',
       DOGWOOD_ROSE: '#D3126E',
@@ -17,6 +17,7 @@ export const THEME = {
       DODGER_BLUE: '#1E90FF',
       RED: '#FF0000',
       DOGWOOD_ROSE: '#D3126E',
+      GREEN: '#00FF00',
     },
     BACKGROUND: {
       SEA_SHELL: '#FFF4EFA0',
@@ -35,8 +36,8 @@ export const THEME = {
     },
     LOGO: {
       DEFAULT: 1,
-      HOVER: 0.9,
-      ACTIVE: 0.8,
+      HOVER: 0.8,
+      ACTIVE: 0.6,
     },
     TEXT: {
       DEFAULT: 0.8,
@@ -53,5 +54,6 @@ export const THEME = {
     ICON: 2,
     MENU: 3,
     HEADER: 4,
+    MODAL: 5,
   },
 };
