@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import BackImage from 'assets/images/background.png';
+import { THEME } from 'consts';
 
 export const Container = styled.main``;
 
@@ -76,8 +77,12 @@ export const ContextEnd = styled.div`
   min-width: 40%;
   display: grid;
   gap: 1rem;
-  color: #333333;
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
   text-align: end;
+
+  h3 {
+    color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
+  }
 
   @media (max-width: 768px) {
     text-align: start;
@@ -90,8 +95,12 @@ export const ContextStart = styled.div`
   min-width: 40%;
   display: grid;
   gap: 1rem;
-  color: #333333;
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
   text-align: start;
+
+  h3 {
+    color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
+  }
 
   @media (max-width: 768px) {
     gap: 0.5rem;

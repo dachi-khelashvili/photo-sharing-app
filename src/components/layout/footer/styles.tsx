@@ -11,6 +11,8 @@ export const Container = styled.footer`
   z-index: ${THEME.Z_INDEX.HEADER};
   background-color: ${THEME.COLORS.BACKGROUND.WHITE};
 
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
+
   @media (max-width: 480px) {
     padding: 30px;
   }
@@ -46,5 +48,6 @@ export const Description = styled.p`
 `;
 
 export const Divider = styled.hr`
+  border-color: ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
   width: 100%;
 `;

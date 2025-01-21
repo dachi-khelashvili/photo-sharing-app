@@ -16,4 +16,5 @@ export const Input = styled.input`
   background: transparent;
   border: none;
   width: 100%;
+  color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
 `;

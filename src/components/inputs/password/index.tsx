@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Label, Input, Container, Button } from './styles';
 import { Eye, EyeClosed } from 'lucide-react';
-import { INPUTSTATE } from 'consts';
+import { INPUTSTATE, THEME } from 'consts';
 import { InputProps } from '../types';
 
 export const PasswordInput: React.FC<InputProps> = ({
@@ -40,7 +40,11 @@ export const PasswordInput: React.FC<InputProps> = ({
         onBlur={handleInputBlur}
       />
       <Button onClick={() => setEyeState(!eyeState)}>
-        {eyeState ? <Eye size={20} /> : <EyeClosed size={20} />}
+        {eyeState ? (
+          <Eye size={20} color={THEME.COLORS.TEXT.ENGLISH_VIOLET} />
+        ) : (
+          <EyeClosed size={20} color={THEME.COLORS.TEXT.ENGLISH_VIOLET} />
+        )}
       </Button>
     </Container>
   );
