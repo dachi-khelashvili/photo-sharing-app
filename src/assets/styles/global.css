@@ -41,7 +41,8 @@ label,
 textarea,
 div,
 select,
-option {
+option,
+li {
   font-size: 15px;
 }
 
@@ -69,7 +70,8 @@ option {
   textarea,
   div,
   select,
-  option {
+  option,
+  li {
     font-size: 14px;
   }
 }
@@ -98,7 +100,8 @@ option {
   textarea,
   div,
   select,
-  option {
+  option,
+  li {
     font-size: 13px;
   }
 }

@@ -38,13 +38,13 @@ export const BigFrame = styled.div`
   width: 100%;
   padding: 30px;
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 480px;
 
   box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 `;
 
 export const Center = styled.p`
@@ -104,7 +104,7 @@ export const Heading = styled.h3`
 `;
 
 export const Spacer = styled.div`
-  width: 100%;
+  flex: 1000;
 `;
 
 export const Divider = styled.hr`

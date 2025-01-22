@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { INPUTSTATE, THEME } from 'consts';
 import { BaseContainer, BaseLabel, borderStyles } from '../styles';
 
-export const Label = BaseLabel;
+export const Label = styled(BaseLabel)``;
 
 export const Container = styled(BaseContainer)<{ $inputState: INPUTSTATE }>`
   border: solid 2px ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};

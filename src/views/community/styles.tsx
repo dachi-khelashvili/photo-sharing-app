@@ -1,24 +1,31 @@
 import styled from 'styled-components';
 
-export const Flex = styled.div`
-  display: flex;
-  gap: 10px;
-  align-items: center;
-`;
+export const Container = styled.div`
+  display: grid;
+  grid-template-rows: 1fr auto;
 
-export const FlexItem = styled.div`
-  display: flex;
+  padding: 40px 60px 10px 60px;
+
+  @media (max-width: 480px) {
+    padding: 20px 30px 10px 30px;
+  }
+
   gap: 10px;
+
+  width: 100%;
+  height: calc(100vh - 60px);
 `;
 
 export const ImageTable = styled.div`
   display: grid;
   gap: 40px;
   grid-template-columns: auto auto auto auto;
-  padding: 60px;
 
-  height: 100vh;
+  width: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
+
+  padding: 0 4px 0 0;
 
   @media (max-width: 1280px) {
     grid-template-columns: auto auto auto;
@@ -33,20 +40,16 @@ export const ImageTable = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding: 30px;
     gap: 30px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
   }
 `;
 
-export const Typography = styled.p``;
-
-export const Search = styled.input`
-  background-color: #d2d2d2;
-  width: 200px;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+export const Group = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 `;
-
-export const RightGrid = styled.div``;
