@@ -12,7 +12,8 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
+  height: 0;
 }
 
 h1 {
@@ -25,6 +26,11 @@ h2 {
 
 h3 {
   font-size: 21px;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 13px;
   font-weight: 500;
 }
 
@@ -52,6 +58,10 @@ option {
     font-size: 20px;
   }
 
+  h6 {
+    font-size: 12px;
+  }
+
   p,
   input,
   button,
@@ -75,6 +85,10 @@ option {
 
   h3 {
     font-size: 18px;
+  }
+
+  h6 {
+    font-size: 11px;
   }
 
   p,

@@ -1,5 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import { Flex, FlexItem, Typography, Search, Wrap, RightGrid } from './styles';
+import {
+  Flex,
+  FlexItem,
+  Typography,
+  Search,
+  ImageTable,
+  RightGrid,
+} from './styles';
 import { ImageCard, PhotoModal, Selector, PaginationBar } from 'components';
 import { getData, getFriends, PageSize } from 'consts';
 
@@ -75,7 +82,7 @@ export const CommunityView: React.FC = () => {
           </FlexItem>
         </RightGrid>
       </Flex>
-      <Wrap>
+      <ImageTable>
         {currentData.map((option, index) => (
           <ImageCard
             key={index}
@@ -87,7 +94,7 @@ export const CommunityView: React.FC = () => {
             onClickDislike={() => handleDislike(index)}
           />
         ))}
-      </Wrap>
+      </ImageTable>
     </>
   );
 };

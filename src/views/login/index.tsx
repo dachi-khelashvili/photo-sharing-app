@@ -1,7 +1,7 @@
 import { COLORSTYLE, PATH } from 'consts';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Frame, Text, HGroup, Image, Spacer } from 'components';
+import { Container, Frame, Center, HGroup, Image, Spacer } from 'components';
 import { RoundButton, EmailInput, PasswordInput, TextButton } from 'components';
 import LogoIcon from 'assets/images/logo.svg';
 
@@ -18,21 +18,28 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
   const [state, setState] = useState<LoginState>({ email: '', password: '' });
 
   const navigate = useNavigate();
+  const goTo = (path: string) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   const onClickLogInHandler = () => {
-    navigate(PATH.HOME);
+    goTo(PATH.HOME);
     setAuthentication(true);
   };
 
   const onClickRegisterHandler = () => {
-    navigate(PATH.REGISTER);
+    goTo(PATH.REGISTER);
   };
 
   return (
     <Container>
       <Frame>
         <Image src={LogoIcon} />
-        <Text>Log in to FotOz community</Text>
+        <Center>Log in to FotOz community</Center>
         <EmailInput
           label="Email"
           value={state.email}
@@ -45,7 +52,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
         />
         <HGroup>
           <Spacer />
-          <TextButton onClick={() => navigate(PATH.FORGOT_PASSWORD)}>
+          <TextButton onClick={() => goTo(PATH.FORGOT_PASSWORD)}>
             Forget password...
           </TextButton>
         </HGroup>

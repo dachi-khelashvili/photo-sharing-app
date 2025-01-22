@@ -1,3 +1,4 @@
+import { THEME } from 'consts';
 import styled from 'styled-components';
 
 export const Container = styled.button`
@@ -13,7 +14,7 @@ export const Container = styled.button`
     right: 10px;
   }
 
-  z-index: 2;
+  z-index: ${THEME.Z_INDEX.UP};
   background-color: #00000060;
   border-radius: 50%;
   border: none;

@@ -38,12 +38,12 @@ export const MessageList = styled.div`
   grid-area: message-list;
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
     background: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
+    background: ${THEME.COLORS.BORDER.DOGWOOD_ROSE_20};
     opacity: 0;
   }
 

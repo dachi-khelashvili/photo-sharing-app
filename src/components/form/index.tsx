@@ -32,10 +32,49 @@ export const Frame = styled.div`
   gap: 15px;
 `;
 
-export const Text = styled.p`
+export const BigFrame = styled.div`
+  background-color: white;
+
+  width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+
+  box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+export const Center = styled.p`
   color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
   text-align: center;
   font-weight: 500;
+`;
+
+export const SmallBold = styled.h6`
+  color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
+  text-align: left;
+  font-weight: 500;
+`;
+
+export const Bold = styled.p`
+  color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
+  text-align: left;
+  font-weight: 500;
+`;
+
+export const Small = styled.h6`
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
+  text-align: left;
+  font-weight: normal;
+`;
+
+export const Normal = styled.p`
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
+  text-align: left;
+  min-width: max-content;
 `;
 
 export const VGroup = styled.div`
@@ -53,8 +92,23 @@ export const HGroup = styled.div`
   align-items: center;
 `;
 
+export const Pair = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: content;
+`;
+
+export const Heading = styled.h3`
+  color: ${THEME.COLORS.TEXT.ENGLISH_VIOLET};
+`;
+
 export const Spacer = styled.div`
   width: 100%;
+`;
+
+export const Divider = styled.hr`
+  border-color: ${THEME.COLORS.BORDER.ENGLISH_VIOLET_10};
 `;
 
 export const Image = styled.img`

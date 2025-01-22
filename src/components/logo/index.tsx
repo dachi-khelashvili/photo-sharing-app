@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { SmallLogo, BasicLogo } from './styles';
 import { SIZESTYLE, PATH } from 'consts';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,13 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({ style }) => {
   const navigate = useNavigate();
-  const handleClick = useCallback(() => navigate(PATH.HOME), [navigate]);
+  const handleClick = () => {
+    navigate(PATH.HOME);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   const LogoComponent = style === SIZESTYLE.SMALL ? SmallLogo : BasicLogo;
 

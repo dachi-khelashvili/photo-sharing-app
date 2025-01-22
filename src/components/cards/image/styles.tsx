@@ -3,14 +3,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  margin: 50px auto;
   box-shadow: ${THEME.BOX_SHADOW.DEFAULT};
 `;
 
 export const Image = styled.img`
+  width: 100%;
   cursor: pointer;
-  width: 512px;
-  height: 512px;
   object-fit: cover;
   overflow: hidden;
 `;

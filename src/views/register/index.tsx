@@ -6,7 +6,7 @@ import {
   PasswordInput,
   Container,
   Frame,
-  Text,
+  Center,
   Image,
   HGroup,
   RoundButton,
@@ -28,19 +28,27 @@ export const RegisterView: React.FC = () => {
 
   const navigate = useNavigate();
 
+  const goTo = (path: string) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const handleJoin = () => {
-    navigate(PATH.COMMUNITY);
+    goTo(PATH.COMMUNITY);
   };
 
   const handleLogin = () => {
-    navigate(PATH.LOGIN);
+    goTo(PATH.LOGIN);
   };
 
   return (
     <Container>
       <Frame>
         <Image src={LogoIcon} />
-        <Text>Sign up for FotOz community</Text>
+        <Center>Sign up for FotOz community</Center>
         <EmailInput
           label="Email"
           value={state.email}

@@ -35,6 +35,10 @@ const UserMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           key={path}
           onClick={() => {
             navigate(path);
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            });
             onClose();
           }}
         >
@@ -59,6 +63,14 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
     { path: PATH.CHATROOM, label: 'Chatting' },
   ];
 
+  const goTo = (path: string) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <Container role="banner">
@@ -67,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
           {!isAuthenticated ? (
             <>
               {authButtons.map(({ path, label }) => (
-                <TextButton key={path} onClick={() => navigate(path)}>
+                <TextButton key={path} onClick={() => goTo(path)}>
                   {label}
                 </TextButton>
               ))}
@@ -75,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
           ) : (
             <>
               {navButtons.map(({ path, label }) => (
-                <TextButton key={path} onClick={() => navigate(path)}>
+                <TextButton key={path} onClick={() => goTo(path)}>
                   {label}
                 </TextButton>
               ))}
