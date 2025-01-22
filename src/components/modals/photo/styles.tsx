@@ -47,6 +47,7 @@ export const Group = styled.div`
   flex-wrap: wrap;
   gap: 15px;
   padding: 0 10px;
+  align-items: center;
 `;
 
 export const Box = styled.div`

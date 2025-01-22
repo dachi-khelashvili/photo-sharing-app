@@ -1,13 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Flex,
-  FlexItem,
-  Typography,
-  Search,
-  ImageTable,
-  RightGrid,
-} from './styles';
-import { ImageCard, PhotoModal, Selector, PaginationBar } from 'components';
+import { ImageTable, Container, Group } from './styles';
+import { ImageCard, PhotoModal, PaginationBar } from 'components';
 import { getData, getFriends, PageSize } from 'consts';
 
 export const CommunityView: React.FC = () => {
@@ -59,42 +52,29 @@ export const CommunityView: React.FC = () => {
           }
         />
       )}
-      <Flex>
-        <FlexItem>
-          <Selector label="Sort by:" options={['Date', 'Uploader']} />
-        </FlexItem>
-        <FlexItem>
-          <Typography>Keyword:</Typography>
-          <Search placeholder="Search..." />
-        </FlexItem>
-        <FlexItem>
-          <Typography>Type:</Typography>
-          <Search placeholder="Search..." />
-        </FlexItem>
-        <RightGrid>
-          <FlexItem>
-            <PaginationBar
-              totalCount={data.length}
-              currentPage={currentPage}
-              pageSize={PageSize}
-              onPageChange={(page) => setCurrentPage(page)}
+      <Container>
+        <ImageTable>
+          {currentData.map((option, index) => (
+            <ImageCard
+              key={index}
+              photo={option.photo}
+              show={true}
+              like={option.like}
+              onClick={() => handleModal(index)}
+              onClickLike={() => handleLike(index)}
+              onClickDislike={() => handleDislike(index)}
             />
-          </FlexItem>
-        </RightGrid>
-      </Flex>
-      <ImageTable>
-        {currentData.map((option, index) => (
-          <ImageCard
-            key={index}
-            photo={option.photo}
-            show={true}
-            like={option.like}
-            onClick={() => handleModal(index)}
-            onClickLike={() => handleLike(index)}
-            onClickDislike={() => handleDislike(index)}
+          ))}
+        </ImageTable>
+        <Group>
+          <PaginationBar
+            totalCount={data.length}
+            currentPage={currentPage}
+            pageSize={PageSize}
+            onPageChange={(page) => setCurrentPage(page)}
           />
-        ))}
-      </ImageTable>
+        </Group>
+      </Container>
     </>
   );
 };

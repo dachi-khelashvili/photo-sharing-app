@@ -1,3 +1,4 @@
+import { THEME } from 'consts';
 import styled from 'styled-components';
 
 export const PaginationContainer = styled.ul`
@@ -6,18 +7,15 @@ export const PaginationContainer = styled.ul`
 `;
 
 export const PaginationItem = styled.li`
-  padding: 0 12px;
+  padding: 0 10px;
   height: 32px;
   text-align: center;
-  margin: auto 4px;
-  color: rgba(0, 0, 0, 0.87);
+  color: ${THEME.COLORS.TEXT.DARK_LAVENDAR};
   display: flex;
   box-sizing: border-box;
   align-items: center;
   letter-spacing: 0.01071em;
-  border-radius: 16px;
-  line-height: 1.43;
-  font-size: 16px;
+  font-weight: 500;
 
   &.dots:hover {
     background-color: transparent;

@@ -63,19 +63,17 @@ export const PhotoModal: React.FC<ModalProps> = ({
         <Heading>{photoInfo.photo.title}</Heading>
         <Image src={photoInfo.photo.path} />
         <Box>
-          <HGroup>
-            <Avatar src={profileInfo.path} style={SIZESTYLE.BIG} />
-            <HGroup>
-              <Pair>
-                <Bold>{profileInfo.name}</Bold>
-                <Small>{profileInfo.name}</Small>
-              </Pair>
-              <Pair>
-                <Normal>{profileInfo.gender}</Normal>
-              </Pair>
-              <Spacer />
-            </HGroup>
-          </HGroup>
+          <Group>
+            <Avatar src={profileInfo.path} style={SIZESTYLE.MIDDLE} />
+            <Pair>
+              <Bold>{profileInfo.name}</Bold>
+              <Small>{profileInfo.name}</Small>
+            </Pair>
+            <Pair>
+              <Normal>{profileInfo.gender}</Normal>
+            </Pair>
+            <Spacer />
+          </Group>
           <Divider />
           <Group>
             <Pair>
