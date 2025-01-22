@@ -17,6 +17,7 @@ export const THEME = {
       DODGER_BLUE: '#1E90FF',
       RED: '#FF0000',
       DOGWOOD_ROSE: '#D3126E',
+      DOGWOOD_ROSE_20: '#D3126E33',
       GREEN: '#00FF00',
     },
     BACKGROUND: {

@@ -1,7 +1,7 @@
 import { COLORSTYLE, PATH } from 'consts';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Frame, Text, HGroup, Image, Spacer } from 'components';
+import { Container, Frame, Center, HGroup, Image, Spacer } from 'components';
 import { RoundButton, EmailInput, PasswordInput, TextButton } from 'components';
 import LogoIcon from 'assets/images/logo.svg';
 
@@ -39,7 +39,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
     <Container>
       <Frame>
         <Image src={LogoIcon} />
-        <Text>Log in to FotOz community</Text>
+        <Center>Log in to FotOz community</Center>
         <EmailInput
           label="Email"
           value={state.email}

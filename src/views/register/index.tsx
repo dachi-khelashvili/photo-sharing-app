@@ -6,7 +6,7 @@ import {
   PasswordInput,
   Container,
   Frame,
-  Text,
+  Center,
   Image,
   HGroup,
   RoundButton,
@@ -48,7 +48,7 @@ export const RegisterView: React.FC = () => {
     <Container>
       <Frame>
         <Image src={LogoIcon} />
-        <Text>Sign up for FotOz community</Text>
+        <Center>Sign up for FotOz community</Center>
         <EmailInput
           label="Email"
           value={state.email}
