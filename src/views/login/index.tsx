@@ -1,20 +1,16 @@
 import { COLORSTYLE, PATH } from 'consts';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Frame, Center, HGroup, Image, Spacer } from 'components';
 import { RoundButton, EmailInput, PasswordInput, TextButton } from 'components';
 import LogoIcon from 'assets/images/logo.svg';
-
-interface LoginViewProps {
-  setAuthentication: (e: boolean) => void;
-}
 
 interface LoginState {
   email: string;
   password: string;
 }
 
-export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
+export const LoginView = () => {
   const [state, setState] = useState<LoginState>({ email: '', password: '' });
 
   const navigate = useNavigate();
@@ -28,7 +24,6 @@ export const LoginView: React.FC<LoginViewProps> = ({ setAuthentication }) => {
 
   const onClickLogInHandler = () => {
     goTo(PATH.HOME);
-    setAuthentication(true);
   };
 
   const onClickRegisterHandler = () => {

@@ -5,11 +5,7 @@ import { Container, Menu, Group } from './styles';
 import { Avatar, TextButton } from 'components';
 import { PATH, SIZESTYLE } from 'consts';
 import { useOutsideAlerter } from 'hooks';
-
-interface HeaderProps {
-  isAuthenticated: boolean;
-  setAuthentication: (e: boolean) => void;
-}
+import { useUserData } from 'contexts/user';
 
 type NavigationItem = {
   path: string;
@@ -49,9 +45,10 @@ const UserMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
-export const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
+export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { isAuthenticated } = useUserData();
 
   const authButtons: NavigationItem[] = [
     { path: PATH.LOGIN, label: 'Log In' },

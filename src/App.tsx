@@ -1,23 +1,17 @@
 import { LayoutComponent } from 'components';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { RouteComponent } from 'routes';
+import { ContexProvider } from 'components/provider/user';
 
 export const App: React.FC = () => {
-  const [isAuthenticated, setAuthentication] = useState(true);
   return (
-    <>
+    <ContexProvider>
       <BrowserRouter>
-        <LayoutComponent
-          isAuthenticated={isAuthenticated}
-          setAuthentication={setAuthentication}
-        >
-          <RouteComponent
-            isAuthenticated={isAuthenticated}
-            setAuthentication={setAuthentication}
-          />
+        <LayoutComponent>
+          <RouteComponent />
         </LayoutComponent>
       </BrowserRouter>
-    </>
+    </ContexProvider>
   );
 };
