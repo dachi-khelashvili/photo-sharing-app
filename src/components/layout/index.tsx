@@ -4,18 +4,13 @@ import { Footer } from './footer';
 import { Container } from './styles';
 
 interface LayoutProps {
-  isAuthenticated: boolean;
-  setAuthentication: (e: boolean) => void;
   children?: React.ReactNode;
 }
 
 export const LayoutComponent: React.FC<LayoutProps> = (props) => {
   return (
     <>
-      <Header
-        isAuthenticated={props.isAuthenticated}
-        setAuthentication={props.setAuthentication}
-      />
+      <Header />
       <Container>{props.children}</Container>
       <Footer />
     </>
