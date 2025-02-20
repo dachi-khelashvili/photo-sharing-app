@@ -7,6 +7,12 @@
   line-height: 1.35;
 }
 
+input:-webkit-autofill {
+  transition:
+    background-color 50000s ease-in-out,
+    color 50000s ease-in-out;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
