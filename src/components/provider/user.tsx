@@ -5,7 +5,7 @@ import { User } from 'consts/models';
 
 export function ContexProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [isAuthenticated, Authenticate] = useState<boolean>(false);
+  const [isAuthenticated, Authenticate] = useState<boolean>(true);
 
   const login = (user: User) => {
     setUser(user);

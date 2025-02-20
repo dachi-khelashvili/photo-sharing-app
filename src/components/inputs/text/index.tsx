@@ -1,39 +1,58 @@
 import React, { useState } from 'react';
 import { Label, Input, Container } from './styles';
-import { INPUTSTATE } from 'consts';
-import { InputProps } from '../types';
+import { snakeCase } from 'utils';
 
-export const TextInput: React.FC<InputProps> = ({
-  onChange,
+export interface TextInputProps {
+  value?: string;
+  onChange?: (value: string) => void;
+  label: string;
+  name?: string;
+  className?: string;
+}
+
+export const TextInput: React.FC<TextInputProps> = ({
   label,
-  value,
   className,
+  name,
+  value,
+  onChange,
 }) => {
-  const [inputState, setInputState] = useState<INPUTSTATE>(
-    value ? INPUTSTATE.VALUED : INPUTSTATE.NORMAL
-  );
+  const [state, setState] = useState<{
+    isFilled: boolean;
+    isValid: boolean;
+    isFocused: boolean;
+  }>({
+    isFilled: value ? true : false,
+    isValid: true,
+    isFocused: false,
+  });
 
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value);
-  };
-
-  const handleInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    setInputState(event.target.value ? INPUTSTATE.VALUED : INPUTSTATE.NORMAL);
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    setState({
+      isValid: event.target.value == 'invalid' ? false : true,
+      isFilled: !!event.target.value,
+      isFocused: false,
+    });
   };
 
   const handleFocus = () => {
-    setInputState(INPUTSTATE.EDITED);
+    setState({ ...state, isFocused: true, isFilled: true });
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ ...state, isFilled: true });
+    if (onChange) onChange(event.target.value);
   };
 
   return (
-    <Container className={className}>
-      <Label $inputState={inputState}>{label}</Label>
+    <Container className={className} $state={state}>
+      <Label $state={state}>{label}</Label>
       <Input
-        $inputState={inputState}
-        value={value}
-        onChange={handleTextChange}
+        name={name ? name : snakeCase(label)}
         onFocus={handleFocus}
-        onBlur={handleInputBlur}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        value={value}
       />
     </Container>
   );
