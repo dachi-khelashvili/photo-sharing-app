@@ -3,7 +3,7 @@ import { Container } from './styles';
 
 interface TextButtonProps {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const TextButton: React.FC<TextButtonProps> = (props) => {

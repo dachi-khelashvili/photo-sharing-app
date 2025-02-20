@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { PATH } from 'consts';
 import { Routes, Route } from 'react-router-dom';
+import { useUserData } from 'contexts/user';
 
 import {
   LoginPage,
@@ -15,21 +14,14 @@ import {
 } from 'pages';
 ``;
 
-interface RouteComponentProps {
-  isAuthenticated: boolean;
-  setAuthentication: (e: boolean) => void;
-}
-
-export const RouteComponent: React.FC<RouteComponentProps> = (props) => {
+export const RouteComponent = () => {
+  const { isAuthenticated } = useUserData();
   return (
     <>
-      {props.isAuthenticated ? (
+      {isAuthenticated ? (
         <Routes>
           <Route path={PATH.HOME} element={<HomePage />} />
-          <Route
-            path={PATH.LOGIN}
-            element={<LoginPage setAuthentication={props.setAuthentication} />}
-          />
+          <Route path={PATH.LOGIN} element={<LoginPage />} />
           <Route path={PATH.REGISTER} element={<RegisterPage />} />
           <Route path={PATH.COMMUNITY} element={<CommunityPage />} />
           <Route path={PATH.CHATROOM} element={<ChatRoomPage />} />
@@ -40,10 +32,7 @@ export const RouteComponent: React.FC<RouteComponentProps> = (props) => {
       ) : (
         <Routes>
           <Route path={PATH.HOME} element={<HomePage />} />
-          <Route
-            path={PATH.LOGIN}
-            element={<LoginPage setAuthentication={props.setAuthentication} />}
-          />
+          <Route path={PATH.LOGIN} element={<LoginPage />} />
           <Route path={PATH.REGISTER} element={<RegisterPage />} />
         </Routes>
       )}
