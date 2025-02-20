@@ -7,6 +7,32 @@
   line-height: 1.35;
 }
 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --object: #d3126e;
+  --focused: #1e90ff;
+  --invalid: #ff0000;
+  --text: #5b415b;
+  --border: #5b415b1a;
+  --label: #6f5883;
+  --back: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --object: #d3126e;
+    --focused: #1e90ff;
+    --invalid: #ff0000;
+    --text: #5b415b;
+    --border: #5b415b1a;
+    --label: #6f5883;
+    --back: #ffffff;
+  }
+}
+
 body {
   min-width: 375px;
 }

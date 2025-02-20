@@ -31,4 +31,8 @@ export const Container = styled.button<{ $style: COLORSTYLE }>`
   &:active {
     opacity: ${THEME.OPACITY.LOGO.ACTIVE};
   }
+
+  &:disabled {
+    opacity: ${THEME.OPACITY.LOGO.DISABLED};
+  }
 `;

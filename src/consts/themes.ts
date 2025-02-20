@@ -39,6 +39,7 @@ export const THEME = {
       DEFAULT: 1,
       HOVER: 0.8,
       ACTIVE: 0.6,
+      DISABLED: 0.2,
     },
     TEXT: {
       DEFAULT: 0.8,
