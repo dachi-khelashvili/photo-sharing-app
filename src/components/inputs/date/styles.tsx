@@ -14,16 +14,16 @@ export const Input = styled(BaseInput)`
   }
 
   &::-webkit-calendar-picker-indicator {
-    opacity: ${THEME.OPACITY.ICON.DEFAULT};
+    opacity: 0.4;
     cursor: pointer;
   }
 
   &::-webkit-calendar-picker-indicator:hover {
-    opacity: ${THEME.OPACITY.ICON.HOVER};
+    opacity: 0.5;
   }
 
   &::-webkit-calendar-picker-indicator:active {
-    opacity: ${THEME.OPACITY.ICON.ACTIVE};
+    opacity: 0.6;
   }
 `;
 

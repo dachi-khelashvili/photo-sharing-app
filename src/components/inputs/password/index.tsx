@@ -1,50 +1,70 @@
 import React, { useState } from 'react';
 import { Label, Input, Container, Button } from './styles';
+import { snakeCase } from 'utils';
 import { Eye, EyeClosed } from 'lucide-react';
-import { INPUTSTATE, THEME } from 'consts';
-import { InputProps } from '../types';
 
-export const PasswordInput: React.FC<InputProps> = ({
-  onChange,
+export interface PasswordInputProps {
+  value?: string;
+  onChange?: (value: string) => void;
+  label: string;
+  name?: string;
+  className?: string;
+}
+
+export const PasswordInput: React.FC<PasswordInputProps> = ({
   label,
-  value,
   className,
+  name,
+  value,
+  onChange,
 }) => {
-  const [eyeState, setEyeState] = useState<boolean>(true);
+  const [state, setState] = useState<{
+    isFilled: boolean;
+    isValid: boolean;
+    isFocused: boolean;
+    isPassword: boolean;
+  }>({
+    isFilled: value ? true : false,
+    isValid: true,
+    isFocused: false,
+    isPassword: true,
+  });
 
-  const [inputState, setInputState] = useState<INPUTSTATE>(
-    value ? INPUTSTATE.VALUED : INPUTSTATE.NORMAL
-  );
-
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value);
-  };
-
-  const handleInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    setInputState(event.target.value ? INPUTSTATE.VALUED : INPUTSTATE.NORMAL);
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    setState({
+      ...state,
+      isValid: event.target.value == 'invalid' ? false : true,
+      isFilled: !!event.target.value,
+      isFocused: false,
+    });
   };
 
   const handleFocus = () => {
-    setInputState(INPUTSTATE.EDITED);
+    setState({ ...state, isFocused: true, isFilled: true });
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ ...state, isFilled: true });
+    if (onChange) onChange(event.target.value);
+  };
+
+  const handleSwitch = () => {
+    setState({ ...state, isPassword: !state.isPassword });
   };
 
   return (
-    <Container className={className}>
-      <Label $inputState={inputState}>{label}</Label>
+    <Container className={className} $state={state}>
+      <Label $state={state}>{label}</Label>
       <Input
-        type={eyeState ? 'password' : 'text'}
-        $inputState={inputState}
-        value={value}
-        onChange={handleTextChange}
+        name={name ? name : snakeCase(label)}
         onFocus={handleFocus}
-        onBlur={handleInputBlur}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        value={value}
+        type={state.isPassword ? 'password' : 'text'}
       />
-      <Button onClick={() => setEyeState(!eyeState)}>
-        {eyeState ? (
-          <Eye size={20} color={THEME.COLORS.TEXT.ENGLISH_VIOLET} />
-        ) : (
-          <EyeClosed size={20} color={THEME.COLORS.TEXT.ENGLISH_VIOLET} />
-        )}
+      <Button onClick={handleSwitch} tabIndex={-1}>
+        {state.isPassword ? <Eye size={20} /> : <EyeClosed size={20} />}
       </Button>
     </Container>
   );
